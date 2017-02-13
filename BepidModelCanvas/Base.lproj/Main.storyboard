@@ -21,118 +21,244 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="V6L-hk-Yq5">
-                                <rect key="frame" x="110" y="78" width="1700" height="924"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hQa-zO-bog">
+                                <rect key="frame" x="120" y="78" width="1680" height="924"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="upt-AM-Le4">
-                                        <rect key="frame" x="0.0" y="0.0" width="1700" height="664"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="tH5-Xc-Boo">
+                                        <rect key="frame" x="0.0" y="0.0" width="1680" height="664"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HrI-dx-ey3" userLabel="KeyPartnersContainer">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-TZ-GdF" userLabel="KeyPartners">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="664"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="ZW3-NS-IIz"/>
-                                                    <constraint firstAttribute="height" constant="664" id="qkp-00-3ej"/>
+                                                    <constraint firstAttribute="width" constant="300" id="fH3-Rl-6ji"/>
+                                                    <constraint firstAttribute="height" constant="664" id="sb7-48-Moz"/>
                                                 </constraints>
-                                                <connections>
-                                                    <segue destination="u2h-fv-bBD" kind="embed" identifier="keyPartnersSegue" id="us2-xm-tWA"/>
-                                                </connections>
-                                            </containerView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Ytr-ie-s6l">
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kbq-Uj-7KY">
+                                                    <size key="itemSize" width="260" height="100"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="hkf-Ix-fhd">
+                                                        <rect key="frame" x="20" y="10" width="260" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qeo-ek-qAU">
                                                 <rect key="frame" x="350" y="0.0" width="300" height="664"/>
                                                 <subviews>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rpx-iR-xgg" userLabel="KeyActivitiesContainter">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sa7-fJ-foY" userLabel="KeyActivities">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="300" id="ANb-hx-eqd"/>
-                                                            <constraint firstAttribute="height" constant="302" id="qkf-Jo-gLr"/>
+                                                            <constraint firstAttribute="height" constant="302" id="H5Q-uF-9WJ"/>
+                                                            <constraint firstAttribute="width" constant="300" id="Ir2-70-UBV"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <segue destination="WYd-nD-Bnr" kind="embed" identifier="keyActivitiesSegue" id="flH-Eb-VWX"/>
-                                                        </connections>
-                                                    </containerView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRs-Yi-lrJ" userLabel="KeyResourcesContainer">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bGN-eh-sEe">
+                                                            <size key="itemSize" width="260" height="75"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="nLL-BF-BcZ">
+                                                                <rect key="frame" x="20" y="10" width="260" height="75"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </view>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-IX-HeB" userLabel="KeyResources">
                                                         <rect key="frame" x="0.0" y="347" width="300" height="317"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="300" id="Hub-bj-6tf"/>
-                                                            <constraint firstAttribute="height" constant="302" id="QX5-5s-y6T"/>
+                                                            <constraint firstAttribute="height" constant="302" id="PKy-Wv-QPZ"/>
+                                                            <constraint firstAttribute="width" constant="300" id="VI8-Bp-7T9"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <segue destination="ml3-8y-bXy" kind="embed" identifier="keyResourcesSegue" id="i4f-P8-QEa"/>
-                                                        </connections>
-                                                    </containerView>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aLj-7J-dNI">
+                                                            <size key="itemSize" width="260" height="75"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="qKE-H6-LM6">
+                                                                <rect key="frame" x="20" y="10" width="260" height="75"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </view>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
                                                 </subviews>
                                             </stackView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oYf-Pd-Gsb" userLabel="ValuePropositionContainer">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-WE-c7g" userLabel="ValuePropositions">
                                                 <rect key="frame" x="700" y="0.0" width="300" height="664"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="664" id="0hL-WK-ePN"/>
-                                                    <constraint firstAttribute="width" constant="300" id="MNk-Ur-yTU"/>
+                                                    <constraint firstAttribute="height" constant="664" id="fTR-bu-n3x"/>
+                                                    <constraint firstAttribute="width" constant="300" id="mc9-HT-Kqb"/>
                                                 </constraints>
-                                                <connections>
-                                                    <segue destination="JjB-W0-rgQ" kind="embed" identifier="valuePropositionSegue" id="fvy-Q7-Lg6"/>
-                                                </connections>
-                                            </containerView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="t92-79-p19">
-                                                <rect key="frame" x="1050" y="0.0" width="300" height="664"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jSM-GP-qvd">
+                                                    <size key="itemSize" width="260" height="100"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="UDF-2o-WAJ">
+                                                        <rect key="frame" x="20" y="10" width="260" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-3n-O08">
+                                                <rect key="frame" x="1050" y="0.0" width="280" height="664"/>
                                                 <subviews>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46B-Vg-gL5" userLabel="CustomerRelantionshipsContainer">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-iQ-IfM" userLabel="CustomerRelantionship">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="317"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="302" id="by1-iO-iWo"/>
-                                                            <constraint firstAttribute="width" constant="300" id="vju-jw-ipZ"/>
+                                                            <constraint firstAttribute="width" constant="300" id="41W-kC-UvG"/>
+                                                            <constraint firstAttribute="height" constant="302" id="LbC-93-bFY"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <segue destination="mQ2-0C-aJT" kind="embed" identifier="customerRelantionshipSegue" id="5Cb-U9-7fV"/>
-                                                        </connections>
-                                                    </containerView>
-                                                    <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmY-cZ-fUc" userLabel="ChannelsContainter">
-                                                        <rect key="frame" x="0.0" y="347" width="300" height="317"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3W3-IM-0Re">
+                                                            <size key="itemSize" width="260" height="75"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="rSZ-mP-8fS">
+                                                                <rect key="frame" x="10" y="10" width="260" height="75"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </view>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NMg-E1-bIW" userLabel="Channels">
+                                                        <rect key="frame" x="0.0" y="347" width="280" height="317"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="302" id="oRx-XF-luF"/>
-                                                            <constraint firstAttribute="width" constant="300" id="t89-wp-yuE"/>
+                                                            <constraint firstAttribute="height" constant="302" id="1f4-6Q-ZdO"/>
+                                                            <constraint firstAttribute="width" constant="300" id="Mc6-ly-Pbi"/>
                                                         </constraints>
-                                                        <connections>
-                                                            <segue destination="if7-eA-sa6" kind="embed" identifier="channelsSegue" id="d9i-Pn-PGP"/>
-                                                        </connections>
-                                                    </containerView>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1lI-h8-DM3">
+                                                            <size key="itemSize" width="260" height="75"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="OaJ-oE-WmU">
+                                                                <rect key="frame" x="10" y="10" width="260" height="75"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </view>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
                                                 </subviews>
                                             </stackView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bWq-PZ-CNz" userLabel="CustomerSegmentContainer">
-                                                <rect key="frame" x="1400" y="0.0" width="300" height="664"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-FC-6iI" userLabel="CustomerSegments">
+                                                <rect key="frame" x="1380" y="0.0" width="300" height="664"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="664" id="0hn-5p-tiv"/>
-                                                    <constraint firstAttribute="width" constant="300" id="jep-0n-UcG"/>
+                                                    <constraint firstAttribute="height" constant="664" id="3wG-wv-qwN"/>
+                                                    <constraint firstAttribute="width" constant="300" id="pYg-ko-hXN"/>
                                                 </constraints>
-                                                <connections>
-                                                    <segue destination="MtC-xt-72g" kind="embed" identifier="custumerSegmentSegue" id="Kvo-Im-YAO"/>
-                                                </connections>
-                                            </containerView>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K5V-55-pM2">
+                                                    <size key="itemSize" width="260" height="100"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="whv-GQ-0ia">
+                                                        <rect key="frame" x="20" y="10" width="260" height="100"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ulA-pZ-37g">
-                                        <rect key="frame" x="0.0" y="694" width="1700" height="230"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-CW-9ag">
+                                        <rect key="frame" x="0.0" y="694" width="1680" height="230"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwJ-mM-kFD" userLabel="CostStructureContainer">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WFA-Yp-0RD" userLabel="CostStructure">
                                                 <rect key="frame" x="0.0" y="0.0" width="825" height="230"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="825" id="ZVr-PQ-PBT"/>
-                                                    <constraint firstAttribute="height" constant="230" id="tta-fp-ghc"/>
+                                                    <constraint firstAttribute="width" constant="825" id="oDn-5l-q1E"/>
+                                                    <constraint firstAttribute="height" constant="230" id="ubA-va-ZjE"/>
                                                 </constraints>
-                                                <connections>
-                                                    <segue destination="Z3r-Ew-AgY" kind="embed" identifier="costStructureSegue" id="zu7-hx-MhD"/>
-                                                </connections>
-                                            </containerView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5r-qC-V37" userLabel="RevenueStreamsContainer">
-                                                <rect key="frame" x="875" y="0.0" width="825" height="230"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TwO-xB-LDW">
+                                                    <size key="itemSize" width="760" height="75"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="GeM-uH-0Vj">
+                                                        <rect key="frame" x="33" y="10" width="760" height="75"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="760" height="75"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFN-qh-5EF" userLabel="RevenueStreams">
+                                                <rect key="frame" x="855" y="0.0" width="825" height="230"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="825" id="8Mr-Yu-GSW"/>
-                                                    <constraint firstAttribute="height" constant="230" id="WWw-6J-8Zh"/>
+                                                    <constraint firstAttribute="width" constant="825" id="F31-aU-rHb"/>
+                                                    <constraint firstAttribute="height" constant="230" id="IZU-H7-2Ec"/>
                                                 </constraints>
-                                                <connections>
-                                                    <segue destination="8sz-Ty-ckc" kind="embed" identifier="revenueStreamsSegue" id="fIb-X8-pav"/>
-                                                </connections>
-                                            </containerView>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nbB-0G-VGw">
+                                                    <size key="itemSize" width="760" height="75"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="hXX-Gu-0TE">
+                                                        <rect key="frame" x="33" y="10" width="760" height="75"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="760" height="75"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -144,123 +270,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-337" y="-773"/>
-        </scene>
-        <!--KeyPartnersViewController-->
-        <scene sceneID="d9L-g1-GGu">
-            <objects>
-                <viewController id="u2h-fv-bBD" userLabel="KeyPartnersViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pfs-WS-WUD">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="664"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ARq-iY-EP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2009" y="1305"/>
-        </scene>
-        <!--ValuePropositionViewController-->
-        <scene sceneID="0AN-lq-A0w">
-            <objects>
-                <viewController id="JjB-W0-rgQ" userLabel="ValuePropositionViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x5a-JA-Lt6">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="664"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FEx-oO-aHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-644" y="1305"/>
-        </scene>
-        <!--CustomerSegmentViewController-->
-        <scene sceneID="ShF-Wf-VyD">
-            <objects>
-                <viewController id="MtC-xt-72g" userLabel="CustomerSegmentViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hwD-Rv-RZT">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="664"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hlq-Mb-y1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="473" y="1305"/>
-        </scene>
-        <!--KeyActivitiesViewController-->
-        <scene sceneID="qnk-zu-lpy">
-            <objects>
-                <viewController id="WYd-nD-Bnr" userLabel="KeyActivitiesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ARL-IE-0n9">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Utv-FT-PdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1484" y="1132"/>
-        </scene>
-        <!--KeyResourcesViewController-->
-        <scene sceneID="QrJ-Ig-1U7">
-            <objects>
-                <viewController id="ml3-8y-bXy" userLabel="KeyResourcesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LeS-5T-CPn">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TkD-GR-yW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1484" y="1740"/>
-        </scene>
-        <!--CustomerRelantionshipsViewController-->
-        <scene sceneID="n7W-Vn-Z9l">
-            <objects>
-                <viewController id="mQ2-0C-aJT" userLabel="CustomerRelantionshipsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gi1-K9-0R2">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2bC-jr-OrR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-173" y="1132"/>
-        </scene>
-        <!--ChannelsViewController-->
-        <scene sceneID="zhI-yR-mLX">
-            <objects>
-                <viewController id="if7-eA-sa6" userLabel="ChannelsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="UwB-tK-K83">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JKk-mi-ona" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-173" y="1740"/>
-        </scene>
-        <!--CostStructureViewController-->
-        <scene sceneID="AJi-0N-UJV">
-            <objects>
-                <viewController id="Z3r-Ew-AgY" userLabel="CostStructureViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5gT-7v-Mdn">
-                        <rect key="frame" x="0.0" y="0.0" width="825" height="230"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LBK-YU-TVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1746" y="2405"/>
-        </scene>
-        <!--RevenueStreamsViewController-->
-        <scene sceneID="GZ5-hV-HTo">
-            <objects>
-                <viewController id="8sz-Ty-ckc" userLabel="RevenueStreamsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mUO-JQ-dWJ">
-                        <rect key="frame" x="0.0" y="0.0" width="825" height="230"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fvd-Q9-q02" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="233" y="2405"/>
         </scene>
     </scenes>
 </document>
