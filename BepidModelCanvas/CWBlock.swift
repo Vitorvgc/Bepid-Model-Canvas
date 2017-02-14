@@ -1,6 +1,6 @@
 //
 //  CWBlock.swift
-//  jhkjh
+//  C. Williamberg
 //
 //  Created by Williamberg on 08/02/17.
 //  Copyright © 2017 padrao. All rights reserved.
@@ -10,10 +10,11 @@ import UIKit
 import CloudKit
 
 class CWBlock{
-
+    
     let titleKey = "title"
     let colorKey = "color"
     let iconKey  = "icon"
+    let parentKey = "parent"
     
     var record: CKRecord
     var recordId : CKRecordID{
@@ -45,7 +46,7 @@ class CWBlock{
             record[iconKey] = UIImagePNGRepresentation( newValue ) as CKRecordValue?
         }
     }
-
+    
     
     init(title: String, color: UIColor?, icon:UIImage, parent: CKRecord) {
         let record = CKRecord(recordType: "block")
@@ -57,8 +58,9 @@ class CWBlock{
             record[colorKey] = CWBlock.colorToInt(color: UIColor.white) as CKRecordValue?
         }
         record[iconKey] = UIImagePNGRepresentation(icon) as CKRecordValue?
-        self.record = record
         self.bmcRef = CKReference.init(record: parent, action: .deleteSelf)
+        record[parentKey] = self.bmcRef
+        self.record = record
     }
     
     init (withRecord record: CKRecord, parent: CKRecord ){
@@ -89,6 +91,22 @@ class CWBlock{
             }
         }
     }
+    
+    //returns all postit from icloud related with this block, if none exists return nil
+    //    static func getAllPostit(competionHandler: @escaping ((_ sucess: Bool, _ records: [CKRecord]?) -> ())){
+    //        let predicate = NSPredicate.init(format: "", <#T##args: CVarArg...##CVarArg#>)
+    //        let query     = CKQuery.init(recordType: "bmc", predicate: predicate)
+    //        publicDB.perform(query, inZoneWith: nil, completionHandler: {
+    //            records, error in
+    //            if error == nil{
+    //                competionHandler(true, records)
+    //            }
+    //            else{
+    //                competionHandler(false, records)
+    //            }
+    //
+    //        })
+    //    }
     
     static func colorToInt(color: UIColor) -> Int{
         switch color {
