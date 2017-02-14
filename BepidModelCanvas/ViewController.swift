@@ -12,6 +12,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet var blocks: [UICollectionView]!
     
+    var cellSize: CGSize {
+        let width = self.blocks[0].frame.size.width * 0.8
+        let height = width / 4
+        return CGSize(width: width, height: height)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,17 +53,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = collectionView.frame.size.width * 0.85
-        return CGSize(width: width, height: width / 4)
+//        let width = collectionView.frame.size.width * 0.85
+//        return CGSize(width: width, height: width / 4)
+        return self.cellSize
     }
     
+    //TODO: Correct insets
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        let cellWidth = collectionView.frame.width * 0.85
-        let cellHeight = cellWidth / 4
-        
-        let verticalInset = cellHeight * 0.25
-        let horizontalInset = cellWidth * 0.25
+        let verticalInset = self.cellSize.height * 0.15
+        let horizontalInset = self.cellSize.width * 0.1
         
         return UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
     }
