@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,19 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hQa-zO-bog">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hQa-zO-bog">
                                 <rect key="frame" x="120" y="78" width="1680" height="924"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="tH5-Xc-Boo">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="tH5-Xc-Boo">
                                         <rect key="frame" x="0.0" y="0.0" width="1680" height="664"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-TZ-GdF" userLabel="KeyPartners">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-TZ-GdF" userLabel="KeyPartners">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="fH3-Rl-6ji"/>
-                                                    <constraint firstAttribute="height" constant="664" id="sb7-48-Moz"/>
+                                                    <constraint firstAttribute="width" constant="300" id="ed0-gp-fq0"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kbq-Uj-7KY">
                                                     <size key="itemSize" width="260" height="100"/>
@@ -49,31 +48,31 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6C-HZ-eEN">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6C-HZ-eEN">
                                                                     <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="S6C-HZ-eEN" firstAttribute="leading" secondItem="hkf-Ix-fhd" secondAttribute="leadingMargin" id="Lk4-uu-SXi"/>
+                                                            <constraint firstItem="S6C-HZ-eEN" firstAttribute="centerY" secondItem="hkf-Ix-fhd" secondAttribute="centerY" id="kBB-Z1-e5W"/>
+                                                            <constraint firstItem="S6C-HZ-eEN" firstAttribute="trailing" secondItem="hkf-Ix-fhd" secondAttribute="trailingMargin" id="rZ5-6O-bAD"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outlet property="titleTextField" destination="S6C-HZ-eEN" id="sYF-Ms-gPJ"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qeo-ek-qAU">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qeo-ek-qAU">
                                                 <rect key="frame" x="350" y="0.0" width="300" height="664"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sa7-fJ-foY" userLabel="KeyActivities">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sa7-fJ-foY" userLabel="KeyActivities">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="302" id="H5Q-uF-9WJ"/>
-                                                            <constraint firstAttribute="width" constant="300" id="Ir2-70-UBV"/>
-                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bGN-eh-sEe">
                                                             <size key="itemSize" width="260" height="75"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -88,28 +87,28 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-Dj-W5c">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-Dj-W5c">
                                                                             <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <nil key="textColor"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                     </subviews>
                                                                 </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="Uwz-Dj-W5c" firstAttribute="trailing" secondItem="VhQ-8a-vbz" secondAttribute="trailingMargin" id="9fb-LZ-nYw"/>
+                                                                    <constraint firstItem="Uwz-Dj-W5c" firstAttribute="top" secondItem="VhQ-8a-vbz" secondAttribute="topMargin" constant="19" id="H4U-Fq-dtO"/>
+                                                                    <constraint firstItem="Uwz-Dj-W5c" firstAttribute="leading" secondItem="VhQ-8a-vbz" secondAttribute="leadingMargin" id="UrR-bJ-BrU"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="titleTextField" destination="Uwz-Dj-W5c" id="3E1-qF-klw"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-IX-HeB" userLabel="KeyResources">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-IX-HeB" userLabel="KeyResources">
                                                         <rect key="frame" x="0.0" y="347" width="300" height="317"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="302" id="PKy-Wv-QPZ"/>
-                                                            <constraint firstAttribute="width" constant="300" id="VI8-Bp-7T9"/>
-                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aLj-7J-dNI">
                                                             <size key="itemSize" width="260" height="75"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -124,15 +123,19 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28m-5Q-Q6G">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28m-5Q-Q6G">
                                                                             <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <nil key="textColor"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                     </subviews>
                                                                 </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="28m-5Q-Q6G" firstAttribute="top" secondItem="LCy-m1-t6g" secondAttribute="topMargin" constant="19" id="RtD-t0-sz1"/>
+                                                                    <constraint firstItem="28m-5Q-Q6G" firstAttribute="trailing" secondItem="LCy-m1-t6g" secondAttribute="trailingMargin" id="XeQ-Ee-619"/>
+                                                                    <constraint firstItem="28m-5Q-Q6G" firstAttribute="leading" secondItem="LCy-m1-t6g" secondAttribute="leadingMargin" id="e0F-ES-fi0"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="titleTextField" destination="28m-5Q-Q6G" id="Fae-HV-89n"/>
                                                                 </connections>
@@ -141,12 +144,11 @@
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-WE-c7g" userLabel="ValuePropositions">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-WE-c7g" userLabel="ValuePropositions">
                                                 <rect key="frame" x="700" y="0.0" width="300" height="664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="664" id="fTR-bu-n3x"/>
-                                                    <constraint firstAttribute="width" constant="300" id="mc9-HT-Kqb"/>
+                                                    <constraint firstAttribute="width" constant="300" id="teK-tc-Fjf"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jSM-GP-qvd">
                                                     <size key="itemSize" width="260" height="100"/>
@@ -162,31 +164,31 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tEp-cz-v9l">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tEp-cz-v9l">
                                                                     <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="tEp-cz-v9l" firstAttribute="trailing" secondItem="mc1-7e-N0v" secondAttribute="trailingMargin" id="HU4-Vm-qUm"/>
+                                                            <constraint firstItem="tEp-cz-v9l" firstAttribute="centerY" secondItem="mc1-7e-N0v" secondAttribute="centerY" id="QOw-zv-Due"/>
+                                                            <constraint firstItem="tEp-cz-v9l" firstAttribute="leading" secondItem="mc1-7e-N0v" secondAttribute="leadingMargin" id="nGg-Ek-ebZ"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outlet property="titleTextField" destination="tEp-cz-v9l" id="uPR-cf-8z8"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-3n-O08">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-3n-O08">
                                                 <rect key="frame" x="1050" y="0.0" width="280" height="664"/>
                                                 <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-iQ-IfM" userLabel="CustomerRelantionship">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-iQ-IfM" userLabel="CustomerRelantionship">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="317"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="300" id="41W-kC-UvG"/>
-                                                            <constraint firstAttribute="height" constant="302" id="LbC-93-bFY"/>
-                                                        </constraints>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3W3-IM-0Re">
                                                             <size key="itemSize" width="260" height="75"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -201,53 +203,68 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-Du-7js">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-Du-7js">
                                                                             <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <nil key="textColor"/>
                                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                     </subviews>
                                                                 </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="lMq-Du-7js" firstAttribute="leading" secondItem="KZF-Sc-GYM" secondAttribute="leadingMargin" id="J2G-Z9-uWC"/>
+                                                                    <constraint firstItem="lMq-Du-7js" firstAttribute="top" secondItem="KZF-Sc-GYM" secondAttribute="topMargin" constant="19" id="LMc-2r-5v8"/>
+                                                                    <constraint firstItem="lMq-Du-7js" firstAttribute="trailing" secondItem="KZF-Sc-GYM" secondAttribute="trailingMargin" id="upC-F9-VhN"/>
+                                                                </constraints>
                                                                 <connections>
                                                                     <outlet property="titleTextField" destination="lMq-Du-7js" id="Kqf-Y2-VEZ"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NMg-E1-bIW" userLabel="Channels">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-Vw-NPr" userLabel="Channels">
                                                         <rect key="frame" x="0.0" y="347" width="280" height="317"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="302" id="1f4-6Q-ZdO"/>
-                                                            <constraint firstAttribute="width" constant="300" id="Mc6-ly-Pbi"/>
-                                                        </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1lI-h8-DM3">
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zLq-Xa-jk9">
                                                             <size key="itemSize" width="260" height="75"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="OaJ-oE-WmU">
+                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="bGb-zb-7RN" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="260" height="75"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                     <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1C-7d-RU6">
+                                                                            <rect key="frame" x="8" y="27" width="244" height="46"/>
+                                                                            <nil key="textColor"/>
+                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                            <textInputTraits key="textInputTraits"/>
+                                                                        </textField>
+                                                                    </subviews>
                                                                 </view>
+                                                                <constraints>
+                                                                    <constraint firstItem="b1C-7d-RU6" firstAttribute="trailing" secondItem="bGb-zb-7RN" secondAttribute="trailingMargin" id="OGZ-6E-iYO"/>
+                                                                    <constraint firstItem="b1C-7d-RU6" firstAttribute="leading" secondItem="bGb-zb-7RN" secondAttribute="leadingMargin" id="edd-ew-lJ4"/>
+                                                                    <constraint firstItem="b1C-7d-RU6" firstAttribute="top" secondItem="bGb-zb-7RN" secondAttribute="topMargin" constant="19" id="fuX-Hr-hyq"/>
+                                                                </constraints>
+                                                                <connections>
+                                                                    <outlet property="titleTextField" destination="b1C-7d-RU6" id="YG2-sq-d5n"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="6" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-FC-6iI" userLabel="CustomerSegments">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="6" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-FC-6iI" userLabel="CustomerSegments">
                                                 <rect key="frame" x="1380" y="0.0" width="300" height="664"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="664" id="3wG-wv-qwN"/>
-                                                    <constraint firstAttribute="width" constant="300" id="pYg-ko-hXN"/>
+                                                    <constraint firstAttribute="width" constant="300" id="fN1-kB-ith"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="K5V-55-pM2">
                                                     <size key="itemSize" width="260" height="100"/>
@@ -263,15 +280,19 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kO-Lq-1x8">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kO-Lq-1x8">
                                                                     <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="0kO-Lq-1x8" firstAttribute="leading" secondItem="FfY-mi-iYu" secondAttribute="leadingMargin" id="2tp-WR-XKZ"/>
+                                                            <constraint firstItem="0kO-Lq-1x8" firstAttribute="trailing" secondItem="FfY-mi-iYu" secondAttribute="trailingMargin" id="E2f-he-Rnx"/>
+                                                            <constraint firstItem="0kO-Lq-1x8" firstAttribute="centerY" secondItem="FfY-mi-iYu" secondAttribute="centerY" id="nhI-EL-Icd"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outlet property="titleTextField" destination="0kO-Lq-1x8" id="OVo-M5-6WP"/>
                                                         </connections>
@@ -279,16 +300,18 @@
                                                 </cells>
                                             </collectionView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="vhs-WE-c7g" firstAttribute="leading" secondItem="tH5-Xc-Boo" secondAttribute="leading" constant="700" id="V3g-u5-3Df"/>
+                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-CW-9ag">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-CW-9ag">
                                         <rect key="frame" x="0.0" y="694" width="1680" height="230"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WFA-Yp-0RD" userLabel="CostStructure">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WFA-Yp-0RD" userLabel="CostStructure">
                                                 <rect key="frame" x="0.0" y="0.0" width="825" height="230"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="825" id="oDn-5l-q1E"/>
-                                                    <constraint firstAttribute="height" constant="230" id="ubA-va-ZjE"/>
+                                                    <constraint firstAttribute="width" constant="825" id="rgJ-mt-5ko"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TwO-xB-LDW">
                                                     <size key="itemSize" width="760" height="75"/>
@@ -304,25 +327,27 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="760" height="75"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVE-8X-lq7">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVE-8X-lq7">
                                                                     <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="244" id="o9Y-OX-Mg4"/>
+                                                                    </constraints>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="zVE-8X-lq7" firstAttribute="top" secondItem="SbK-sQ-3DW" secondAttribute="topMargin" constant="19" id="1Al-9x-Xzd"/>
+                                                            <constraint firstItem="zVE-8X-lq7" firstAttribute="leading" secondItem="SbK-sQ-3DW" secondAttribute="leadingMargin" id="CwX-fr-GLO"/>
+                                                        </constraints>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="8" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFN-qh-5EF" userLabel="RevenueStreams">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="8" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFN-qh-5EF" userLabel="RevenueStreams">
                                                 <rect key="frame" x="855" y="0.0" width="825" height="230"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="825" id="F31-aU-rHb"/>
-                                                    <constraint firstAttribute="height" constant="230" id="IZU-H7-2Ec"/>
-                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nbB-0G-VGw">
                                                     <size key="itemSize" width="760" height="75"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -337,15 +362,21 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="760" height="75"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXw-Ao-W1R">
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXw-Ao-W1R">
                                                                     <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="244" id="ba0-07-DNh"/>
+                                                                    </constraints>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="bXw-Ao-W1R" firstAttribute="top" secondItem="fJ9-d4-oKc" secondAttribute="topMargin" constant="19" id="9Cp-Gy-YVq"/>
+                                                            <constraint firstItem="bXw-Ao-W1R" firstAttribute="leading" secondItem="fJ9-d4-oKc" secondAttribute="leadingMargin" id="w2D-cJ-Z3A"/>
+                                                        </constraints>
                                                         <connections>
                                                             <outlet property="titleTextField" destination="bXw-Ao-W1R" id="So1-H2-mHO"/>
                                                         </connections>
@@ -355,9 +386,18 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="w3d-CW-9ag" firstAttribute="top" secondItem="hQa-zO-bog" secondAttribute="top" constant="694" id="Ouw-MP-CUw"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hQa-zO-bog" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6zN-CE-Ye0"/>
+                            <constraint firstItem="hQa-zO-bog" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="120" id="ILD-xb-mge"/>
+                            <constraint firstItem="hQa-zO-bog" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PJO-zC-00s"/>
+                            <constraint firstItem="hQa-zO-bog" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="78" id="WC0-PA-uVJ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outletCollection property="blocks" destination="l4b-TZ-GdF" collectionClass="NSMutableArray" id="sms-hB-BXs"/>
@@ -365,6 +405,8 @@
                         <outletCollection property="blocks" destination="eiK-IX-HeB" collectionClass="NSMutableArray" id="UDK-ue-OPZ"/>
                         <outletCollection property="blocks" destination="vhs-WE-c7g" collectionClass="NSMutableArray" id="4rD-Cf-XaG"/>
                         <outletCollection property="blocks" destination="CNe-iQ-IfM" collectionClass="NSMutableArray" id="Oqu-ZX-tuG"/>
+                        <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="GzZ-l9-llu"/>
+                        <outletCollection property="blocks" destination="S6J-Vw-NPr" collectionClass="NSMutableArray" id="P2L-XE-yDR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
