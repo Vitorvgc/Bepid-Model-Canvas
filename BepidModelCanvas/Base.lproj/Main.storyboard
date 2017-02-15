@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,32 +39,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="hkf-Ix-fhd" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="10" width="260" height="100"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S6C-HZ-eEN">
-                                                                    <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <nil key="textColor"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                            </subviews>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstItem="S6C-HZ-eEN" firstAttribute="leading" secondItem="hkf-Ix-fhd" secondAttribute="leadingMargin" id="Lk4-uu-SXi"/>
-                                                            <constraint firstItem="S6C-HZ-eEN" firstAttribute="centerY" secondItem="hkf-Ix-fhd" secondAttribute="centerY" id="kBB-Z1-e5W"/>
-                                                            <constraint firstItem="S6C-HZ-eEN" firstAttribute="trailing" secondItem="hkf-Ix-fhd" secondAttribute="trailingMargin" id="rZ5-6O-bAD"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="titleTextField" destination="S6C-HZ-eEN" id="sYF-Ms-gPJ"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qeo-ek-qAU">
                                                 <rect key="frame" x="350" y="0.0" width="300" height="664"/>
@@ -79,32 +53,7 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="VhQ-8a-vbz" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                                <rect key="frame" x="20" y="10" width="260" height="75"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uwz-Dj-W5c">
-                                                                            <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <nil key="textColor"/>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                    </subviews>
-                                                                </view>
-                                                                <constraints>
-                                                                    <constraint firstItem="Uwz-Dj-W5c" firstAttribute="trailing" secondItem="VhQ-8a-vbz" secondAttribute="trailingMargin" id="9fb-LZ-nYw"/>
-                                                                    <constraint firstItem="Uwz-Dj-W5c" firstAttribute="top" secondItem="VhQ-8a-vbz" secondAttribute="topMargin" constant="19" id="H4U-Fq-dtO"/>
-                                                                    <constraint firstItem="Uwz-Dj-W5c" firstAttribute="leading" secondItem="VhQ-8a-vbz" secondAttribute="leadingMargin" id="UrR-bJ-BrU"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <outlet property="titleTextField" destination="Uwz-Dj-W5c" id="3E1-qF-klw"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
+                                                        <cells/>
                                                     </collectionView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-IX-HeB" userLabel="KeyResources">
                                                         <rect key="frame" x="0.0" y="347" width="300" height="317"/>
@@ -115,32 +64,7 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="LCy-m1-t6g" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                                <rect key="frame" x="20" y="10" width="260" height="75"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="28m-5Q-Q6G">
-                                                                            <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <nil key="textColor"/>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                    </subviews>
-                                                                </view>
-                                                                <constraints>
-                                                                    <constraint firstItem="28m-5Q-Q6G" firstAttribute="top" secondItem="LCy-m1-t6g" secondAttribute="topMargin" constant="19" id="RtD-t0-sz1"/>
-                                                                    <constraint firstItem="28m-5Q-Q6G" firstAttribute="trailing" secondItem="LCy-m1-t6g" secondAttribute="trailingMargin" id="XeQ-Ee-619"/>
-                                                                    <constraint firstItem="28m-5Q-Q6G" firstAttribute="leading" secondItem="LCy-m1-t6g" secondAttribute="leadingMargin" id="e0F-ES-fi0"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <outlet property="titleTextField" destination="28m-5Q-Q6G" id="Fae-HV-89n"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
+                                                        <cells/>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
@@ -156,32 +80,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="mc1-7e-N0v" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="10" width="260" height="100"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tEp-cz-v9l">
-                                                                    <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <nil key="textColor"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                            </subviews>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstItem="tEp-cz-v9l" firstAttribute="trailing" secondItem="mc1-7e-N0v" secondAttribute="trailingMargin" id="HU4-Vm-qUm"/>
-                                                            <constraint firstItem="tEp-cz-v9l" firstAttribute="centerY" secondItem="mc1-7e-N0v" secondAttribute="centerY" id="QOw-zv-Due"/>
-                                                            <constraint firstItem="tEp-cz-v9l" firstAttribute="leading" secondItem="mc1-7e-N0v" secondAttribute="leadingMargin" id="nGg-Ek-ebZ"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="titleTextField" destination="tEp-cz-v9l" id="uPR-cf-8z8"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-3n-O08">
                                                 <rect key="frame" x="1050" y="0.0" width="280" height="664"/>
@@ -195,32 +94,7 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="KZF-Sc-GYM" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="10" width="260" height="75"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMq-Du-7js">
-                                                                            <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <nil key="textColor"/>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                    </subviews>
-                                                                </view>
-                                                                <constraints>
-                                                                    <constraint firstItem="lMq-Du-7js" firstAttribute="leading" secondItem="KZF-Sc-GYM" secondAttribute="leadingMargin" id="J2G-Z9-uWC"/>
-                                                                    <constraint firstItem="lMq-Du-7js" firstAttribute="top" secondItem="KZF-Sc-GYM" secondAttribute="topMargin" constant="19" id="LMc-2r-5v8"/>
-                                                                    <constraint firstItem="lMq-Du-7js" firstAttribute="trailing" secondItem="KZF-Sc-GYM" secondAttribute="trailingMargin" id="upC-F9-VhN"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <outlet property="titleTextField" destination="lMq-Du-7js" id="Kqf-Y2-VEZ"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
+                                                        <cells/>
                                                     </collectionView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-Vw-NPr" userLabel="Channels">
                                                         <rect key="frame" x="0.0" y="347" width="280" height="317"/>
@@ -231,32 +105,7 @@
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="bGb-zb-7RN" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="10" width="260" height="75"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="260" height="75"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1C-7d-RU6">
-                                                                            <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                            <nil key="textColor"/>
-                                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                    </subviews>
-                                                                </view>
-                                                                <constraints>
-                                                                    <constraint firstItem="b1C-7d-RU6" firstAttribute="trailing" secondItem="bGb-zb-7RN" secondAttribute="trailingMargin" id="OGZ-6E-iYO"/>
-                                                                    <constraint firstItem="b1C-7d-RU6" firstAttribute="leading" secondItem="bGb-zb-7RN" secondAttribute="leadingMargin" id="edd-ew-lJ4"/>
-                                                                    <constraint firstItem="b1C-7d-RU6" firstAttribute="top" secondItem="bGb-zb-7RN" secondAttribute="topMargin" constant="19" id="fuX-Hr-hyq"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <outlet property="titleTextField" destination="b1C-7d-RU6" id="YG2-sq-d5n"/>
-                                                                </connections>
-                                                            </collectionViewCell>
-                                                        </cells>
+                                                        <cells/>
                                                     </collectionView>
                                                 </subviews>
                                             </stackView>
@@ -272,32 +121,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="FfY-mi-iYu" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="10" width="260" height="100"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="100"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0kO-Lq-1x8">
-                                                                    <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <nil key="textColor"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                            </subviews>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstItem="0kO-Lq-1x8" firstAttribute="leading" secondItem="FfY-mi-iYu" secondAttribute="leadingMargin" id="2tp-WR-XKZ"/>
-                                                            <constraint firstItem="0kO-Lq-1x8" firstAttribute="trailing" secondItem="FfY-mi-iYu" secondAttribute="trailingMargin" id="E2f-he-Rnx"/>
-                                                            <constraint firstItem="0kO-Lq-1x8" firstAttribute="centerY" secondItem="FfY-mi-iYu" secondAttribute="centerY" id="nhI-EL-Icd"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="titleTextField" destination="0kO-Lq-1x8" id="OVo-M5-6WP"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                         </subviews>
                                         <constraints>
@@ -319,31 +143,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="SbK-sQ-3DW" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                        <rect key="frame" x="33" y="10" width="760" height="75"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="760" height="75"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVE-8X-lq7">
-                                                                    <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="244" id="o9Y-OX-Mg4"/>
-                                                                    </constraints>
-                                                                    <nil key="textColor"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                            </subviews>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstItem="zVE-8X-lq7" firstAttribute="top" secondItem="SbK-sQ-3DW" secondAttribute="topMargin" constant="19" id="1Al-9x-Xzd"/>
-                                                            <constraint firstItem="zVE-8X-lq7" firstAttribute="leading" secondItem="SbK-sQ-3DW" secondAttribute="leadingMargin" id="CwX-fr-GLO"/>
-                                                        </constraints>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="8" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFN-qh-5EF" userLabel="RevenueStreams">
                                                 <rect key="frame" x="855" y="0.0" width="825" height="230"/>
@@ -354,34 +154,7 @@
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="fJ9-d4-oKc" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
-                                                        <rect key="frame" x="33" y="10" width="760" height="75"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="760" height="75"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXw-Ao-W1R">
-                                                                    <rect key="frame" x="8" y="27" width="244" height="46"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="244" id="ba0-07-DNh"/>
-                                                                    </constraints>
-                                                                    <nil key="textColor"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                            </subviews>
-                                                        </view>
-                                                        <constraints>
-                                                            <constraint firstItem="bXw-Ao-W1R" firstAttribute="top" secondItem="fJ9-d4-oKc" secondAttribute="topMargin" constant="19" id="9Cp-Gy-YVq"/>
-                                                            <constraint firstItem="bXw-Ao-W1R" firstAttribute="leading" secondItem="fJ9-d4-oKc" secondAttribute="leadingMargin" id="w2D-cJ-Z3A"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="titleTextField" destination="bXw-Ao-W1R" id="So1-H2-mHO"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
+                                                <cells/>
                                             </collectionView>
                                         </subviews>
                                     </stackView>
@@ -400,13 +173,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="blocks" destination="l4b-TZ-GdF" collectionClass="NSMutableArray" id="sms-hB-BXs"/>
-                        <outletCollection property="blocks" destination="sa7-fJ-foY" collectionClass="NSMutableArray" id="J7F-HK-8WI"/>
-                        <outletCollection property="blocks" destination="eiK-IX-HeB" collectionClass="NSMutableArray" id="UDK-ue-OPZ"/>
-                        <outletCollection property="blocks" destination="vhs-WE-c7g" collectionClass="NSMutableArray" id="4rD-Cf-XaG"/>
-                        <outletCollection property="blocks" destination="CNe-iQ-IfM" collectionClass="NSMutableArray" id="Oqu-ZX-tuG"/>
-                        <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="GzZ-l9-llu"/>
-                        <outletCollection property="blocks" destination="S6J-Vw-NPr" collectionClass="NSMutableArray" id="P2L-XE-yDR"/>
+                        <outletCollection property="blocks" destination="l4b-TZ-GdF" collectionClass="NSMutableArray" id="4Qc-1T-dFC"/>
+                        <outletCollection property="blocks" destination="sa7-fJ-foY" collectionClass="NSMutableArray" id="U1s-rs-ZFT"/>
+                        <outletCollection property="blocks" destination="eiK-IX-HeB" collectionClass="NSMutableArray" id="rZp-Fn-0Bq"/>
+                        <outletCollection property="blocks" destination="vhs-WE-c7g" collectionClass="NSMutableArray" id="917-hA-K3I"/>
+                        <outletCollection property="blocks" destination="CNe-iQ-IfM" collectionClass="NSMutableArray" id="nPB-HY-tXd"/>
+                        <outletCollection property="blocks" destination="S6J-Vw-NPr" collectionClass="NSMutableArray" id="DIL-jV-BN8"/>
+                        <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="d0e-qc-Ktb"/>
+                        <outletCollection property="blocks" destination="WFA-Yp-0RD" collectionClass="NSMutableArray" id="qHG-O0-GQZ"/>
+                        <outletCollection property="blocks" destination="FFN-qh-5EF" collectionClass="NSMutableArray" id="u6T-bw-FYg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

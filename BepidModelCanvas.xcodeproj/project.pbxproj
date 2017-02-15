@@ -12,6 +12,7 @@
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
 		97E4C5451E5322A400AE4D8B /* CloudkitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */; };
 		C5A0C2091E53255A00EC2FF3 /* PostitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */; };
+		C5D80C8C1E54785D008FFE23 /* PostitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D80C8B1E54785D008FFE23 /* PostitCell.xib */; };
 		C5ED5EB51E44AE4200577F08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED5EB41E44AE4200577F08 /* AppDelegate.swift */; };
 		C5ED5EB71E44AE4200577F08 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED5EB61E44AE4200577F08 /* ViewController.swift */; };
 		C5ED5EBA1E44AE4200577F08 /* BepidModelCanvas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5ED5EB81E44AE4200577F08 /* BepidModelCanvas.xcdatamodeld */; };
@@ -44,6 +45,7 @@
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
 		97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitHelper.swift; sourceTree = "<group>"; };
 		C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitCell.swift; sourceTree = "<group>"; };
+		C5D80C8B1E54785D008FFE23 /* PostitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitCell.xib; sourceTree = "<group>"; };
 		C5ED5EB11E44AE4200577F08 /* BepidModelCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BepidModelCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5ED5EB41E44AE4200577F08 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5ED5EB61E44AE4200577F08 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C5A0C20B1E534B3D00EC2FF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */,
+				C5D80C8B1E54785D008FFE23 /* PostitCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		C5ED5EA81E44AE4200577F08 = {
 			isa = PBXGroup;
 			children = (
@@ -119,13 +130,13 @@
 			isa = PBXGroup;
 			children = (
 				97E4C53D1E53226300AE4D8B /* Model */,
+				C5A0C20B1E534B3D00EC2FF3 /* Views */,
 				C5ED5EB41E44AE4200577F08 /* AppDelegate.swift */,
 				C5ED5EB61E44AE4200577F08 /* ViewController.swift */,
 				C5ED5EBB1E44AE4200577F08 /* Main.storyboard */,
 				C5ED5EBE1E44AE4200577F08 /* Assets.xcassets */,
 				C5ED5EC01E44AE4200577F08 /* Info.plist */,
 				C5ED5EB81E44AE4200577F08 /* BepidModelCanvas.xcdatamodeld */,
-				C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */,
 			);
 			path = BepidModelCanvas;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 			files = (
 				C5ED5EBF1E44AE4200577F08 /* Assets.xcassets in Resources */,
 				C5ED5EBD1E44AE4200577F08 /* Main.storyboard in Resources */,
+				C5D80C8C1E54785D008FFE23 /* PostitCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
