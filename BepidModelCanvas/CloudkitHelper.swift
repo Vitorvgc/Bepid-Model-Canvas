@@ -63,4 +63,19 @@ class CloukKitHelper: NSObject {
         }
     }
     
+    static func icloudStatus(){
+        CKContainer.default().accountStatus { (accountStatus, error) in
+            switch accountStatus {
+            case .available:
+                print("iCloud Available")
+            case .noAccount:
+                print("No iCloud account")
+            case .restricted:
+                print("iCloud restricted")
+            case .couldNotDetermine:
+                print("Unable to determine iCloud status")
+            }
+        }
+    }
+    
 }
