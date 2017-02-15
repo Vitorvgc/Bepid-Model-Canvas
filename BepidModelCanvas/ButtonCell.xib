@@ -9,29 +9,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="VbI-oj-grP" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonCell" id="Rz2-K0-ksD" customClass="ButtonCell" customModule="BepidModelCanvas" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-jb-dRt">
-                        <rect key="frame" x="8" y="27" width="384" height="46"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-wV-LjA">
+                        <rect key="frame" x="119" y="7" width="163" height="87"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                    </imageView>
                 </subviews>
             </view>
-            <size key="customSize" width="149" height="-3"/>
             <connections>
-                <outlet property="titleTextField" destination="gBe-jb-dRt" id="k4i-hs-kQJ"/>
+                <outlet property="imageView" destination="fSQ-wV-LjA" id="UqV-VG-fCm"/>
             </connections>
-            <point key="canvasLocation" x="-117" y="175"/>
         </collectionViewCell>
     </objects>
 </document>
