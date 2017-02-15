@@ -24,12 +24,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.blocks.forEach {
             $0.delegate = self
             $0.dataSource = self
+            $0.register(UINib(nibName: "PostitCell", bundle: nil), forCellWithReuseIdentifier: "PostitCell")
             $0.backgroundColor = UIColor(red: 197/255.0, green: 221/255.0, blue: 1, alpha: 1)
         }
         
     }
 
-    //MARK - CollectionView Data Source
+    //MARK: CollectionView Data Source
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -41,8 +42,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
         let postitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitCell", for: indexPath) as! PostitCell
         
+        postitCell.resizeOutlets()
         postitCell.titleTextField.text = "title \(indexPath.row)"
         postitCell.backgroundColor = .blue
         
@@ -53,8 +56,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-//        let width = collectionView.frame.size.width * 0.85
-//        return CGSize(width: width, height: width / 4)
         return self.cellSize
     }
     
@@ -62,8 +63,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let verticalInset = self.cellSize.height * 0.15
-        let horizontalInset = self.cellSize.width * 0.1
-        
+        let horizontalInset = self.cellSize.width * 0.15
+                
         return UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
     }
     

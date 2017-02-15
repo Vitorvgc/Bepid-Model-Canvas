@@ -22,12 +22,19 @@ class PostitCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 20
         self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
-        //self.titleTextField.sizeToFit()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
         tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
         self.addGestureRecognizer(tapGestureRecognizer)
         
+    }
+    
+    func resizeOutlets() {
+        
+        let width = self.frame.size.width
+        let height = self.frame.size.height
+        
+        self.titleTextField.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
     }
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
@@ -66,12 +73,12 @@ class PostitCell: UICollectionViewCell {
     lazy private var motionEffectGroup: UIMotionEffectGroup = {
         
         let horizontalAxisMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
-        horizontalAxisMotionEffect.minimumRelativeValue = -8.0
-        horizontalAxisMotionEffect.maximumRelativeValue = 8.0
+        horizontalAxisMotionEffect.minimumRelativeValue = -6.0
+        horizontalAxisMotionEffect.maximumRelativeValue = 6.0
         
         let verticalAxisMoveEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
-        verticalAxisMoveEffect.minimumRelativeValue = -8.0
-        verticalAxisMoveEffect.maximumRelativeValue = 8.0
+        verticalAxisMoveEffect.minimumRelativeValue = -6.0
+        verticalAxisMoveEffect.maximumRelativeValue = 6.0
         
         let motionEffectGroup = UIMotionEffectGroup()
         motionEffectGroup.motionEffects = [horizontalAxisMotionEffect, verticalAxisMoveEffect]
