@@ -54,4 +54,13 @@ class CloukKitHelper: NSObject {
         })
     }
     
+    static func isICloudContainerAvailable()->Bool {
+        if FileManager.default.ubiquityIdentityToken != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
 }
