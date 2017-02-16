@@ -23,9 +23,20 @@ class PostitCell: UICollectionViewCell {
         self.layer.cornerRadius = 20
         self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
         
+        // Gesture recognizers
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
         tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
         self.addGestureRecognizer(tapGestureRecognizer)
+        
+        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(gestureRecognizer:)))
+        doubleTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        self.addGestureRecognizer(doubleTapGestureRecognizer)
+        
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
+        longPressGestureRecognizer.minimumPressDuration = 1.5
+        self.addGestureRecognizer(longPressGestureRecognizer)
         
     }
     
@@ -40,6 +51,14 @@ class PostitCell: UICollectionViewCell {
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
         self.isEditing = true
         self.setNeedsFocusUpdate()
+    }
+    
+    func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
+        self.titleTextField.text = "Double tapped"
+    }
+    
+    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
+        self.titleTextField.text = "Long pressed"
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
