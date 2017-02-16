@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CloudKit
 
 class CloukKitHelper: NSObject {
@@ -54,7 +55,7 @@ class CloukKitHelper: NSObject {
         })
     }
     
-    static func isICloudContainerAvailable()->Bool {
+    static func isICloudContainerAvailable() -> Bool {
         if FileManager.default.ubiquityIdentityToken != nil {
             return true
         }
@@ -76,6 +77,15 @@ class CloukKitHelper: NSObject {
                 print("Unable to determine iCloud status")
             }
         }
+    }
+    
+    static func screenShotMethod() -> UIImage?{
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale);
+        
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
 }
