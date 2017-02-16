@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -52,7 +52,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B097447E-5178-43AC-A26D-426307722E62" translatesAutoresizingMaskIntoConstraints="NO" id="2XX-RR-AeD">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="772FB381-851B-4D5D-AF39-3C3814BB3164" translatesAutoresizingMaskIntoConstraints="NO" id="2XX-RR-AeD">
                                                         <rect key="frame" x="252" y="8" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="929-0X-DKD"/>
@@ -89,7 +89,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10DF91AD-DEDA-41CD-B60C-8E12DD5065B1" translatesAutoresizingMaskIntoConstraints="NO" id="Oit-sl-ByQ">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BE2752EF-8EDF-47FD-AA56-F872D2366405" translatesAutoresizingMaskIntoConstraints="NO" id="Oit-sl-ByQ">
                                                                 <rect key="frame" x="252" y="8" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="js4-Fd-kJJ"/>
@@ -134,7 +134,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A9A8145B-BAFB-4352-8F86-2DE358A126E9" translatesAutoresizingMaskIntoConstraints="NO" id="wzk-s1-m7d">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="437D59B9-4EA1-468F-89AD-9E6B8F5AC1D2" translatesAutoresizingMaskIntoConstraints="NO" id="wzk-s1-m7d">
                                                                 <rect key="frame" x="252" y="8" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="7QM-Kz-lq0"/>
@@ -181,7 +181,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A1E9302E-D5C6-4DFA-A08A-11A5F35600BD" translatesAutoresizingMaskIntoConstraints="NO" id="ynO-MW-rX9">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="32330C5E-7AE0-475E-8531-E46611F4D7A1" translatesAutoresizingMaskIntoConstraints="NO" id="ynO-MW-rX9">
                                                         <rect key="frame" x="252" y="8" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="HBx-wg-5hB"/>
@@ -229,7 +229,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6F29CD9F-7E8A-4F6B-9222-CF8EFB0C4B86" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-sX-lPz">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BDA5B8D9-F1C4-4E4E-BD65-F0B8D30F77BE" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-sX-lPz">
                                                                 <rect key="frame" x="232" y="8" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="p72-Vw-Kqy"/>
@@ -274,7 +274,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9AD9C488-61BD-495E-8B4D-FC4D52B0F2D4" translatesAutoresizingMaskIntoConstraints="NO" id="ZG2-XW-WZL">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FEF0D949-4525-4142-9935-CBA9CC99D0E2" translatesAutoresizingMaskIntoConstraints="NO" id="ZG2-XW-WZL">
                                                                 <rect key="frame" x="232" y="8" width="40" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="40" id="4Ve-dv-NqE"/>
@@ -321,7 +321,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DDC54301-C32C-4AC3-92AF-920A7425F1B6" translatesAutoresizingMaskIntoConstraints="NO" id="Mut-Li-KdN">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="E1F53BC0-A35B-48C0-A417-BD4C0F3F57F9" translatesAutoresizingMaskIntoConstraints="NO" id="Mut-Li-KdN">
                                                         <rect key="frame" x="252" y="8" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="gzB-cM-n4m"/>
@@ -456,11 +456,98 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-337" y="-773"/>
+            <point key="canvasLocation" x="2100" y="474"/>
+        </scene>
+        <!--Start Screen View Controller-->
+        <scene sceneID="Ofz-SD-RkC">
+            <objects>
+                <viewController id="zCV-nv-vlf" customClass="StartScreenViewController" customModule="BepidModelCanvas" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lxx-ae-WQo"/>
+                        <viewControllerLayoutGuide type="bottom" id="TqG-HI-WYg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="upm-1A-PnL">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newCanvasDemo" translatesAutoresizingMaskIntoConstraints="NO" id="s3g-TN-J6X">
+                                <rect key="frame" x="0.0" y="0.0" width="1955" height="1072"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="918-gG-FeT">
+                                <rect key="frame" x="0.0" y="709" width="1920" height="371"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OK4-Tf-Nfx">
+                                    <size key="itemSize" width="432" height="302"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <visualEffectView key="backgroundView" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" id="uO5-xK-jBy">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="371"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="kBQ-LQ-pnG">
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="371"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </view>
+                                    <color key="backgroundColor" red="0.121119149" green="0.13739755749999999" blue="0.1333277524" alpha="0.54730308220000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <blurEffect style="regular"/>
+                                </visualEffectView>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teste" id="GUs-He-ew3" customClass="CanvasModelsCollectionViewCell" customModule="BepidModelCanvas" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="435" height="315"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="435" height="315"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Canvas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik2-KQ-iNs">
+                                                    <rect key="frame" x="0.0" y="262" width="432" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="newCanvasDemo" translatesAutoresizingMaskIntoConstraints="NO" id="3pR-v2-x6q">
+                                                    <rect key="frame" x="0.0" y="8" width="432" height="238"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="435" height="315"/>
+                                        <connections>
+                                            <outlet property="CanvaImage" destination="3pR-v2-x6q" id="Im1-z9-9ke"/>
+                                            <outlet property="CanvaTitle" destination="Ik2-KQ-iNs" id="p0d-jr-ZBW"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zCV-nv-vlf" id="kPo-Uz-E3W"/>
+                                    <outlet property="delegate" destination="zCV-nv-vlf" id="aCo-v3-vsp"/>
+                                    <outlet property="prefetchDataSource" destination="zCV-nv-vlf" id="UBz-95-2Jy"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="CanvaImage" destination="s3g-TN-J6X" id="pNI-cg-bxe"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="OpenCanvas" id="WmE-SR-fl6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNv-ML-6cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-337" y="474"/>
         </scene>
     </scenes>
     <resources>
-        <image name="10DF91AD-DEDA-41CD-B60C-8E12DD5065B1" width="128" height="128">
+        <image name="32330C5E-7AE0-475E-8531-E46611F4D7A1" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1606,7 +1693,7 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
-        <image name="6F29CD9F-7E8A-4F6B-9222-CF8EFB0C4B86" width="128" height="128">
+        <image name="437D59B9-4EA1-468F-89AD-9E6B8F5AC1D2" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2752,7 +2839,7 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
-        <image name="9AD9C488-61BD-495E-8B4D-FC4D52B0F2D4" width="128" height="128">
+        <image name="772FB381-851B-4D5D-AF39-3C3814BB3164" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -3898,7 +3985,7 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
-        <image name="A1E9302E-D5C6-4DFA-A08A-11A5F35600BD" width="128" height="128">
+        <image name="BDA5B8D9-F1C4-4E4E-BD65-F0B8D30F77BE" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5044,7 +5131,7 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
-        <image name="A9A8145B-BAFB-4352-8F86-2DE358A126E9" width="128" height="128">
+        <image name="BE2752EF-8EDF-47FD-AA56-F872D2366405" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -6190,7 +6277,7 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
-        <image name="B097447E-5178-43AC-A26D-426307722E62" width="128" height="128">
+        <image name="E1F53BC0-A35B-48C0-A417-BD4C0F3F57F9" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -7336,7 +7423,7 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
-        <image name="DDC54301-C32C-4AC3-92AF-920A7425F1B6" width="128" height="128">
+        <image name="FEF0D949-4525-4142-9935-CBA9CC99D0E2" width="128" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -8482,5 +8569,6 @@ AAEKGQABCiEAAQokAAEKKQABCjEAAQo0AAEKRgABCkkAAQpOAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAA
 AAAAAAABClA
 </mutableData>
         </image>
+        <image name="newCanvasDemo" width="960" height="540"/>
     </resources>
 </document>
