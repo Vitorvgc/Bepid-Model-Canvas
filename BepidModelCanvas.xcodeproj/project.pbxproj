@@ -13,6 +13,8 @@
 		97E4C5451E5322A400AE4D8B /* CloudkitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */; };
 		C5A0C2091E53255A00EC2FF3 /* PostitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */; };
 		C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AA3A161E55E60A00DBF653 /* BlockView.swift */; };
+		C5B0ED4C1E5617320024129F /* CanvasModelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */; };
+		C5B0ED4D1E5617320024129F /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */; };
 		C5D80C8C1E54785D008FFE23 /* PostitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D80C8B1E54785D008FFE23 /* PostitCell.xib */; };
 		C5D80C951E5490EF008FFE23 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D80C931E5490EF008FFE23 /* ButtonCell.swift */; };
 		C5D80C961E5490EF008FFE23 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D80C941E5490EF008FFE23 /* ButtonCell.xib */; };
@@ -49,6 +51,8 @@
 		97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitHelper.swift; sourceTree = "<group>"; };
 		C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitCell.swift; sourceTree = "<group>"; };
 		C5AA3A161E55E60A00DBF653 /* BlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasModelsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		C5D80C8B1E54785D008FFE23 /* PostitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitCell.xib; sourceTree = "<group>"; };
 		C5D80C931E5490EF008FFE23 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		C5D80C941E5490EF008FFE23 /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		C5B0ED4E1E5617380024129F /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */,
+				C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */,
+			);
+			name = FirstScreen;
+			sourceTree = "<group>";
+		};
 		C5ED5EA81E44AE4200577F08 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +155,7 @@
 				C5A0C20B1E534B3D00EC2FF3 /* Views */,
 				C5ED5EB41E44AE4200577F08 /* AppDelegate.swift */,
 				C5ED5EB61E44AE4200577F08 /* ViewController.swift */,
+				C5B0ED4E1E5617380024129F /* FirstScreen */,
 				C5ED5EBB1E44AE4200577F08 /* Main.storyboard */,
 				C5ED5EBE1E44AE4200577F08 /* Assets.xcassets */,
 				C5ED5EC01E44AE4200577F08 /* Info.plist */,
@@ -303,6 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B0ED4D1E5617320024129F /* StartScreenViewController.swift in Sources */,
+				C5B0ED4C1E5617320024129F /* CanvasModelsCollectionViewCell.swift in Sources */,
 				C5ED5EB71E44AE4200577F08 /* ViewController.swift in Sources */,
 				97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */,
 				C5D80C951E5490EF008FFE23 /* ButtonCell.swift in Sources */,
