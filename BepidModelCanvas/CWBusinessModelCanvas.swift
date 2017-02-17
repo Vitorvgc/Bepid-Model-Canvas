@@ -61,15 +61,15 @@ class CWBusinessModelCanvas{
     }
     
     func initBlocks(){
-        keyPaternersBlock = CWBlock.init(title: "Key Paterners", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        keyActivitiesBlock = CWBlock.init(title: "Key Activities", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        keyResourcesBlock = CWBlock.init(title: "Key Resources", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        valuePropositionsBlock = CWBlock.init(title: "Value Propositions", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        custumerRelationshipsBlock = CWBlock.init(title: "Custumer Relationships", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        channelsBlock = CWBlock.init(title: "Channels", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        custumerSegmentsBlock = CWBlock.init(title: "Custumer Segments", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        costStructureBlock = CWBlock.init(title: "Cost Structure", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        revenueStreamsBlock = CWBlock.init(title: "Revenue Streams", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
+        keyPaternersBlock = CWBlock.init(title: "Key Paterners", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        keyActivitiesBlock = CWBlock.init(title: "Key Activities", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        keyResourcesBlock = CWBlock.init(title: "Key Resources", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        valuePropositionsBlock = CWBlock.init(title: "Value Propositions", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        custumerRelationshipsBlock = CWBlock.init(title: "Custumer Relationships", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        channelsBlock = CWBlock.init(title: "Channels", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        custumerSegmentsBlock = CWBlock.init(title: "Custumer Segments", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        costStructureBlock = CWBlock.init(title: "Cost Structure", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        revenueStreamsBlock = CWBlock.init(title: "Revenue Streams", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
         
         blocks = [keyPaternersBlock, keyActivitiesBlock, keyResourcesBlock, valuePropositionsBlock, custumerRelationshipsBlock, channelsBlock, custumerSegmentsBlock, costStructureBlock, revenueStreamsBlock]
     }
