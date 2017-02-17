@@ -1,6 +1,6 @@
 //
 //  Postit.swift
-//  jhkjh
+//  C. Williamberg
 //
 //  Created by Williamberg on 07/02/17.
 //  Copyright © 2017 padrao. All rights reserved.
@@ -9,11 +9,13 @@
 import UIKit
 import CloudKit
 
+
 class CWPostit {
     
     let titleKey = "title"
     let textKey  = "text"
     let colorKey = "color"
+    let parentKey = "parent"
     
     var record: CKRecord
     var recordId : CKRecordID{
@@ -56,14 +58,15 @@ class CWPostit {
         else{
             record[colorKey] = CWPostit.colorToInt(color: UIColor.white) as CKRecordValue?
         }
-        
+        blockRef = CKReference.init(record: parent, action: .deleteSelf)
+        record[parentKey] = blockRef
         self.record = record
-        self.blockRef = CKReference.init(record: parent, action: .deleteSelf)
+        
     }
     
-    init (withRecord record: CKRecord, parent: CKRecord ){
+    init (withRecord record: CKRecord ){
         self.record = record
-        self.blockRef = CKReference.init(record: parent, action: .deleteSelf)
+        self.blockRef = record[parentKey] as! CKReference
     }
     
     class func createPostit(withTitle title: String, andText text: String, andColor color: UIColor?,parent: CKRecord, competionHandler: @escaping ((_ sucess: Bool, _ postit: CWPostit?) -> ())){
@@ -80,21 +83,21 @@ class CWPostit {
     }
     
     //get all exercice from the user from cloudkit
-//    class func list( _ completionHandeler:@escaping ((_ sucess: Bool, _ exercicios:[String])->()) ){
-//        
-//        let query = CKQuery(recordType: "usuario", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-//        CloukKitHelper.publicDB.perform(query, inZoneWith: nil){ (results, error) in
-//            
-//            let exercicios = [String]()
-//            if error == nil{
-//                let user = Usuario(withRecord: results![0])
-//                completionHandeler(true, user.exercicios)
-//            }
-//            else{
-//                completionHandeler(false, exercicios)
-//            }
-//        }
-//    }
+    //    class func list( _ completionHandeler:@escaping ((_ sucess: Bool, _ exercicios:[String])->()) ){
+    //
+    //        let query = CKQuery(recordType: "usuario", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+    //        CloukKitHelper.publicDB.perform(query, inZoneWith: nil){ (results, error) in
+    //
+    //            let exercicios = [String]()
+    //            if error == nil{
+    //                let user = Usuario(withRecord: results![0])
+    //                completionHandeler(true, user.exercicios)
+    //            }
+    //            else{
+    //                completionHandeler(false, exercicios)
+    //            }
+    //        }
+    //    }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
         CloukKitHelper.publicDB.delete(withRecordID: self.recordId){ (recordId, error) in
@@ -129,8 +132,8 @@ class CWPostit {
             return .white
         }
     }
-
-
+    
+    
 }
 
 //enum ColorsEnum: Int {
@@ -141,7 +144,7 @@ class CWPostit {
 //}
 //
 //extension UIColor {
-//    
+//
 //    convenience init(withHex hex: Int) {
 //        self.init(red:   CGFloat(hex >> 16) / 255,
 //                  green: CGFloat((hex >> 8) & 0xFF) / 255,

@@ -19,7 +19,7 @@ class CWBusinessModelCanvas{
     var recordId : CKRecordID{
         return record.recordID
     }
-
+    
     var keyPaternersBlock : CWBlock!
     var keyActivitiesBlock: CWBlock!
     var keyResourcesBlock : CWBlock!
@@ -52,7 +52,15 @@ class CWBusinessModelCanvas{
         record = CKRecord(recordType: "bmc")
         record[titleKey] = title as CKRecordValue?
         record[imageKey] = UIImagePNGRepresentation(#imageLiteral(resourceName: "checkMark")) as CKRecordValue?
-        
+        initBlocks()
+    }
+    
+    init (withRecord record: CKRecord ){
+        self.record = record
+        initBlocks()
+    }
+    
+    func initBlocks(){
         keyPaternersBlock = CWBlock.init(title: "Key Paterners", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
         keyActivitiesBlock = CWBlock.init(title: "Key Activities", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
         keyResourcesBlock = CWBlock.init(title: "Key Resources", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
@@ -62,7 +70,7 @@ class CWBusinessModelCanvas{
         custumerSegmentsBlock = CWBlock.init(title: "Custumer Segments", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
         costStructureBlock = CWBlock.init(title: "Cost Structure", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
         revenueStreamsBlock = CWBlock.init(title: "Revenue Streams", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-
+        
         blocks = [keyPaternersBlock, keyActivitiesBlock, keyResourcesBlock, valuePropositionsBlock, custumerRelationshipsBlock, channelsBlock, custumerSegmentsBlock, costStructureBlock, revenueStreamsBlock]
     }
     
@@ -93,7 +101,6 @@ class CWBusinessModelCanvas{
             })
         }
         competionHandler(sucess, nil)
-
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
@@ -106,7 +113,7 @@ class CWBusinessModelCanvas{
             }
         }
     }
-
+    
     
     
 }
