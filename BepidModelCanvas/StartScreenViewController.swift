@@ -58,11 +58,10 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
-        ///AQUI MUDAMOS A IMAGEM DO FUNDO PARA SER A IMAGEM DO CANVAS MAS DA UM ERRO NA HORA DE TROCAR DA SEGUE
-        
-        //let cell = collectionView.cellForItem(at: context.nextFocusedIndexPath!) as! CanvasModelsCollectionViewCell
-            //self.CanvaImage.image = cell.CanvaImage.image
+        if((context.nextFocusedIndexPath) != nil){
+            let cell = try! collectionView.cellForItem(at: context.nextFocusedIndexPath!) as! CanvasModelsCollectionViewCell
+            self.CanvaImage.image = cell.CanvaImage.image
+        }
         
     }
     
