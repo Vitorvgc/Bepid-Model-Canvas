@@ -101,7 +101,6 @@ class CWBusinessModelCanvas{
             })
         }
         competionHandler(sucess, nil)
-        
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
