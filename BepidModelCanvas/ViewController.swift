@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    //@IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     
     var postitQuantity = [Int](repeating: 2, count: 9)
@@ -30,7 +31,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             $0.register(UINib(nibName: "ButtonCell", bundle: nil), forCellWithReuseIdentifier: "ButtonCell")
             $0.backgroundColor = UIColor(red: 197/255.0, green: 221/255.0, blue: 1, alpha: 1)
         }
-        
+        /*
+        self.views.forEach {
+            $0.collectionView = $0.subviews.filter { $0 is UICollectionView}.first as! UICollectionView!
+        }
+        */
     }
 
     //MARK: CollectionView Data Source
