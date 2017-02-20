@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -473,15 +473,15 @@
                         <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="d0e-qc-Ktb"/>
                         <outletCollection property="blocks" destination="WFA-Yp-0RD" collectionClass="NSMutableArray" id="qHG-O0-GQZ"/>
                         <outletCollection property="blocks" destination="FFN-qh-5EF" collectionClass="NSMutableArray" id="u6T-bw-FYg"/>
-                        <outletCollection property="views" destination="W7c-BK-0nr" id="xHe-Hf-cuw"/>
-                        <outletCollection property="views" destination="grd-jm-wWw" id="gDA-xn-Zf3"/>
-                        <outletCollection property="views" destination="sfh-tK-1bu" id="MOK-RT-ufv"/>
-                        <outletCollection property="views" destination="YcE-Tw-9pb" id="FuS-rT-hhe"/>
-                        <outletCollection property="views" destination="IZC-YX-Qer" id="xcR-Pe-EHB"/>
-                        <outletCollection property="views" destination="Wvj-do-21v" id="ubD-jp-Ilc"/>
-                        <outletCollection property="views" destination="o3T-fO-nqw" id="bYl-ho-eSq"/>
-                        <outletCollection property="views" destination="dJg-mK-y81" id="mWb-jg-sbh"/>
-                        <outletCollection property="views" destination="EY7-kt-DUT" id="7yB-HU-gkH"/>
+                        <outletCollection property="views" destination="W7c-BK-0nr" collectionClass="NSMutableArray" id="xHe-Hf-cuw"/>
+                        <outletCollection property="views" destination="grd-jm-wWw" collectionClass="NSMutableArray" id="gDA-xn-Zf3"/>
+                        <outletCollection property="views" destination="sfh-tK-1bu" collectionClass="NSMutableArray" id="MOK-RT-ufv"/>
+                        <outletCollection property="views" destination="YcE-Tw-9pb" collectionClass="NSMutableArray" id="FuS-rT-hhe"/>
+                        <outletCollection property="views" destination="IZC-YX-Qer" collectionClass="NSMutableArray" id="xcR-Pe-EHB"/>
+                        <outletCollection property="views" destination="Wvj-do-21v" collectionClass="NSMutableArray" id="ubD-jp-Ilc"/>
+                        <outletCollection property="views" destination="o3T-fO-nqw" collectionClass="NSMutableArray" id="bYl-ho-eSq"/>
+                        <outletCollection property="views" destination="dJg-mK-y81" collectionClass="NSMutableArray" id="mWb-jg-sbh"/>
+                        <outletCollection property="views" destination="EY7-kt-DUT" collectionClass="NSMutableArray" id="7yB-HU-gkH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
