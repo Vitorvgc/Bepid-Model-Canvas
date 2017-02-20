@@ -13,9 +13,76 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
+            sucess, records in
+            if sucess{
+                if let recs = records{
+                    print("bmc count \(recs.count)")
+                    for rec in recs{
+                        let bmc = CWBusinessModelCanvas.init(withRecord: rec)
+                        print("title: \(bmc.title) key: \(bmc.recordId)")
+                        CloukKitHelper.getAllChildren(fromRecordID: rec.recordID, childEntity: "block", competionHandler: {
+                            sucess, records in
+                            if sucess{
+                                print("blocks count: \(records?.count)")
+                                for blockRec in records!{
+                                    print("block title: \(blockRec["title"])")
+                                    CloukKitHelper.getAllChildren(fromRecordID: blockRec.recordID, childEntity: "postit", competionHandler: {
+                                        sucess, records in
+                                        if sucess{
+                                            print("block title: \(blockRec["title"])")
+                                            print("posit count \(records?.count)")
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                        
+                    }
+                }
+                else{
+                    print(" bmc doesnt exist!")
+                }
+            }
+        })
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
+            sucess, records in
+            if sucess{
+                if let recs = records{
+                    print("bmc count \(recs.count)")
+                    for rec in recs{
+                        let bmc = CWBusinessModelCanvas.init(withRecord: rec)
+                        print("title: \(bmc.title) key: \(bmc.recordId)")
+                        CloukKitHelper.getAllChildren(fromRecordID: rec.recordID, childEntity: "block", competionHandler: {
+                            sucess, records in
+                            if sucess{
+                                print("blocks count: \(records?.count)")
+                                for blockRec in records!{
+                                    print("block title: \(blockRec["title"])")
+                                    CloukKitHelper.getAllChildren(fromRecordID: blockRec.recordID, childEntity: "postit", competionHandler: {
+                                        sucess, records in
+                                        if sucess{
+                                            print("block title: \(blockRec["title"])")
+                                            print("posit count \(records?.count)")
+                                        }
+                                    })
+                                }
+                            }
+                        })
+                        
+                    }
+                }
+                else{
+                    print(" bmc doesnt exist!")
+                }
+            }
+        })
+        
     }
     
     @IBOutlet weak var CanvaImage: UIImageView!
@@ -28,13 +95,12 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return 1 //numero de bmc + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
         if indexPath.row == 0 {
-            self.CanvaImage.image = #imageLiteral(resourceName: "newCanvasDemo")
             cell.CanvaImage.image = #imageLiteral(resourceName: "newCanvasDemo")
             cell.CanvaTitle.text! = "Add new canvas"
         }

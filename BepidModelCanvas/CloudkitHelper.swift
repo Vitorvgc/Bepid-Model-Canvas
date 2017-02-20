@@ -12,7 +12,8 @@ import CloudKit
 
 class CloukKitHelper: NSObject {
     
-    static let container = CKContainer(identifier: "iCloud.com.bepidcanvas.BepidModelCanvas")
+    //static let container = CKContainer(identifier: "iCloud.com.bepidcanvas.BepidModelCanvas")
+    static let container = CKContainer.default()
     
     static var publicDB: CKDatabase{
         return container.publicCloudDatabase

@@ -51,7 +51,7 @@ class CWBusinessModelCanvas{
     init(title: String) {
         record = CKRecord(recordType: "bmc")
         record[titleKey] = title as CKRecordValue?
-        record[imageKey] = UIImagePNGRepresentation(#imageLiteral(resourceName: "checkMark")) as CKRecordValue?
+        record[imageKey] = UIImagePNGRepresentation(#imageLiteral(resourceName: "heart")) as CKRecordValue?
         initBlocks()
     }
     
