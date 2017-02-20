@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Block" representedClassName="Block" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="businessModelCanvas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusinessModelCanvas" inverseName="blocks" inverseEntity="BusinessModelCanvas" syncable="YES"/>
+        <relationship name="postits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Postit" inverseName="block" inverseEntity="Postit" syncable="YES"/>
+    </entity>
+    <entity name="BusinessModelCanvas" representedClassName="BusinessModelCanvas" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="blocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Block" inverseName="businessModelCanvas" inverseEntity="Block" syncable="YES"/>
+    </entity>
+    <entity name="Postit" representedClassName="Postit" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="postits" inverseEntity="Block" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Postit" positionX="-99" positionY="20" width="128" height="88"/>
+        <element name="Block" positionX="88" positionY="-9" width="128" height="118"/>
+        <element name="BusinessModelCanvas" positionX="286" positionY="9" width="128" height="88"/>
+    </elements>
 </model>
