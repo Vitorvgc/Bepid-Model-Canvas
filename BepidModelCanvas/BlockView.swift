@@ -1,64 +1,38 @@
 //
-//  PostitCell.swift
+//  BlockView.swift
 //  BepidModelCanvas
 //
-//  Created by Vítor Chagas on 14/02/17.
+//  Created by Vítor Chagas on 16/02/17.
 //  Copyright © 2017 BepidCanvas. All rights reserved.
 //
 
 import UIKit
 
-class PostitCell: UICollectionViewCell {
-    
-    @IBOutlet weak var titleTextField: UITextField!
-    
+class BlockView: UIView {
+
+    var collectionView: UICollectionView!
     var isEditing = false
     
-    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return self.isEditing ? [self.titleTextField] : super.preferredFocusEnvironments
+    override var canBecomeFocused: Bool {
+        if isEditing { return false }
+        return true
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.layer.cornerRadius = 20
-        self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
-        
-        // Gesture recognizers
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return self.isEditing ? [self.collectionView] : super.preferredFocusEnvironments
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
         tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
         self.addGestureRecognizer(tapGestureRecognizer)
-        
-        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(gestureRecognizer:)))
-        doubleTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGestureRecognizer)
-        
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
-        longPressGestureRecognizer.minimumPressDuration = 1.5
-        self.addGestureRecognizer(longPressGestureRecognizer)
-        
-    }
-    
-    func resizeOutlets() {
-        
-        let width = self.frame.size.width
-        let height = self.frame.size.height
-        
-        self.titleTextField.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
     }
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
         self.isEditing = true
         self.setNeedsFocusUpdate()
-    }
-    
-    func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.titleTextField.text = "Double tapped"
-    }
-    
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.titleTextField.text = "Long pressed"
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -83,10 +57,12 @@ class PostitCell: UICollectionViewCell {
                 self.layer.shadowOpacity = 0
                 self.removeMotionEffect(self.motionEffectGroup)
                 
-                self.isEditing = false
-                
             }, completion: nil)
         }
+        else if (context.nextFocusedItem?.isKind(of: BlockView.self))! {
+            self.isEditing = false
+        }
+        
     }
     
     lazy private var motionEffectGroup: UIMotionEffectGroup = {

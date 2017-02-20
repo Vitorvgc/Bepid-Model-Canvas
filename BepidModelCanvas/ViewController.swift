@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     
     var postitQuantity = [Int](repeating: 2, count: 9)

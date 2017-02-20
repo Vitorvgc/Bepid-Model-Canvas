@@ -28,7 +28,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="tH5-Xc-Boo">
                                         <rect key="frame" x="0.0" y="0.0" width="1680" height="664"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-BK-0nr">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-BK-0nr" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="664"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-TZ-GdF" userLabel="KeyPartners">
@@ -76,7 +76,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qeo-ek-qAU">
                                                 <rect key="frame" x="350" y="0.0" width="300" height="664"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grd-jm-wWw">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grd-jm-wWw" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="317"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Partners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35Q-zQ-hkP">
@@ -121,7 +121,7 @@
                                                             <constraint firstAttribute="width" constant="300" id="uFT-Yu-t9x"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-tK-1bu">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-tK-1bu" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="347" width="300" height="317"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1M-Po-Z7e">
@@ -168,7 +168,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Tw-9pb">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Tw-9pb" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="700" y="0.0" width="300" height="664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value Propositions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-03-nMb">
@@ -216,7 +216,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LnA-3n-O08">
                                                 <rect key="frame" x="1050" y="0.0" width="280" height="664"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-YX-Qer">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-YX-Qer" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="317"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Relantionships" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd3-xa-Opp">
@@ -261,7 +261,7 @@
                                                             <constraint firstItem="dUy-sX-lPz" firstAttribute="trailing" secondItem="IZC-YX-Qer" secondAttribute="trailingMargin" id="nLn-nm-30n"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-do-21v">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-do-21v" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="347" width="280" height="317"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGg-xw-mva">
@@ -308,7 +308,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-fO-nqw">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-fO-nqw" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="1380" y="0.0" width="300" height="664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customer Segments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-Zw-NiA">
@@ -358,7 +358,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="w3d-CW-9ag">
                                         <rect key="frame" x="0.0" y="694" width="1680" height="230"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJg-mK-y81">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJg-mK-y81" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="825" height="230"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="CvH-RD-7qQ">
@@ -403,7 +403,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="WFA-Yp-0RD" secondAttribute="trailing" id="xhi-oM-qP9"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EY7-kt-DUT">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EY7-kt-DUT" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="855" y="0.0" width="825" height="230"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Revenue Streams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOy-Vi-Nhw">
@@ -473,6 +473,15 @@
                         <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="d0e-qc-Ktb"/>
                         <outletCollection property="blocks" destination="WFA-Yp-0RD" collectionClass="NSMutableArray" id="qHG-O0-GQZ"/>
                         <outletCollection property="blocks" destination="FFN-qh-5EF" collectionClass="NSMutableArray" id="u6T-bw-FYg"/>
+                        <outletCollection property="views" destination="W7c-BK-0nr" id="xHe-Hf-cuw"/>
+                        <outletCollection property="views" destination="grd-jm-wWw" id="gDA-xn-Zf3"/>
+                        <outletCollection property="views" destination="sfh-tK-1bu" id="MOK-RT-ufv"/>
+                        <outletCollection property="views" destination="YcE-Tw-9pb" id="FuS-rT-hhe"/>
+                        <outletCollection property="views" destination="IZC-YX-Qer" id="xcR-Pe-EHB"/>
+                        <outletCollection property="views" destination="Wvj-do-21v" id="ubD-jp-Ilc"/>
+                        <outletCollection property="views" destination="o3T-fO-nqw" id="bYl-ho-eSq"/>
+                        <outletCollection property="views" destination="dJg-mK-y81" id="mWb-jg-sbh"/>
+                        <outletCollection property="views" destination="EY7-kt-DUT" id="7yB-HU-gkH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

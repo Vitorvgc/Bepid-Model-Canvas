@@ -13,6 +13,7 @@
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
 		97E4C5451E5322A400AE4D8B /* CloudkitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */; };
 		C5A0C2091E53255A00EC2FF3 /* PostitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */; };
+		C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AA3A161E55E60A00DBF653 /* BlockView.swift */; };
 		C5B0ED4C1E5617320024129F /* CanvasModelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */; };
 		C5B0ED4D1E5617320024129F /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */; };
 		C5D80C8C1E54785D008FFE23 /* PostitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D80C8B1E54785D008FFE23 /* PostitCell.xib */; };
@@ -52,6 +53,7 @@
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
 		97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitHelper.swift; sourceTree = "<group>"; };
 		C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitCell.swift; sourceTree = "<group>"; };
+		C5AA3A161E55E60A00DBF653 /* BlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasModelsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		C5D80C8B1E54785D008FFE23 /* PostitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitCell.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				C5D80C8B1E54785D008FFE23 /* PostitCell.xib */,
 				C5D80C931E5490EF008FFE23 /* ButtonCell.swift */,
 				C5D80C941E5490EF008FFE23 /* ButtonCell.xib */,
+				C5AA3A161E55E60A00DBF653 /* BlockView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				C5ED5EB71E44AE4200577F08 /* ViewController.swift in Sources */,
 				97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */,
 				C5D80C951E5490EF008FFE23 /* ButtonCell.swift in Sources */,
+				C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */,
 				C5ED5EBA1E44AE4200577F08 /* BepidModelCanvas.xcdatamodeld in Sources */,
 				97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */,
 				97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */,
