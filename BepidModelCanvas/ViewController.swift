@@ -65,7 +65,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         postitCell.resizeOutlets()
         postitCell.titleTextField.text = "title \(indexPath.row)"
-        postitCell.backgroundColor = .blue
+        postitCell.backgroundColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.73)
         
         return postitCell
     }
