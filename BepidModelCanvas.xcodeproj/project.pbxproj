@@ -15,6 +15,8 @@
 		C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AA3A161E55E60A00DBF653 /* BlockView.swift */; };
 		C5B0ED4C1E5617320024129F /* CanvasModelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */; };
 		C5B0ED4D1E5617320024129F /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */; };
+		C5C5968B1E5C6485008301BC /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C5968A1E5C6485008301BC /* DAO.swift */; };
+		C5C5968D1E5C64D8008301BC /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C5968C1E5C64D8008301BC /* CoreDataDAO.swift */; };
 		C5D80C8C1E54785D008FFE23 /* PostitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D80C8B1E54785D008FFE23 /* PostitCell.xib */; };
 		C5D80C951E5490EF008FFE23 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D80C931E5490EF008FFE23 /* ButtonCell.swift */; };
 		C5D80C961E5490EF008FFE23 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5D80C941E5490EF008FFE23 /* ButtonCell.xib */; };
@@ -53,6 +55,8 @@
 		C5AA3A161E55E60A00DBF653 /* BlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasModelsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		C5C5968A1E5C6485008301BC /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		C5C5968C1E5C64D8008301BC /* CoreDataDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
 		C5D80C8B1E54785D008FFE23 /* PostitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitCell.xib; sourceTree = "<group>"; };
 		C5D80C931E5490EF008FFE23 /* ButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		C5D80C941E5490EF008FFE23 /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 		97E4C53D1E53226300AE4D8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C5C596891E5C6465008301BC /* DAO */,
 				97E4C53E1E5322A400AE4D8B /* CWPostit.swift */,
 				97E4C53F1E5322A400AE4D8B /* CWBlock.swift */,
 				97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */,
@@ -126,6 +131,15 @@
 				C5B0ED4B1E5617320024129F /* StartScreenViewController.swift */,
 			);
 			name = FirstScreen;
+			sourceTree = "<group>";
+		};
+		C5C596891E5C6465008301BC /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				C5C5968A1E5C6485008301BC /* DAO.swift */,
+				C5C5968C1E5C64D8008301BC /* CoreDataDAO.swift */,
+			);
+			name = DAO;
 			sourceTree = "<group>";
 		};
 		C5ED5EA81E44AE4200577F08 = {
@@ -328,6 +342,8 @@
 				97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */,
 				97E4C5451E5322A400AE4D8B /* CloudkitHelper.swift in Sources */,
 				C5A0C2091E53255A00EC2FF3 /* PostitCell.swift in Sources */,
+				C5C5968D1E5C64D8008301BC /* CoreDataDAO.swift in Sources */,
+				C5C5968B1E5C6485008301BC /* DAO.swift in Sources */,
 				C5ED5EB51E44AE4200577F08 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
