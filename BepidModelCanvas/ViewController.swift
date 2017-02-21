@@ -13,7 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     
-    var postitQuantity = [Int](repeating: 2, count: 9)
+    var postitQuantity = [Int](repeating: 1, count: 9)
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
