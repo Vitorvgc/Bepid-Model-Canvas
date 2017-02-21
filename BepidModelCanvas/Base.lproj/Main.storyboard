@@ -88,10 +88,10 @@
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grd-jm-wWw" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="341" height="302"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Key Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35Q-zQ-hkP">
-                                                                <rect key="frame" x="8" y="8" width="202" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Key Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35Q-zQ-hkP">
+                                                                <rect key="frame" x="8" y="8" width="325" height="40"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="128" id="Fyt-o1-5O4"/>
+                                                                    <constraint firstAttribute="width" constant="325" id="Fyt-o1-5O4"/>
                                                                     <constraint firstAttribute="height" constant="40" id="rDP-jX-7S2"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -129,11 +129,11 @@
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-tK-1bu" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="327" width="341" height="303"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Key Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1M-Po-Z7e">
-                                                                <rect key="frame" x="8" y="8" width="200" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Key Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1M-Po-Z7e">
+                                                                <rect key="frame" x="8" y="8" width="325" height="40"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="0fT-d8-Ght"/>
-                                                                    <constraint firstAttribute="width" constant="128" id="8kO-Ha-fJ2"/>
+                                                                    <constraint firstAttribute="width" constant="325" id="8kO-Ha-fJ2"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                 <nil key="textColor"/>
@@ -172,11 +172,11 @@
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-fO-nqw" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="731" y="0.0" width="340" height="630"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Customer Segments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-Zw-NiA">
-                                                        <rect key="frame" x="8" y="8" width="262" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Customer Segments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-Zw-NiA">
+                                                        <rect key="frame" x="8" y="8" width="324" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="RdI-GX-oaN"/>
-                                                            <constraint firstAttribute="width" constant="196" id="pgJ-4L-feZ"/>
+                                                            <constraint firstAttribute="width" constant="324" id="pgJ-4L-feZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -216,10 +216,10 @@
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-do-21v" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="302"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGg-xw-mva">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGg-xw-mva">
                                                                 <rect key="frame" x="8" y="8" width="173" height="40"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="128" id="15E-wn-OOS"/>
+                                                                    <constraint firstAttribute="width" constant="173" id="15E-wn-OOS"/>
                                                                     <constraint firstAttribute="height" constant="40" id="dSy-D1-y2B"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -257,10 +257,10 @@
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-YX-Qer" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="327" width="340" height="303"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Customer Relantionships" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd3-xa-Opp">
-                                                                <rect key="frame" x="8" y="8" width="305" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Customer Relantionships" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd3-xa-Opp">
+                                                                <rect key="frame" x="8" y="8" width="332" height="40"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="222" id="6Ac-j0-FD5"/>
+                                                                    <constraint firstAttribute="width" constant="332" id="6Ac-j0-FD5"/>
                                                                     <constraint firstAttribute="height" constant="40" id="7mg-Pk-L5f"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -300,10 +300,10 @@
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Tw-9pb" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="1461" y="0.0" width="340" height="630"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Value Propositions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-03-nMb">
-                                                        <rect key="frame" x="8" y="8" width="233" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Value Propositions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-03-nMb">
+                                                        <rect key="frame" x="8" y="8" width="324" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="179" id="7eS-PM-kJk"/>
+                                                            <constraint firstAttribute="width" constant="324" id="7eS-PM-kJk"/>
                                                             <constraint firstAttribute="height" constant="40" id="KBD-GE-g03"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -346,12 +346,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="888" height="224"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cost Sctructure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3l-WE-6Ng">
-                                                        <rect key="frame" x="8" y="8" width="409" height="40"/>
+                                                        <rect key="frame" x="8" y="8" width="872" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="DAn-df-2f8"/>
-                                                            <constraint firstAttribute="width" constant="409" id="N3N-Vz-AEk"/>
+                                                            <constraint firstAttribute="width" constant="872" id="N3N-Vz-AEk"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -386,9 +386,10 @@
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EY7-kt-DUT" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
                                                 <rect key="frame" x="913" y="0.0" width="888" height="224"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Revenue Streams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOy-Vi-Nhw">
-                                                        <rect key="frame" x="8" y="8" width="362" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Revenue Streams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOy-Vi-Nhw">
+                                                        <rect key="frame" x="8" y="8" width="558" height="40"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" constant="558" id="7ea-wh-tJt"/>
                                                             <constraint firstAttribute="height" constant="40" id="fWA-4u-r0V"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>

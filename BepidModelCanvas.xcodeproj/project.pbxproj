@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0619CE7E1E5C60A700F9A73F /* PostitType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0619CE7D1E5C60A700F9A73F /* PostitType.xib */; };
 		97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53E1E5322A400AE4D8B /* CWPostit.swift */; };
 		97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53F1E5322A400AE4D8B /* CWBlock.swift */; };
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0619CE7D1E5C60A700F9A73F /* PostitType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitType.xib; sourceTree = "<group>"; };
 		97E4C53E1E5322A400AE4D8B /* CWPostit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPostit.swift; sourceTree = "<group>"; };
 		97E4C53F1E5322A400AE4D8B /* CWBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBlock.swift; sourceTree = "<group>"; };
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				C5D80C8B1E54785D008FFE23 /* PostitCell.xib */,
 				C5D80C931E5490EF008FFE23 /* ButtonCell.swift */,
 				C5D80C941E5490EF008FFE23 /* ButtonCell.xib */,
+				0619CE7D1E5C60A700F9A73F /* PostitType.xib */,
 				C5AA3A161E55E60A00DBF653 /* BlockView.swift */,
 			);
 			name = Views;
@@ -291,6 +294,7 @@
 			files = (
 				C5ED5EBF1E44AE4200577F08 /* Assets.xcassets in Resources */,
 				C5ED5EBD1E44AE4200577F08 /* Main.storyboard in Resources */,
+				0619CE7E1E5C60A700F9A73F /* PostitType.xib in Resources */,
 				C5D80C8C1E54785D008FFE23 /* PostitCell.xib in Resources */,
 				C5D80C961E5490EF008FFE23 /* ButtonCell.xib in Resources */,
 			);
