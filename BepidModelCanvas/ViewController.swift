@@ -30,7 +30,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             $0.dataSource = self
             $0.register(UINib(nibName: "PostitCell", bundle: nil), forCellWithReuseIdentifier: "PostitCell")
             $0.register(UINib(nibName: "ButtonCell", bundle: nil), forCellWithReuseIdentifier: "ButtonCell")
-            $0.backgroundColor = UIColor(red: 197/255.0, green: 221/255.0, blue: 1, alpha: 1)
+            $0.register(UINib(nibName: "PostitType", bundle: nil), forCellWithReuseIdentifier: "PostitType")
+            //$0.backgroundColor = UIColor(red: 197/255.0, green: 221/255.0, blue: 1, alpha: 1)
         }
         
         self.views.forEach {
@@ -126,7 +127,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         postitCell.resizeOutlets()
         postitCell.titleTextField.text = "title \(indexPath.row)"
-        postitCell.backgroundColor = .blue
+        postitCell.backgroundColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.73)
         
         return postitCell
     }
