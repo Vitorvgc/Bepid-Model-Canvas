@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		97037CF31E57367800E72BC1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97037CF21E57367800E72BC1 /* CloudKit.framework */; };
+		0619CE7E1E5C60A700F9A73F /* PostitType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0619CE7D1E5C60A700F9A73F /* PostitType.xib */; };
+		0619CE801E5C6AB800F9A73F /* PostitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0619CE7F1E5C6AB800F9A73F /* PostitType.swift */; };
 		97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53E1E5322A400AE4D8B /* CWPostit.swift */; };
 		97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53F1E5322A400AE4D8B /* CWBlock.swift */; };
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		97037CF01E57367300E72BC1 /* BepidModelCanvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BepidModelCanvas.entitlements; sourceTree = "<group>"; };
 		97037CF21E57367800E72BC1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		0619CE7D1E5C60A700F9A73F /* PostitType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitType.xib; sourceTree = "<group>"; };
+		0619CE7F1E5C6AB800F9A73F /* PostitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitType.swift; sourceTree = "<group>"; };
 		97E4C53E1E5322A400AE4D8B /* CWPostit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPostit.swift; sourceTree = "<group>"; };
 		97E4C53F1E5322A400AE4D8B /* CWBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBlock.swift; sourceTree = "<group>"; };
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
