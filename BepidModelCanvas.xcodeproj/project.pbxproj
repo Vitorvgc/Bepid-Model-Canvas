@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0619CE7E1E5C60A700F9A73F /* PostitType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0619CE7D1E5C60A700F9A73F /* PostitType.xib */; };
-		0619CE801E5C6AB800F9A73F /* PostitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0619CE7F1E5C6AB800F9A73F /* PostitType.swift */; };
+		97037CF31E57367800E72BC1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97037CF21E57367800E72BC1 /* CloudKit.framework */; };
 		97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53E1E5322A400AE4D8B /* CWPostit.swift */; };
 		97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53F1E5322A400AE4D8B /* CWBlock.swift */; };
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
@@ -47,8 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0619CE7D1E5C60A700F9A73F /* PostitType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitType.xib; sourceTree = "<group>"; };
-		0619CE7F1E5C6AB800F9A73F /* PostitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitType.swift; sourceTree = "<group>"; };
+		97037CF01E57367300E72BC1 /* BepidModelCanvas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BepidModelCanvas.entitlements; sourceTree = "<group>"; };
+		97037CF21E57367800E72BC1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		97E4C53E1E5322A400AE4D8B /* CWPostit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPostit.swift; sourceTree = "<group>"; };
 		97E4C53F1E5322A400AE4D8B /* CWBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBlock.swift; sourceTree = "<group>"; };
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97037CF31E57367800E72BC1 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97037CF11E57367800E72BC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97037CF21E57367800E72BC1 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		97E4C53D1E53226300AE4D8B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +149,7 @@
 				C5ED5EC81E44AE4300577F08 /* BepidModelCanvasTests */,
 				C5ED5ED31E44AE4300577F08 /* BepidModelCanvasUITests */,
 				C5ED5EB21E44AE4200577F08 /* Products */,
+				97037CF11E57367800E72BC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +166,7 @@
 		C5ED5EB31E44AE4200577F08 /* BepidModelCanvas */ = {
 			isa = PBXGroup;
 			children = (
+				97037CF01E57367300E72BC1 /* BepidModelCanvas.entitlements */,
 				97E4C53D1E53226300AE4D8B /* Model */,
 				C5A0C20B1E534B3D00EC2FF3 /* Views */,
 				C5ED5EB41E44AE4200577F08 /* AppDelegate.swift */,
@@ -256,7 +266,16 @@
 				TargetAttributes = {
 					C5ED5EB01E44AE4200577F08 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GYT288GTM5;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					C5ED5EC41E44AE4300577F08 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -479,9 +498,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = BepidModelCanvas/BepidModelCanvas.entitlements;
+				DEVELOPMENT_TEAM = GYT288GTM5;
 				INFOPLIST_FILE = BepidModelCanvas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bepidcanvas.BepidModelCanvas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bepidbmc.BepidBMC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -492,9 +513,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = BepidModelCanvas/BepidModelCanvas.entitlements;
+				DEVELOPMENT_TEAM = GYT288GTM5;
 				INFOPLIST_FILE = BepidModelCanvas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bepidcanvas.BepidModelCanvas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bepidbmc.BepidBMC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
