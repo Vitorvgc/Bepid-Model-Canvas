@@ -72,11 +72,11 @@ class CWPostit {
     class func createPostit(withTitle title: String, andText text: String, andColor color: UIColor?,parent: CKRecord, competionHandler: @escaping ((_ sucess: Bool, _ postit: CWPostit?) -> ())){
         
         let newPostit = CWPostit.init(title: title, text: text, color: color, parent: parent)
-        CloukKitHelper.publicDB.save( newPostit.record, completionHandler: { (record, error) in
+        CloukKitHelper.privateDB.save( newPostit.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newPostit)
             }
-            else{
+            else{print(error.debugDescription)
                 competionHandler(false, newPostit)
             }
         } )
@@ -100,7 +100,7 @@ class CWPostit {
     //    }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
-        CloukKitHelper.publicDB.delete(withRecordID: self.recordId){ (recordId, error) in
+        CloukKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
                 competionHandler(true)
             }
@@ -109,6 +109,33 @@ class CWPostit {
             }
         }
     }
+    
+    func upadate(title: String?, text: String?, color: UIColor?,competionHandler: @escaping ((_ sucess: Bool) -> ())){
+        var modified = false
+        
+        if let newTitle = title{
+            self.record[titleKey] = newTitle as CKRecordValue?
+            modified = true
+        }
+        if let newText = text{
+            self.record[textKey] = newText as CKRecordValue?
+            modified = true
+        }
+        if let newColor = color{
+            self.record[colorKey] = CWPostit.colorToInt(color: newColor) as CKRecordValue?
+            modified = true
+        }
+        if modified{
+            CloukKitHelper.privateDB.save(self.record, completionHandler: {
+                record, error in
+                if error == nil{
+                    competionHandler(true)
+                }
+            })
+        }
+        competionHandler(false)
+    }
+    
     
     static func colorToInt(color: UIColor) -> Int{
         switch color {

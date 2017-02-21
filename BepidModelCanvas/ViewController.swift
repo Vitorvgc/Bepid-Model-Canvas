@@ -33,6 +33,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             $0.backgroundColor = UIColor(red: 197/255.0, green: 221/255.0, blue: 1, alpha: 1)
         }
         
+        self.views.forEach {
+            $0.collectionView = $0.subviews.filter { $0 is UICollectionView}.first as! UICollectionView!
+        }
         CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
             sucess, records in
             if sucess{

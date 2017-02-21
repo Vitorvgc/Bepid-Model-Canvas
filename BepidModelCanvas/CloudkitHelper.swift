@@ -27,7 +27,7 @@ class CloukKitHelper: NSObject {
     static func getAllRecords(fromEntity entity: String, competionHandler: @escaping ((_ sucess: Bool, _ records: [CKRecord]?) -> ())){
         let predicate = NSPredicate.init(value: true)
         let query     = CKQuery.init(recordType: entity, predicate: predicate)
-        publicDB.perform(query, inZoneWith: nil, completionHandler: {
+        privateDB.perform(query, inZoneWith: nil, completionHandler: {
             records, error in
             if error == nil{
                 competionHandler(true, records)
@@ -44,7 +44,7 @@ class CloukKitHelper: NSObject {
         let predicate = NSPredicate.init(format: "parent = %@", recordId)
         let query     = CKQuery.init(recordType: childEntity, predicate: predicate)
         
-        publicDB.perform(query, inZoneWith: nil, completionHandler: {
+        privateDB.perform(query, inZoneWith: nil, completionHandler: {
             records, error in
             if error == nil{
                 competionHandler(true, records)

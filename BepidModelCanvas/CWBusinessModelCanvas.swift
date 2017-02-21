@@ -78,7 +78,7 @@ class CWBusinessModelCanvas{
         
         let newBmc = CWBusinessModelCanvas.init(title: title)
         
-        CloukKitHelper.publicDB.save( newBmc.record, completionHandler: { (record, error) in
+        CloukKitHelper.privateDB.save( newBmc.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newBmc)
             }
@@ -93,7 +93,7 @@ class CWBusinessModelCanvas{
     class func saveBlocks(blocks: [CWBlock], competionHandler: @escaping ((_ sucess: Bool, _ bmc: CKRecord?) -> ())){
         var sucess = true
         for block in blocks{
-            CloukKitHelper.publicDB.save(block.record, completionHandler: {
+            CloukKitHelper.privateDB.save(block.record, completionHandler: {
                 record, erro in
                 if erro != nil{
                     sucess = false
@@ -104,7 +104,7 @@ class CWBusinessModelCanvas{
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
-        CloukKitHelper.publicDB.delete(withRecordID: self.recordId){ (recordId, error) in
+        CloukKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
                 competionHandler(true)
             }
@@ -112,6 +112,28 @@ class CWBusinessModelCanvas{
                 competionHandler(false)
             }
         }
+    }
+    
+    func upadate(title: String?, image: UIImage?, competionHandler: @escaping ((_ sucess: Bool) -> ())){
+        var modified = false
+        
+        if let newTitle = title{
+            self.record[titleKey] = newTitle as CKRecordValue?
+            modified = true
+        }
+        if let newImage = image{
+            self.record[imageKey] = UIImagePNGRepresentation(newImage) as CKRecordValue?
+            modified = true
+        }
+        if modified{
+            CloukKitHelper.privateDB.save(self.record, completionHandler: {
+                record, error in
+                if error == nil{
+                    competionHandler(true)
+                }
+            })
+        }
+        competionHandler(false)
     }
     
     

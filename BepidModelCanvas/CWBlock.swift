@@ -71,7 +71,7 @@ class CWBlock{
     class func createBlock(withTitle title: String, andColor color: UIColor?, andIcon icon: UIImage,parent: CKRecord, competionHandler: @escaping ((_ sucess: Bool, _ block: CWBlock?) -> ())){
         
         let newBlock = CWBlock.init(title: title, color: color, icon: icon, parent: parent)
-        CloukKitHelper.publicDB.save( newBlock.record, completionHandler: { (record, error) in
+        CloukKitHelper.privateDB.save( newBlock.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newBlock)
             }
@@ -82,7 +82,7 @@ class CWBlock{
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
-        CloukKitHelper.publicDB.delete(withRecordID: self.recordId){ (recordId, error) in
+        CloukKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
                 competionHandler(true)
             }
