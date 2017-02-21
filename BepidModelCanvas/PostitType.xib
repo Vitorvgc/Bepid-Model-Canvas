@@ -30,7 +30,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.65490196078431373" green="0.87058823529411766" blue="1" alpha="0.73196703767123283" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.65490196078431373" green="0.87058823529411766" blue="1" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcs-As-nKh">
                         <rect key="frame" x="71" y="163" width="40" height="40"/>

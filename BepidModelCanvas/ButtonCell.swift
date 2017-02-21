@@ -18,7 +18,6 @@ class ButtonCell: UICollectionViewCell {
         super.awakeFromNib()
         
         self.layer.cornerRadius = 20
-        self.backgroundColor = .white
         
         self.imageView.image = UIImage(named: "plus")
         
