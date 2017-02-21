@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0619CE7E1E5C60A700F9A73F /* PostitType.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0619CE7D1E5C60A700F9A73F /* PostitType.xib */; };
+		0619CE801E5C6AB800F9A73F /* PostitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0619CE7F1E5C6AB800F9A73F /* PostitType.swift */; };
 		97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53E1E5322A400AE4D8B /* CWPostit.swift */; };
 		97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53F1E5322A400AE4D8B /* CWBlock.swift */; };
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		0619CE7D1E5C60A700F9A73F /* PostitType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitType.xib; sourceTree = "<group>"; };
+		0619CE7F1E5C6AB800F9A73F /* PostitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitType.swift; sourceTree = "<group>"; };
 		97E4C53E1E5322A400AE4D8B /* CWPostit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWPostit.swift; sourceTree = "<group>"; };
 		97E4C53F1E5322A400AE4D8B /* CWBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBlock.swift; sourceTree = "<group>"; };
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				C5D80C8B1E54785D008FFE23 /* PostitCell.xib */,
 				C5D80C931E5490EF008FFE23 /* ButtonCell.swift */,
 				C5D80C941E5490EF008FFE23 /* ButtonCell.xib */,
+				0619CE7F1E5C6AB800F9A73F /* PostitType.swift */,
 				0619CE7D1E5C60A700F9A73F /* PostitType.xib */,
 				C5AA3A161E55E60A00DBF653 /* BlockView.swift */,
 			);
@@ -324,6 +327,7 @@
 				C5B0ED4D1E5617320024129F /* StartScreenViewController.swift in Sources */,
 				C5B0ED4C1E5617320024129F /* CanvasModelsCollectionViewCell.swift in Sources */,
 				C5ED5EB71E44AE4200577F08 /* ViewController.swift in Sources */,
+				0619CE801E5C6AB800F9A73F /* PostitType.swift in Sources */,
 				97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */,
 				C5D80C951E5490EF008FFE23 /* ButtonCell.swift in Sources */,
 				C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */,
