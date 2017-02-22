@@ -18,20 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="454" height="292"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZVE-Ln-dBd">
-                        <rect key="frame" x="21" y="25" width="410" height="120"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1NZ-qW-3zD">
-                                <rect key="frame" x="8" y="8" width="394" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" red="0.65490196078431373" green="0.87058823529411766" blue="1" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcs-As-nKh">
                         <rect key="frame" x="71" y="163" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,11 +40,29 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.7803921568627451" blue="0.90980392156862744" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-sR-gZI">
+                        <rect key="frame" x="23" y="14" width="387" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="clear:" destination="RIK-h9-YjH" eventType="editingDidEnd" id="QdU-cO-KyM"/>
+                            <action selector="edit:" destination="RIK-h9-YjH" eventType="editingDidEnd" id="Wfs-wy-XJa"/>
+                        </connections>
+                    </textField>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-xK-Vkf">
+                        <rect key="frame" x="23" y="14" width="387" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.65490196078431373" green="0.87058823529411766" blue="1" alpha="0.72999999999999998" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
             </view>
             <size key="customSize" width="454" height="292"/>
             <connections>
-                <outlet property="titleTextField" destination="1NZ-qW-3zD" id="bbh-dR-Otp"/>
+                <outlet property="textViewPostit" destination="jWf-xK-Vkf" id="9OY-YT-qZE"/>
             </connections>
             <point key="canvasLocation" x="-374" y="468"/>
         </collectionViewCell>
