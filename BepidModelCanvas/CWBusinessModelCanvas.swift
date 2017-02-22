@@ -48,10 +48,10 @@ class CWBusinessModelCanvas{
         }
     }
     
-    init(title: String) {
+    init(title: String, image: UIImage) {
         record = CKRecord(recordType: "bmc")
         record[titleKey] = title as CKRecordValue?
-        record[imageKey] = UIImagePNGRepresentation(#imageLiteral(resourceName: "heart")) as CKRecordValue?
+        record[imageKey] = UIImagePNGRepresentation(image) as CKRecordValue?
         initBlocks()
     }
     
@@ -74,9 +74,9 @@ class CWBusinessModelCanvas{
         blocks = [keyPaternersBlock, keyActivitiesBlock, keyResourcesBlock, valuePropositionsBlock, custumerRelationshipsBlock, channelsBlock, custumerSegmentsBlock, costStructureBlock, revenueStreamsBlock]
     }
     
-    class func createBmc(withTitle title: String, competionHandler: @escaping ((_ sucess: Bool, _ bmc: CWBusinessModelCanvas?) -> ())){
+    class func createBmc(withTitle title: String, withImage image:UIImage,competionHandler: @escaping ((_ sucess: Bool, _ bmc: CWBusinessModelCanvas?) -> ())){
         
-        let newBmc = CWBusinessModelCanvas.init(title: title)
+        let newBmc = CWBusinessModelCanvas.init(title: title, image: image)
         
         CloukKitHelper.privateDB.save( newBmc.record, completionHandler: { (record, error) in
             if error == nil{
@@ -88,7 +88,6 @@ class CWBusinessModelCanvas{
         } )
         
     }
-    
     
     class func saveBlocks(blocks: [CWBlock], competionHandler: @escaping ((_ sucess: Bool, _ bmc: CKRecord?) -> ())){
         var sucess = true

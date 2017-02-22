@@ -535,6 +535,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="BmcCollectionView" destination="918-gG-FeT" id="j7i-AW-Bjn"/>
                         <outlet property="CanvaImage" destination="s3g-TN-J6X" id="pNI-cg-bxe"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="OpenCanvas" id="WmE-SR-fl6"/>
                     </connections>
