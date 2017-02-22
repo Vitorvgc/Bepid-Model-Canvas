@@ -13,13 +13,17 @@ class PostitType: UICollectionViewCell {
         
     @IBOutlet weak var textViewPostit: UITextView!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet var colorViews: [UIView]!
+    @IBOutlet var colorViews: [FocusableView]!
     @IBOutlet weak var label: UILabel!
     
-    var isEditing = false
+    var isEditing = true
+    
+    override var canBecomeFocused: Bool {
+        return !self.isEditing
+    }
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return self.isEditing ? [self.textViewPostit] : super.preferredFocusEnvironments
+        return self.isEditing ? [self.textField, self.colorViews[0], self.colorViews[1], self.colorViews[2]] : super.preferredFocusEnvironments
     }
     
     @IBAction func edit(_ sender: UITextField) {
@@ -87,6 +91,10 @@ class PostitType: UICollectionViewCell {
     
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
         self.textViewPostit.text = "Long pressed"
+    }
+    
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        return (context.nextFocusedItem as! UIView).tag == self.tag
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
