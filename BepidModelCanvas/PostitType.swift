@@ -10,19 +10,34 @@
 import UIKit
 
 class PostitType: UICollectionViewCell {
+        
+    @IBOutlet weak var textViewPostit: UITextView!
     
-    @IBOutlet weak var titleTextField: UITextField!
     
     var isEditing = false
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return self.isEditing ? [self.titleTextField] : super.preferredFocusEnvironments
+        return self.isEditing ? [self.textViewPostit] : super.preferredFocusEnvironments
     }
+    
+    @IBAction func edit(_ sender: UITextField) {
+        
+        sender.text = self.textViewPostit.text
+    }
+    
+    @IBAction func clear(_ sender: UITextField) {
+        
+        self.textViewPostit.text = sender.text
+        sender.text = ""
+        
+    }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
-        self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
+        self.textViewPostit.backgroundColor = UIColor(white: 1, alpha: 0)
         
         // Gesture recognizers
         
@@ -46,7 +61,7 @@ class PostitType: UICollectionViewCell {
         let width = self.frame.size.width
         let height = self.frame.size.height
         
-        self.titleTextField.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
+        self.textViewPostit.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
     }
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
@@ -55,11 +70,11 @@ class PostitType: UICollectionViewCell {
     }
     
     func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.titleTextField.text = "Double tapped"
+        self.textViewPostit.text = "Double tapped"
     }
     
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.titleTextField.text = "Long pressed"
+        self.textViewPostit.text = "Long pressed"
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
