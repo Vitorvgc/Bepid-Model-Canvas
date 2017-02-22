@@ -12,7 +12,9 @@ import UIKit
 class PostitType: UICollectionViewCell {
         
     @IBOutlet weak var textViewPostit: UITextView!
-    
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet var colorViews: [UIView]!
+    @IBOutlet weak var label: UILabel!
     
     var isEditing = false
     
@@ -32,8 +34,6 @@ class PostitType: UICollectionViewCell {
         
     }
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
@@ -43,16 +43,16 @@ class PostitType: UICollectionViewCell {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
         tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-        self.addGestureRecognizer(tapGestureRecognizer)
+        //self.addGestureRecognizer(tapGestureRecognizer)
         
         let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(gestureRecognizer:)))
         doubleTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
         doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGestureRecognizer)
+        //self.addGestureRecognizer(doubleTapGestureRecognizer)
         
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
         longPressGestureRecognizer.minimumPressDuration = 1.5
-        self.addGestureRecognizer(longPressGestureRecognizer)
+        //self.addGestureRecognizer(longPressGestureRecognizer)
         
     }
     
@@ -61,7 +61,19 @@ class PostitType: UICollectionViewCell {
         let width = self.frame.size.width
         let height = self.frame.size.height
         
-        self.textViewPostit.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
+        let textFrame = CGRect(x: width * 0.03, y: height * 0.03, width: width * 0.94, height: height * 0.64)
+        self.textViewPostit.frame = textFrame
+        self.textField.frame = textFrame
+        
+        var xPosition = width * 0.03
+        self.colorViews.forEach {
+            $0.frame = CGRect(x: xPosition, y: height * 0.7, width: width / 10, height: width / 10)
+            xPosition += $0.frame.width * 1.2
+        }
+        
+        let viewFrame = self.colorViews[0].frame
+        self.label.frame = CGRect(x: xPosition, y: viewFrame.minY, width: width - xPosition, height: viewFrame.height)
+        
     }
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
