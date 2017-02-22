@@ -18,13 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-wV-LjA">
-                        <rect key="frame" x="25" y="40" width="20" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="20" id="to7-cg-NVW"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar um Post-it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mco-Hj-DVA">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Adicionar um Post-it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mco-Hj-DVA">
                         <rect key="frame" x="59" y="40" width="308" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
@@ -34,16 +28,10 @@
             </view>
             <color key="backgroundColor" red="0.65490196078431373" green="0.87058823529411766" blue="1" alpha="0.72717786815068497" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Mco-Hj-DVA" secondAttribute="trailing" constant="33" id="4ah-hS-8ph"/>
-                <constraint firstItem="Mco-Hj-DVA" firstAttribute="leading" secondItem="fSQ-wV-LjA" secondAttribute="trailing" constant="14" id="891-kk-imW"/>
-                <constraint firstItem="fSQ-wV-LjA" firstAttribute="top" secondItem="Mco-Hj-DVA" secondAttribute="top" id="TK5-Ex-G9U"/>
-                <constraint firstItem="fSQ-wV-LjA" firstAttribute="bottom" secondItem="Mco-Hj-DVA" secondAttribute="bottom" id="fmy-6K-zz7"/>
-                <constraint firstItem="fSQ-wV-LjA" firstAttribute="leading" secondItem="Rz2-K0-ksD" secondAttribute="leading" constant="25" id="ife-Yj-Fgd"/>
-                <constraint firstItem="fSQ-wV-LjA" firstAttribute="centerY" secondItem="Rz2-K0-ksD" secondAttribute="centerY" id="l9g-pd-xHz"/>
+                <constraint firstItem="Mco-Hj-DVA" firstAttribute="leading" secondItem="Rz2-K0-ksD" secondAttribute="leading" constant="59" id="ioq-3z-fI5"/>
+                <constraint firstItem="Mco-Hj-DVA" firstAttribute="centerY" secondItem="Rz2-K0-ksD" secondAttribute="centerY" id="ird-E9-gHs"/>
+                <constraint firstAttribute="trailing" secondItem="Mco-Hj-DVA" secondAttribute="trailing" constant="33" id="jo8-t2-ReQ"/>
             </constraints>
-            <connections>
-                <outlet property="imageView" destination="fSQ-wV-LjA" id="UqV-VG-fCm"/>
-            </connections>
         </collectionViewCell>
     </objects>
 </document>

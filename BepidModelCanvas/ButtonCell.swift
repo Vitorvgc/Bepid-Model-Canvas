@@ -10,16 +10,12 @@ import UIKit
 
 class ButtonCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageView: UIImageView!
-    
     var onSelection: () -> Void = {}
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         self.layer.cornerRadius = 20
-        
-        self.imageView.image = UIImage(named: "plus")
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
         tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
@@ -31,7 +27,7 @@ class ButtonCell: UICollectionViewCell {
         let width = self.frame.size.width
         let height = self.frame.size.height
         
-        self.imageView.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
+//        self.imageView.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
     }
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
