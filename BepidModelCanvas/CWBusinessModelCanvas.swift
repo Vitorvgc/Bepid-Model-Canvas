@@ -19,7 +19,7 @@ class CWBusinessModelCanvas{
     var recordId : CKRecordID{
         return record.recordID
     }
-
+    
     var keyPaternersBlock : CWBlock!
     var keyActivitiesBlock: CWBlock!
     var keyResourcesBlock : CWBlock!
@@ -48,29 +48,37 @@ class CWBusinessModelCanvas{
         }
     }
     
-    init(title: String) {
+    init(title: String, image: UIImage) {
         record = CKRecord(recordType: "bmc")
         record[titleKey] = title as CKRecordValue?
-        record[imageKey] = UIImagePNGRepresentation(#imageLiteral(resourceName: "checkMark")) as CKRecordValue?
+        record[imageKey] = UIImagePNGRepresentation(image) as CKRecordValue?
+        initBlocks()
+    }
+    
+    init (withRecord record: CKRecord ){
+        self.record = record
+        initBlocks()
+    }
+    
+    func initBlocks(){
+        keyPaternersBlock = CWBlock.init(title: "Key Paterners", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        keyActivitiesBlock = CWBlock.init(title: "Key Activities", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        keyResourcesBlock = CWBlock.init(title: "Key Resources", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        valuePropositionsBlock = CWBlock.init(title: "Value Propositions", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        custumerRelationshipsBlock = CWBlock.init(title: "Custumer Relationships", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        channelsBlock = CWBlock.init(title: "Channels", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        custumerSegmentsBlock = CWBlock.init(title: "Custumer Segments", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        costStructureBlock = CWBlock.init(title: "Cost Structure", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
+        revenueStreamsBlock = CWBlock.init(title: "Revenue Streams", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), parent: self.record)
         
-        keyPaternersBlock = CWBlock.init(title: "Key Paterners", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        keyActivitiesBlock = CWBlock.init(title: "Key Activities", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        keyResourcesBlock = CWBlock.init(title: "Key Resources", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        valuePropositionsBlock = CWBlock.init(title: "Value Propositions", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        custumerRelationshipsBlock = CWBlock.init(title: "Custumer Relationships", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        channelsBlock = CWBlock.init(title: "Channels", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        custumerSegmentsBlock = CWBlock.init(title: "Custumer Segments", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        costStructureBlock = CWBlock.init(title: "Cost Structure", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-        revenueStreamsBlock = CWBlock.init(title: "Revenue Streams", color: UIColor.white , icon: #imageLiteral(resourceName: "checkMark"), parent: self.record)
-
         blocks = [keyPaternersBlock, keyActivitiesBlock, keyResourcesBlock, valuePropositionsBlock, custumerRelationshipsBlock, channelsBlock, custumerSegmentsBlock, costStructureBlock, revenueStreamsBlock]
     }
     
-    class func createBmc(withTitle title: String, competionHandler: @escaping ((_ sucess: Bool, _ bmc: CWBusinessModelCanvas?) -> ())){
+    class func createBmc(withTitle title: String, withImage image:UIImage,competionHandler: @escaping ((_ sucess: Bool, _ bmc: CWBusinessModelCanvas?) -> ())){
         
-        let newBmc = CWBusinessModelCanvas.init(title: title)
+        let newBmc = CWBusinessModelCanvas.init(title: title, image: image)
         
-        CloukKitHelper.publicDB.save( newBmc.record, completionHandler: { (record, error) in
+        CloukKitHelper.privateDB.save( newBmc.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newBmc)
             }
@@ -81,11 +89,10 @@ class CWBusinessModelCanvas{
         
     }
     
-    
     class func saveBlocks(blocks: [CWBlock], competionHandler: @escaping ((_ sucess: Bool, _ bmc: CKRecord?) -> ())){
         var sucess = true
         for block in blocks{
-            CloukKitHelper.publicDB.save(block.record, completionHandler: {
+            CloukKitHelper.privateDB.save(block.record, completionHandler: {
                 record, erro in
                 if erro != nil{
                     sucess = false
@@ -93,11 +100,10 @@ class CWBusinessModelCanvas{
             })
         }
         competionHandler(sucess, nil)
-
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
-        CloukKitHelper.publicDB.delete(withRecordID: self.recordId){ (recordId, error) in
+        CloukKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
                 competionHandler(true)
             }
@@ -106,7 +112,29 @@ class CWBusinessModelCanvas{
             }
         }
     }
-
+    
+    func upadate(title: String?, image: UIImage?, competionHandler: @escaping ((_ sucess: Bool) -> ())){
+        var modified = false
+        
+        if let newTitle = title{
+            self.record[titleKey] = newTitle as CKRecordValue?
+            modified = true
+        }
+        if let newImage = image{
+            self.record[imageKey] = UIImagePNGRepresentation(newImage) as CKRecordValue?
+            modified = true
+        }
+        if modified{
+            CloukKitHelper.privateDB.save(self.record, completionHandler: {
+                record, error in
+                if error == nil{
+                    competionHandler(true)
+                }
+            })
+        }
+        competionHandler(false)
+    }
+    
     
     
 }

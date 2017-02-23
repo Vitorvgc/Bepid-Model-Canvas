@@ -7,15 +7,38 @@
 //
 
 import UIKit
+import CloudKit
 
 class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var BmcCollectionView: UICollectionView!
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    var bmcs = [CWBusinessModelCanvas]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        CloukKitHelper.icloudStatus()
+        let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
+        bmcs.append(addNewCanvas)
+        
+        CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
+            sucess, records in
+            if sucess{
+                if let recs = records{
+                    print("bmc count \(recs.count)")
+                    for rec in recs{
+                        let bmc = CWBusinessModelCanvas.init(withRecord: rec)
+                        self.bmcs.append(bmc)
+                        self.BmcCollectionView.reloadData()
+                    }
+                }
+            }
+            else{
+                
+                print(" bmc doesnt exist!")
+            }
+        })
+               
     }
     
     @IBOutlet weak var CanvaImage: UIImageView!
@@ -28,16 +51,14 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return bmcs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
-        if indexPath.row == 0 {
-            self.CanvaImage.image = #imageLiteral(resourceName: "newCanvasDemo")
-            cell.CanvaImage.image = #imageLiteral(resourceName: "newCanvasDemo")
-            cell.CanvaTitle.text! = "Add new canvas"
-        }
+        let bmc = bmcs[indexPath.row]
+        cell.CanvaImage.image = bmc.image
+        cell.CanvaTitle.text! = bmc.title
         
         return cell
     }

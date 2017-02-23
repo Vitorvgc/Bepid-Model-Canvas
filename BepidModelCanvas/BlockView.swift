@@ -41,7 +41,7 @@ class BlockView: UIView {
             
             coordinator.addCoordinatedAnimations({
                 
-                self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                self.transform = CGAffineTransform(scaleX: 1.03, y: 1.03)
                 self.layer.shadowOpacity = 0.2
                 self.layer.shadowOffset = CGSize(width: 0, height: 15)
                 self.layer.shadowRadius = 15

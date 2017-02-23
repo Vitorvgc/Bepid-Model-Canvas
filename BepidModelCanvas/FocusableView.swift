@@ -1,54 +1,19 @@
 //
-//  PostitCell.swift
+//  FocusableView.swift
 //  BepidModelCanvas
 //
-//  Created by Vítor Chagas on 14/02/17.
+//  Created by Vítor Chagas on 22/02/17.
 //  Copyright © 2017 BepidCanvas. All rights reserved.
 //
 
 import UIKit
 
-class PostitCell: UICollectionViewCell {
+class FocusableView: UIView {
     
-    @IBOutlet weak var titleTextField: UITextField!
-    
-    var onSelection: () -> Void = {}
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.layer.cornerRadius = 4
-        self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
-        
-        // Gesture recognizers
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
-        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-        self.addGestureRecognizer(tapGestureRecognizer)
-        
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
-        longPressGestureRecognizer.minimumPressDuration = 1.5
-        self.addGestureRecognizer(longPressGestureRecognizer)
-        
+    override var canBecomeFocused: Bool {
+        return true
     }
-    
-    func resizeOutlets() {
-        
-        let width = self.frame.size.width
-        let height = self.frame.size.height
-        
-        self.titleTextField.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
-    }
-    
-    func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.onSelection()
-    }
-    
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.titleTextField.text = "Long pressed"
-    }
-    
-    //MARK: Focus engine
- 
+
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         if context.nextFocusedItem === self {
@@ -70,9 +35,10 @@ class PostitCell: UICollectionViewCell {
                 self.transform = CGAffineTransform.identity
                 self.layer.shadowOpacity = 0
                 self.removeMotionEffect(self.motionEffectGroup)
-                                
+                
             }, completion: nil)
         }
+        
     }
     
     lazy private var motionEffectGroup: UIMotionEffectGroup = {
@@ -90,5 +56,5 @@ class PostitCell: UICollectionViewCell {
         
         return motionEffectGroup
     }()
-
+    
 }

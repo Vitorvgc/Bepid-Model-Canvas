@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -18,15 +18,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-wV-LjA">
-                        <rect key="frame" x="119" y="7" width="163" height="87"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Adicionar um Post-it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mco-Hj-DVA">
+                        <rect key="frame" x="59" y="40" width="308" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
-            <connections>
-                <outlet property="imageView" destination="fSQ-wV-LjA" id="UqV-VG-fCm"/>
-            </connections>
+            <color key="backgroundColor" red="0.65490196078431373" green="0.87058823529411766" blue="1" alpha="0.72717786815068497" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Mco-Hj-DVA" firstAttribute="leading" secondItem="Rz2-K0-ksD" secondAttribute="leading" constant="59" id="ioq-3z-fI5"/>
+                <constraint firstItem="Mco-Hj-DVA" firstAttribute="centerY" secondItem="Rz2-K0-ksD" secondAttribute="centerY" id="ird-E9-gHs"/>
+                <constraint firstAttribute="trailing" secondItem="Mco-Hj-DVA" secondAttribute="trailing" constant="33" id="jo8-t2-ReQ"/>
+            </constraints>
         </collectionViewCell>
     </objects>
 </document>
