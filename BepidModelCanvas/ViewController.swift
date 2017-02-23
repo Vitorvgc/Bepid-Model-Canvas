@@ -13,7 +13,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     
-    var postitQuantity = [Int](repeating: 1, count: 9)
+    var postitQuantity = [Int](repeating: 2, count: 9)
+    
+    var editedPostitPosition: (tag: Int, position: IndexPath)?
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
@@ -31,11 +33,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             $0.register(UINib(nibName: "PostitCell", bundle: nil), forCellWithReuseIdentifier: "PostitCell")
             $0.register(UINib(nibName: "ButtonCell", bundle: nil), forCellWithReuseIdentifier: "ButtonCell")
             $0.register(UINib(nibName: "PostitType", bundle: nil), forCellWithReuseIdentifier: "PostitType")
-            //$0.backgroundColor = UIColor(red: 197/255.0, green: 221/255.0, blue: 1, alpha: 1)
         }
         
         self.views.forEach {
-            $0.collectionView = $0.subviews.filter { $0 is UICollectionView}.first as! UICollectionView!
+            $0.collectionView = $0.subviews.filter { $0 is UICollectionView }.first as! UICollectionView!
         }
         CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
             sucess, records in
@@ -100,7 +101,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
 
+    
     //MARK: CollectionView Data Source
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -112,17 +115,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        // Add a plus button at last cell
+        // Add a editing postit if anyone is selected
+        if self.isEditingCell(at: collectionView, in: indexPath) {
+            let editingPostitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitType", for: indexPath) as! PostitType
+            editingPostitCell.resizeOutlets()
+            
+            return editingPostitCell
+        }
+    
+        // Add a plus button if this is the last cell
         if indexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
 
             let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
 
             buttonCell.resizeOutlets()
-            buttonCell.onSelection = { self.createNewPostit(at: collectionView) }
+            buttonCell.onSelection = { self.createNewPostit(at: collectionView, in: indexPath) }
 
             return buttonCell
         }
 
+        // Otherwise create a normal postit cell
         let postitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitCell", for: indexPath) as! PostitCell
         
         postitCell.resizeOutlets()
@@ -132,13 +144,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return postitCell
     }
 
+    
+    //MARK: CollectionView Delegate
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("[CV] didSelectItem")
+        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath)
+        collectionView.reloadData()
+    }
+    
+    
     //MARK: CollectionView Delegate Flow Layout
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return self.cellSize
+        if !self.isEditingCell(at: collectionView, in: indexPath) {
+            return self.cellSize
+        }
+        else {
+            return CGSize(width: self.cellSize.width, height: self.cellSize.height * 2)
+        }
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let verticalInset = self.cellSize.height * 0.15
@@ -147,11 +176,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return UIEdgeInsets(top: verticalInset, left: horizontalInset, bottom: verticalInset, right: horizontalInset)
     }
     
+    
     //MARK: View methods
     
-    func createNewPostit(at collectionView: UICollectionView) {
+    
+    private func createNewPostit(at collectionView: UICollectionView, in indexPath: IndexPath) {
+        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath)
         postitQuantity[collectionView.tag] += 1
         collectionView.reloadData()
+    }
+    
+    private func isEditingCell(at collectionView: UICollectionView, in indexPath: IndexPath) -> Bool {
+        return (editedPostitPosition != nil && editedPostitPosition!.tag == collectionView.tag && editedPostitPosition!.position == indexPath)
     }
     
 }
