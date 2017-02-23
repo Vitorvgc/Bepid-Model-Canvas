@@ -9,15 +9,29 @@
 
 import UIKit
 
+protocol PostitTypeDelegate {
+    
+    func didPressMenu()
+    func didPressPlayPause()
+}
+
 class PostitType: UICollectionViewCell {
         
     @IBOutlet weak var textViewPostit: UITextView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet var colorViews: [FocusableView]!
+    @IBOutlet weak var label: UILabel!
     
+    var delegate: PostitTypeDelegate?
     
-    var isEditing = false
+    var isEditing = true
+    
+    override var canBecomeFocused: Bool {
+        return !self.isEditing
+    }
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return self.isEditing ? [self.textViewPostit] : super.preferredFocusEnvironments
+        return self.isEditing ? [self.textField, self.colorViews[0], self.colorViews[1], self.colorViews[2]] : super.preferredFocusEnvironments
     }
     
     @IBAction func edit(_ sender: UITextField) {
@@ -32,8 +46,6 @@ class PostitType: UICollectionViewCell {
         
     }
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
@@ -41,19 +53,13 @@ class PostitType: UICollectionViewCell {
         
         // Gesture recognizers
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
-        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-        self.addGestureRecognizer(tapGestureRecognizer)
-        
-        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(gestureRecognizer:)))
-        doubleTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGestureRecognizer)
-        
-        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
-        longPressGestureRecognizer.minimumPressDuration = 1.5
-        self.addGestureRecognizer(longPressGestureRecognizer)
-        
+        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMenuTap(gestureRecognizer:)))
+        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
+        self.addGestureRecognizer(menuTapGestureRecognizer)
+     
+        let playPauseGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePlayPauseTap(gestureRecognizer:)))
+        playPauseGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
+        self.addGestureRecognizer(playPauseGestureRecognizer)
     }
     
     func resizeOutlets() {
@@ -61,20 +67,37 @@ class PostitType: UICollectionViewCell {
         let width = self.frame.size.width
         let height = self.frame.size.height
         
-        self.textViewPostit.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
+        let textFrame = CGRect(x: width * 0.03, y: height * 0.03, width: width * 0.94, height: height * 0.64)
+        self.textViewPostit.frame = textFrame
+        self.textField.frame = textFrame
+        
+        var xPosition = width * 0.03
+        self.colorViews.forEach {
+            $0.frame = CGRect(x: xPosition, y: height * 0.7, width: width / 10, height: width / 10)
+            xPosition += $0.frame.width * 1.2
+        }
+        
+        let viewFrame = self.colorViews[0].frame
+        self.label.frame = CGRect(x: xPosition, y: viewFrame.minY, width: width - xPosition, height: viewFrame.height)
     }
     
-    func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.isEditing = true
-        self.setNeedsFocusUpdate()
+    //MARK: Gesture recognizers
+    
+    func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
+        self.delegate?.didPressMenu()
+        print("Menu pressed")
+        
     }
     
-    func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.textViewPostit.text = "Double tapped"
+    func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
+        self.delegate?.didPressPlayPause()
+        print("Play/pause pressed")
     }
     
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.textViewPostit.text = "Long pressed"
+    //MARK: Focus engine
+    
+    override func shouldUpdateFocus(in context: UIFocusUpdateContext) -> Bool {
+        return (context.nextFocusedItem as! UIView).tag == self.tag
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {

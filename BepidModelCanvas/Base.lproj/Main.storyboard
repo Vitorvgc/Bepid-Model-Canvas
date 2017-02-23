@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -182,7 +182,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="6" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-FC-6iI" userLabel="CustomerSegments">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-FC-6iI" userLabel="CustomerSegments">
                                                         <rect key="frame" x="0.0" y="56" width="340" height="574"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -267,7 +267,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-iQ-IfM" userLabel="CustomerRelantionship">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-iQ-IfM" userLabel="CustomerRelantionship">
                                                                 <rect key="frame" x="0.0" y="46" width="332" height="256"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -310,7 +310,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-WE-c7g" userLabel="ValuePropositions">
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="6" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-WE-c7g" userLabel="ValuePropositions">
                                                         <rect key="frame" x="0.0" y="50" width="340" height="580"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -432,24 +432,24 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="d0e-qc-Ktb"/>
-                        <outletCollection property="blocks" destination="vhs-WE-c7g" collectionClass="NSMutableArray" id="917-hA-K3I"/>
                         <outletCollection property="views" destination="o3T-fO-nqw" collectionClass="NSMutableArray" id="bYl-ho-eSq"/>
-                        <outletCollection property="blocks" destination="eiK-IX-HeB" collectionClass="NSMutableArray" id="rZp-Fn-0Bq"/>
                         <outletCollection property="views" destination="W7c-BK-0nr" collectionClass="NSMutableArray" id="xHe-Hf-cuw"/>
-                        <outletCollection property="blocks" destination="l4b-TZ-GdF" collectionClass="NSMutableArray" id="4Qc-1T-dFC"/>
                         <outletCollection property="views" destination="grd-jm-wWw" collectionClass="NSMutableArray" id="gDA-xn-Zf3"/>
-                        <outletCollection property="blocks" destination="S6J-Vw-NPr" collectionClass="NSMutableArray" id="DIL-jV-BN8"/>
                         <outletCollection property="views" destination="Wvj-do-21v" collectionClass="NSMutableArray" id="ubD-jp-Ilc"/>
-                        <outletCollection property="blocks" destination="sa7-fJ-foY" collectionClass="NSMutableArray" id="U1s-rs-ZFT"/>
                         <outletCollection property="views" destination="YcE-Tw-9pb" collectionClass="NSMutableArray" id="FuS-rT-hhe"/>
                         <outletCollection property="views" destination="IZC-YX-Qer" collectionClass="NSMutableArray" id="xcR-Pe-EHB"/>
-                        <outletCollection property="blocks" destination="CNe-iQ-IfM" collectionClass="NSMutableArray" id="nPB-HY-tXd"/>
                         <outletCollection property="views" destination="sfh-tK-1bu" collectionClass="NSMutableArray" id="MOK-RT-ufv"/>
                         <outletCollection property="views" destination="dJg-mK-y81" collectionClass="NSMutableArray" id="mWb-jg-sbh"/>
-                        <outletCollection property="blocks" destination="WFA-Yp-0RD" collectionClass="NSMutableArray" id="qHG-O0-GQZ"/>
-                        <outletCollection property="blocks" destination="FFN-qh-5EF" collectionClass="NSMutableArray" id="u6T-bw-FYg"/>
                         <outletCollection property="views" destination="EY7-kt-DUT" collectionClass="NSMutableArray" id="7yB-HU-gkH"/>
+                        <outletCollection property="blocks" destination="l4b-TZ-GdF" collectionClass="NSMutableArray" id="e3o-qs-2fN"/>
+                        <outletCollection property="blocks" destination="sa7-fJ-foY" collectionClass="NSMutableArray" id="0fa-6w-nVR"/>
+                        <outletCollection property="blocks" destination="eiK-IX-HeB" collectionClass="NSMutableArray" id="PKI-w6-K3b"/>
+                        <outletCollection property="blocks" destination="6Oo-FC-6iI" collectionClass="NSMutableArray" id="lMs-pq-eiX"/>
+                        <outletCollection property="blocks" destination="S6J-Vw-NPr" collectionClass="NSMutableArray" id="oJD-hx-smN"/>
+                        <outletCollection property="blocks" destination="CNe-iQ-IfM" collectionClass="NSMutableArray" id="Ill-l4-yn2"/>
+                        <outletCollection property="blocks" destination="vhs-WE-c7g" collectionClass="NSMutableArray" id="vIM-Gi-p4r"/>
+                        <outletCollection property="blocks" destination="WFA-Yp-0RD" collectionClass="NSMutableArray" id="rcf-Gg-KgD"/>
+                        <outletCollection property="blocks" destination="FFN-qh-5EF" collectionClass="NSMutableArray" id="uXR-t3-8LC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
