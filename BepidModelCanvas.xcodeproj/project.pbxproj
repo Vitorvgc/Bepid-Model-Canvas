@@ -129,9 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */,
-				0619CE821E5C862D00F9A73F /* PostitType.xib */,
-				0619CE811E5C862D00F9A73F /* PostitType.swift */,
 				C5D80C8B1E54785D008FFE23 /* PostitCell.xib */,
+				0619CE811E5C862D00F9A73F /* PostitType.swift */,
+				0619CE821E5C862D00F9A73F /* PostitType.xib */,
 				C5D80C931E5490EF008FFE23 /* ButtonCell.swift */,
 				C5D80C941E5490EF008FFE23 /* ButtonCell.xib */,
 				C5AA3A161E55E60A00DBF653 /* BlockView.swift */,

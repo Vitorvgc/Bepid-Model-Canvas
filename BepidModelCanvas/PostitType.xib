@@ -25,8 +25,8 @@
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <textInputTraits key="textInputTraits"/>
                         <connections>
-                            <action selector="clear:" destination="RIK-h9-YjH" eventType="editingDidEnd" id="QdU-cO-KyM"/>
-                            <action selector="edit:" destination="RIK-h9-YjH" eventType="editingDidEnd" id="Wfs-wy-XJa"/>
+                            <action selector="clear:" destination="RIK-h9-YjH" eventType="editingDidEnd" id="XrR-ql-N48"/>
+                            <action selector="edit:" destination="RIK-h9-YjH" eventType="editingDidBegin" id="HIj-EW-gdh"/>
                         </connections>
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="-3" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-xK-Vkf">
@@ -64,7 +64,7 @@
             <connections>
                 <outlet property="label" destination="gvs-2c-Sp1" id="nAb-dT-hzS"/>
                 <outlet property="textField" destination="aSH-sR-gZI" id="3gK-mV-XSQ"/>
-                <outlet property="textViewPostit" destination="jWf-xK-Vkf" id="9OY-YT-qZE"/>
+                <outlet property="textViewPostit" destination="jWf-xK-Vkf" id="51V-Jx-ygh"/>
                 <outletCollection property="colorViews" destination="foJ-6A-Qgj" collectionClass="NSMutableArray" id="J3g-4n-p0A"/>
                 <outletCollection property="colorViews" destination="lcs-As-nKh" collectionClass="NSMutableArray" id="ESp-so-2aP"/>
                 <outletCollection property="colorViews" destination="q1X-FF-Egi" collectionClass="NSMutableArray" id="gAU-jE-yw5"/>
