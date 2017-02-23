@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var postitQuantity = [Int](repeating: 2, count: 9)
     
-    var editedPostitPosition: (tag: Int, position: IndexPath)?
+    var editedPostitPosition: (tag: Int, position: IndexPath, new: Bool)?
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
@@ -131,8 +131,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
             let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
 
-            buttonCell.resizeOutlets()
-            buttonCell.onSelection = { self.createNewPostit(at: collectionView, in: indexPath) }
+            buttonCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: true) }
 
             return buttonCell
         }
@@ -141,22 +140,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let postitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitCell", for: indexPath) as! PostitCell
         
         postitCell.resizeOutlets()
+        postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
         postitCell.titleTextField.text = "title \(indexPath.row)"
         postitCell.backgroundColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.73)
         
         return postitCell
     }
 
-    
-    //MARK: CollectionView Delegate
-    
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("[CV] didSelectItem")
-        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath)
-        collectionView.reloadData()
-    }
-    
     
     //MARK: CollectionView Delegate Flow Layout
     
@@ -183,13 +173,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     //MARK: View methods
     
     
-    private func createNewPostit(at collectionView: UICollectionView, in indexPath: IndexPath) {
-        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath)
-        postitQuantity[collectionView.tag] += 1
+    private func updatePostit(at collectionView: UICollectionView, in indexPath: IndexPath, isNew: Bool) {
+        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath, new: isNew)
+        if(isNew) {
+            postitQuantity[collectionView.tag] += 1
+        }
         collectionView.reloadData()
     }
     
-    private func isEditingCell(at collectionView: UICollectionView, in indexPath: IndexPath) -> Bool {
+    fileprivate func isEditingCell(at collectionView: UICollectionView, in indexPath: IndexPath) -> Bool {
         return (editedPostitPosition != nil && editedPostitPosition!.tag == collectionView.tag && editedPostitPosition!.position == indexPath)
     }
     
@@ -204,9 +196,14 @@ extension ViewController: PostitTypeDelegate {
     func didPressMenu() {
         let tag = self.editedPostitPosition!.tag
         let collectionView = self.blocks[tag]
+        let isNew = self.editedPostitPosition!.new
         
+        if(isNew) {
+            // if it would be a new postit, remove it
+            self.postitQuantity[tag] -= 1
+        }
         self.editedPostitPosition = nil
-        self.postitQuantity[tag] -= 1
+ 
         collectionView.reloadData()
     }
     
@@ -215,6 +212,8 @@ extension ViewController: PostitTypeDelegate {
         let collectionView = self.blocks[tag]
         
         self.editedPostitPosition = nil
+        // TODO: update postit if it is an existing one, or insert a new one otherwise
+        // currently without CoreData, it justs inserts a default postit
         collectionView.reloadData()
     }
     
