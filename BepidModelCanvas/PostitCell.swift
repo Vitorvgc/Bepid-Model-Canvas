@@ -12,15 +12,11 @@ class PostitCell: UICollectionViewCell {
     
     @IBOutlet weak var titleTextField: UITextField!
     
-    var isEditing = false
-    
-    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return self.isEditing ? [self.titleTextField] : super.preferredFocusEnvironments
-    }
+    var onSelection: () -> Void = {}
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 20
+        self.layer.cornerRadius = 4
         self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
         
         // Gesture recognizers
@@ -28,11 +24,6 @@ class PostitCell: UICollectionViewCell {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
         tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
         self.addGestureRecognizer(tapGestureRecognizer)
-        
-        let doubleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleDoubleTap(gestureRecognizer:)))
-        doubleTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-        doubleTapGestureRecognizer.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGestureRecognizer)
         
         let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
         longPressGestureRecognizer.minimumPressDuration = 1.5
@@ -49,18 +40,15 @@ class PostitCell: UICollectionViewCell {
     }
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.isEditing = true
-        self.setNeedsFocusUpdate()
-    }
-    
-    func handleDoubleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.titleTextField.text = "Double tapped"
+        self.onSelection()
     }
     
     func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
         self.titleTextField.text = "Long pressed"
     }
     
+    //MARK: Focus engine
+ 
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         if context.nextFocusedItem === self {
@@ -82,9 +70,7 @@ class PostitCell: UICollectionViewCell {
                 self.transform = CGAffineTransform.identity
                 self.layer.shadowOpacity = 0
                 self.removeMotionEffect(self.motionEffectGroup)
-                
-                self.isEditing = false
-                
+                                
             }, completion: nil)
         }
     }
