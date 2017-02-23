@@ -9,12 +9,20 @@
 
 import UIKit
 
+protocol PostitTypeDelegate {
+    
+    func didPressMenu()
+    func didPressPlayPause()
+}
+
 class PostitType: UICollectionViewCell {
         
     @IBOutlet weak var textViewPostit: UITextView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var colorViews: [FocusableView]!
     @IBOutlet weak var label: UILabel!
+    
+    var delegate: PostitTypeDelegate?
     
     var isEditing = true
     
@@ -76,11 +84,13 @@ class PostitType: UICollectionViewCell {
     //MARK: Gesture recognizers
     
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
+        self.delegate?.didPressMenu()
         print("Menu pressed")
         
     }
     
     func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
+        self.delegate?.didPressPlayPause()
         print("Play/pause pressed")
     }
     
