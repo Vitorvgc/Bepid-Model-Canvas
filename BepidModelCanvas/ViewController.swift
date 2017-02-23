@@ -117,8 +117,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // Add a editing postit if anyone is selected
         if self.isEditingCell(at: collectionView, in: indexPath) {
+            
             let editingPostitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitType", for: indexPath) as! PostitType
+            
             editingPostitCell.resizeOutlets()
+            editingPostitCell.delegate = self
             
             return editingPostitCell
         }
@@ -188,6 +191,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     private func isEditingCell(at collectionView: UICollectionView, in indexPath: IndexPath) -> Bool {
         return (editedPostitPosition != nil && editedPostitPosition!.tag == collectionView.tag && editedPostitPosition!.position == indexPath)
+    }
+    
+}
+
+
+//MARK: PostitTypeDelegate
+
+
+extension ViewController: PostitTypeDelegate {
+    
+    func didPressMenu() {
+        let tag = self.editedPostitPosition!.tag
+        let collectionView = self.blocks[tag]
+        
+        self.editedPostitPosition = nil
+        self.postitQuantity[tag] -= 1
+        collectionView.reloadData()
+    }
+    
+    func didPressPlayPause() {
+        let tag = self.editedPostitPosition!.tag
+        let collectionView = self.blocks[tag]
+        
+        self.editedPostitPosition = nil
+        collectionView.reloadData()
     }
     
 }
