@@ -13,7 +13,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     var bmc: CWBusinessModelCanvas!
-    var postits: [CWPostit]!
+    var postits = [CWPostit]()
     
     var postitQuantity = [Int](repeating: 2, count: 9)
     
@@ -58,6 +58,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                     }
                                 }
                         })
+                    }
+                    self.bmc.blocks.sort(by: { return $0.tag < $1.tag })
+                    for block in self.bmc.blocks{
+                        print(block.title)
                     }
                 }
                 else{

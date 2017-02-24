@@ -29,7 +29,7 @@ class CWBusinessModelCanvas{
     var custumerSegmentsBlock : CWBlock!
     var costStructureBlock : CWBlock!
     var revenueStreamsBlock : CWBlock!
-    var blocks:[CWBlock]!
+    var blocks = [CWBlock]()
     
     var title: String{
         get{
