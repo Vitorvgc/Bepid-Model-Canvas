@@ -92,14 +92,15 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CanvasModelsCollectionViewCell
-        performSegue(withIdentifier: "OpenCanvas", sender: cell)
+        performSegue(withIdentifier: "OpenCanvas", sender: indexPath)
     }
     
     
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using [segue destinationViewController].
-//        // Pass the selected object to the new view controller.
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let viewController = segue.destination as! ViewController
+        viewController.bmc = bmcs[(sender as! IndexPath).row]
+    }
 
 }
