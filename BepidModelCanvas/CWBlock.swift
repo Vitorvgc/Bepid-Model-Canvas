@@ -47,7 +47,6 @@ class CWBlock{
         }
     }
     
-    
     init(title: String, color: UIColor?, icon:UIImage, parent: CKRecord) {
         let record = CKRecord(recordType: "block")
         record[titleKey]  = title as CKRecordValue?

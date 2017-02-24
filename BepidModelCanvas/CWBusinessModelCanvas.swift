@@ -57,7 +57,17 @@ class CWBusinessModelCanvas{
     
     init (withRecord record: CKRecord ){
         self.record = record
-        initBlocks()
+        CloukKitHelper.getAllChildren(fromRecordID: self.recordId, childEntity: "block", competionHandler: {
+            sucess, records in
+            if sucess{
+                if let recordsFetched = records{
+                    for record in recordsFetched{
+                        let block = CWBlock(withRecord: record, parent: self.record)
+                        self.blocks.append(block)
+                    }
+                }
+            }
+        })
     }
     
     func initBlocks(){
