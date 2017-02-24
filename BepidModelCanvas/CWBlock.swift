@@ -14,6 +14,7 @@ class CWBlock{
     let titleKey = "title"
     let colorKey = "color"
     let iconKey  = "icon"
+    let tagKey   = "tag"
     let parentKey = "parent"
     
     var record: CKRecord
@@ -46,8 +47,16 @@ class CWBlock{
             record[iconKey] = UIImagePNGRepresentation( newValue ) as CKRecordValue?
         }
     }
+    var tag: Int{
+        get{
+            return record[tagKey] as! Int
+        }
+        set{
+            record[tagKey] = newValue as CKRecordValue?
+        }
+    }
     
-    init(title: String, color: UIColor?, icon:UIImage, parent: CKRecord) {
+    init(title: String, color: UIColor?, icon:UIImage, tag: Int, parent: CKRecord) {
         let record = CKRecord(recordType: "block")
         record[titleKey]  = title as CKRecordValue?
         if let positColor = color{
@@ -57,6 +66,7 @@ class CWBlock{
             record[colorKey] = CWBlock.colorToInt(color: UIColor.white) as CKRecordValue?
         }
         record[iconKey] = UIImagePNGRepresentation(icon) as CKRecordValue?
+        record[tagKey] = tag as CKRecordValue?
         self.bmcRef = CKReference.init(record: parent, action: .deleteSelf)
         record[parentKey] = self.bmcRef
         self.record = record
@@ -67,9 +77,9 @@ class CWBlock{
         self.bmcRef = CKReference.init(record: parent, action: .deleteSelf)
     }
     
-    class func createBlock(withTitle title: String, andColor color: UIColor?, andIcon icon: UIImage,parent: CKRecord, competionHandler: @escaping ((_ sucess: Bool, _ block: CWBlock?) -> ())){
+    class func createBlock(withTitle title: String, andColor color: UIColor?, andIcon icon: UIImage,tag: Int, parent: CKRecord, competionHandler: @escaping ((_ sucess: Bool, _ block: CWBlock?) -> ())){
         
-        let newBlock = CWBlock.init(title: title, color: color, icon: icon, parent: parent)
+        let newBlock = CWBlock.init(title: title, color: color, icon: icon, tag: tag, parent: parent)
         CloukKitHelper.privateDB.save( newBlock.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newBlock)
