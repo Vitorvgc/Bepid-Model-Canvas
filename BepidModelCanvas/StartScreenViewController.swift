@@ -99,8 +99,8 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let viewController = segue.destination as! ViewController
-        viewController.bmc = bmcs[(sender as! IndexPath).row]
+        //let viewController = segue.destination as! ViewController
+        //viewController.bmc = bmcs[(sender as! IndexPath).row]
     }
 
 }

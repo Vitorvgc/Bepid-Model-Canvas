@@ -16,7 +16,7 @@ protocol PostitTypeDelegate {
 }
 
 class PostitType: UICollectionViewCell {
-        
+    
     @IBOutlet weak var textViewPostit: UITextView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet var colorViews: [FocusableView]!
@@ -43,13 +43,12 @@ class PostitType: UICollectionViewCell {
         
         self.textViewPostit.text = sender.text
         sender.text = ""
-        
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 10
-        self.textViewPostit.backgroundColor = UIColor(white: 1, alpha: 0)
+        self.setColorViewsTapGestures()
         
         // Gesture recognizers
         
@@ -60,6 +59,16 @@ class PostitType: UICollectionViewCell {
         let playPauseGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePlayPauseTap(gestureRecognizer:)))
         playPauseGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
         self.addGestureRecognizer(playPauseGestureRecognizer)
+    }
+    
+    func setColorViewsTapGestures() {
+        
+        self.colorViews.forEach {
+            let colorViewTapGestureRecoginzer = UITapGestureRecognizer(target: self, action: #selector(self.switchColorOnTap(gestureRecognizer:)))
+            colorViewTapGestureRecoginzer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
+            $0.addGestureRecognizer(colorViewTapGestureRecoginzer)
+        }
+        
     }
     
     func resizeOutlets() {
@@ -86,12 +95,20 @@ class PostitType: UICollectionViewCell {
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
         self.delegate?.didPressMenu()
         print("Menu pressed")
-        
     }
     
     func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
         self.delegate?.didPressPlayPause()
         print("Play/pause pressed")
+    }
+    
+    func switchColorOnTap(gestureRecognizer: UITapGestureRecognizer) {
+        
+        let oldColor = self.textViewPostit.backgroundColor
+        let newColor = gestureRecognizer.view?.backgroundColor
+        
+        self.textViewPostit.backgroundColor = newColor
+        gestureRecognizer.view?.backgroundColor = oldColor
     }
     
     //MARK: Focus engine
