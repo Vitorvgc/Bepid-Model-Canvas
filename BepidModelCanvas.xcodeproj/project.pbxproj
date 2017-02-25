@@ -14,6 +14,7 @@
 		97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53F1E5322A400AE4D8B /* CWBlock.swift */; };
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
 		97E4C5451E5322A400AE4D8B /* CloudkitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */; };
+		C52601451E612B3400388A05 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52601441E612B3400388A05 /* UIColorExtensions.swift */; };
 		C5A0C2091E53255A00EC2FF3 /* PostitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */; };
 		C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5AA3A161E55E60A00DBF653 /* BlockView.swift */; };
 		C5B0ED4C1E5617320024129F /* CanvasModelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */; };
@@ -59,6 +60,7 @@
 		97E4C53F1E5322A400AE4D8B /* CWBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBlock.swift; sourceTree = "<group>"; };
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
 		97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitHelper.swift; sourceTree = "<group>"; };
+		C52601441E612B3400388A05 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C5A0C2081E53255A00EC2FF3 /* PostitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostitCell.swift; sourceTree = "<group>"; };
 		C5AA3A161E55E60A00DBF653 /* BlockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
 		C5B0ED4A1E5617320024129F /* CanvasModelsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasModelsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C52601411E612AFB00388A05 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C52601441E612B3400388A05 /* UIColorExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		C5A0C20B1E534B3D00EC2FF3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +197,7 @@
 		C5ED5EB31E44AE4200577F08 /* BepidModelCanvas */ = {
 			isa = PBXGroup;
 			children = (
+				C52601411E612AFB00388A05 /* Extensions */,
 				97037CF01E57367300E72BC1 /* BepidModelCanvas.entitlements */,
 				97E4C53D1E53226300AE4D8B /* Model */,
 				C5A0C20B1E534B3D00EC2FF3 /* Views */,
@@ -374,6 +385,7 @@
 				C5D80C951E5490EF008FFE23 /* ButtonCell.swift in Sources */,
 				C5AA3A171E55E60A00DBF653 /* BlockView.swift in Sources */,
 				C5E379F91E5DD50900D34799 /* FocusableView.swift in Sources */,
+				C52601451E612B3400388A05 /* UIColorExtensions.swift in Sources */,
 				C5ED5EBA1E44AE4200577F08 /* BepidModelCanvas.xcdatamodeld in Sources */,
 				97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */,
 				97E4C5421E5322A400AE4D8B /* CWPostit.swift in Sources */,

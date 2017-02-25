@@ -25,8 +25,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
+        
         self.blocks.forEach {
             $0.delegate = self
             $0.dataSource = self
@@ -38,6 +37,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.views.forEach {
             $0.collectionView = $0.subviews.filter { $0 is UICollectionView }.first as! UICollectionView!
         }
+        
         CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
             sucess, records in
             if sucess{
@@ -146,7 +146,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         return postitCell
     }
-
+    
     
     //MARK: CollectionView Delegate Flow Layout
     
@@ -195,8 +195,12 @@ extension ViewController: PostitTypeDelegate {
     
     func didPressMenu() {
         let tag = self.editedPostitPosition!.tag
-        let collectionView = self.blocks[tag]
+        let index = self.editedPostitPosition!.position
         let isNew = self.editedPostitPosition!.new
+        let collectionView = self.blocks[tag]
+        
+        let cell = collectionView.cellForItem(at: index) as! PostitType
+        cell.reset()
         
         if(isNew) {
             // if it would be a new postit, remove it
@@ -209,7 +213,11 @@ extension ViewController: PostitTypeDelegate {
     
     func didPressPlayPause() {
         let tag = self.editedPostitPosition!.tag
+        let index = self.editedPostitPosition!.position
         let collectionView = self.blocks[tag]
+        
+        let cell = collectionView.cellForItem(at: index) as! PostitType
+        cell.reset()
         
         self.editedPostitPosition = nil
         // TODO: update postit if it is an existing one, or insert a new one otherwise

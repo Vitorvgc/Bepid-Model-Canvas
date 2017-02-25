@@ -47,7 +47,6 @@ class PostitType: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 10
         self.setColorViewsTapGestures()
         
         // Gesture recognizers
@@ -59,16 +58,6 @@ class PostitType: UICollectionViewCell {
         let playPauseGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePlayPauseTap(gestureRecognizer:)))
         playPauseGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)]
         self.addGestureRecognizer(playPauseGestureRecognizer)
-    }
-    
-    func setColorViewsTapGestures() {
-        
-        self.colorViews.forEach {
-            let colorViewTapGestureRecoginzer = UITapGestureRecognizer(target: self, action: #selector(self.switchColorOnTap(gestureRecognizer:)))
-            colorViewTapGestureRecoginzer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-            $0.addGestureRecognizer(colorViewTapGestureRecoginzer)
-        }
-        
     }
     
     func resizeOutlets() {
@@ -88,6 +77,32 @@ class PostitType: UICollectionViewCell {
         
         let viewFrame = self.colorViews[0].frame
         self.label.frame = CGRect(x: xPosition, y: viewFrame.minY, width: width - xPosition, height: viewFrame.height)
+    }
+    
+    // Don't reset based on the actual postit information and color
+    func reset() {
+        
+        self.textField.text = ""
+        self.textViewPostit.text = ""
+        
+        self.textViewPostit.backgroundColor = UIColor(withHex: 0xA7DEFF, alpha: 0.73)
+        
+        let initialColors = [
+            UIColor(withHex: 0xFFC7E8, alpha: 0.73),
+            UIColor(withHex: 0xFFEFB4, alpha: 0.73),
+            UIColor(withHex: 0x408710, alpha: 0.73)
+        ]
+        (0...2).forEach { self.colorViews[$0].backgroundColor = initialColors[$0] }
+    }
+    
+    private func setColorViewsTapGestures() {
+        
+        self.colorViews.forEach {
+            let colorViewTapGestureRecoginzer = UITapGestureRecognizer(target: self, action: #selector(self.switchColorOnTap(gestureRecognizer:)))
+            colorViewTapGestureRecoginzer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
+            $0.addGestureRecognizer(colorViewTapGestureRecoginzer)
+        }
+        
     }
     
     //MARK: Gesture recognizers
