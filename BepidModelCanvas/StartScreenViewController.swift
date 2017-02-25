@@ -25,12 +25,11 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
             sucess, records in
             if sucess{
                 if let recs = records{
-                    print("bmc count \(recs.count)")
                     for rec in recs{
                         let bmc = CWBusinessModelCanvas.init(withRecord: rec)
                         self.bmcs.append(bmc)
-                        self.BmcCollectionView.reloadData()
                     }
+                    self.BmcCollectionView.reloadData()
                 }
             }
             else{
