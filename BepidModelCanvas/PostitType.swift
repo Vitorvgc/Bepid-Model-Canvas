@@ -12,19 +12,27 @@ import UIKit
 protocol PostitTypeDelegate {
     
     func didPressMenu()
-    func didPressPlayPause()
+    func didPressPlayPause(in cell: PostitType)
 }
 
 class PostitType: UICollectionViewCell {
     
-    @IBOutlet weak var textViewPostit: UITextView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet var colorViews: [FocusableView]!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak private var textViewPostit: UITextView!
+    @IBOutlet weak private var textField: UITextField!
+    @IBOutlet private var colorViews: [FocusableView]!
+    @IBOutlet weak private var label: UILabel!
     
     var delegate: PostitTypeDelegate?
     
-    var isEditing = true
+    private var isEditing = true
+    
+    var text: String {
+        return self.textViewPostit.text
+    }
+    
+    var selectedColor: UIColor {
+        return self.textViewPostit.backgroundColor!
+    }
     
     override var canBecomeFocused: Bool {
         return !self.isEditing
@@ -79,18 +87,18 @@ class PostitType: UICollectionViewCell {
         self.label.frame = CGRect(x: xPosition, y: viewFrame.minY, width: width - xPosition, height: viewFrame.height)
     }
     
-    // Don't reset based on the actual postit information and color
+    // Don't reset based on the actual postit information and color yet
     func reset() {
         
         self.textField.text = ""
         self.textViewPostit.text = ""
         
-        self.textViewPostit.backgroundColor = UIColor(withHex: 0xA7DEFF, alpha: 0.73)
+        self.textViewPostit.backgroundColor = UIColor.PostitTheme.blue
         
         let initialColors = [
-            UIColor(withHex: 0xFFC7E8, alpha: 0.73),
-            UIColor(withHex: 0xFFEFB4, alpha: 0.73),
-            UIColor(withHex: 0x408710, alpha: 0.73)
+            UIColor.PostitTheme.pink,
+            UIColor.PostitTheme.yellow,
+            UIColor.PostitTheme.green
         ]
         (0...2).forEach { self.colorViews[$0].backgroundColor = initialColors[$0] }
     }
@@ -113,7 +121,7 @@ class PostitType: UICollectionViewCell {
     }
     
     func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.delegate?.didPressPlayPause()
+        self.delegate?.didPressPlayPause(in: self)
         print("Play/pause pressed")
     }
     
