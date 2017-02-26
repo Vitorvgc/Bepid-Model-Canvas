@@ -15,7 +15,7 @@ extension Block {
         ("Key Partners"          , #imageLiteral(resourceName: "heart")),
         ("Key Activities"        , #imageLiteral(resourceName: "heart")),
         ("Key Resources"         , #imageLiteral(resourceName: "heart")),
-        ("Customer Settings"     , #imageLiteral(resourceName: "heart")),
+        ("Customer Segments"     , #imageLiteral(resourceName: "heart")),
         ("Channels"              , #imageLiteral(resourceName: "heart")),
         ("Customer Relationships", #imageLiteral(resourceName: "heart")),
         ("Value Propositions"    , #imageLiteral(resourceName: "heart")),

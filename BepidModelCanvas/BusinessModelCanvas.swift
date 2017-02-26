@@ -21,6 +21,7 @@ extension BusinessModelCanvas {
             block.icon = UIImagePNGRepresentation(Block.values[i].icon) as NSData?
             block.tag = Int16(i)
             block.postits = []
+            block.businessModelCanvas = self
             blockSet.add(block)
         }
         

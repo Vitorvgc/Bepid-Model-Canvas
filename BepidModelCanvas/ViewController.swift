@@ -15,14 +15,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var isNewCanvas: Bool!
     var bmc: BusinessModelCanvas!
-    var bmcBlocks = [Block]()
-    var postits = [[Postit]]()
     
     var dao = CoreDataDAO<Postit>()
     
     var postitQuantity = [Int](repeating: 2, count: 9)
     
     var editedPostitPosition: (tag: Int, position: IndexPath, new: Bool)?
+    
+    var bmcBlocks: [Block] {
+        return bmc.blocks?.sorted { ($0 as! Block).tag < ($1 as! Block).tag } as! [Block]
+    }
+    
+    var postits: [[Postit]] {
+        return (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
+    }
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
@@ -32,6 +38,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("[DEBUG] \(bmc)")
+        print("[DEBUG] \(isNewCanvas)")
         
         self.blocks.forEach {
             $0.delegate = self
@@ -47,13 +56,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if(isNewCanvas == true) {
             bmc.initializeBlocks()
+            CoreDataDAO<BusinessModelCanvas>().insert(object: bmc)
         }
-        
-        self.bmcBlocks = bmc.blocks?.sorted(by: { (first, second) -> Bool in
-            (first as! Block).tag < (second as! Block).tag
-        }) as! [Block]
-        
-        self.postits = (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
         
         print("[DEBUG] blocks: \(self.bmcBlocks)")
         print("[DEBUG] postits: \(self.postits)")
@@ -97,10 +101,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Otherwise create a normal postit cell
         let postitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitCell", for: indexPath) as! PostitCell
         
+        let postit = postits[collectionView.tag][indexPath.row]
+        
         postitCell.resizeOutlets()
         postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
-        postitCell.titleTextField.text = "title \(indexPath.row)"
-        postitCell.backgroundColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.73)
+        postitCell.titleTextField.text = postit.text
+        postitCell.backgroundColor = UIColor.PostitTheme.color(for: postit.color)
         
         return postitCell
     }
@@ -176,14 +182,21 @@ extension ViewController: PostitTypeDelegate {
         let collectionView = self.blocks[tag]
         
         let cell = collectionView.cellForItem(at: index) as! PostitType
-        cell.reset()
         
-        self.editedPostitPosition = nil
+        
         // TODO: update postit if it is an existing one, or insert a new one otherwise
         // currently without CoreData, it justs inserts a default postit
         if(isNew) {
             let postit = dao.new()
-            postit.block = bmcBlocks.filter { Int($0.tag) == index.row }.first
+            
+            let blocks = bmcBlocks
+            print("[DEBUG] BMC blocks: ")
+            blocks.forEach {
+                print("[DEBUG] \($0.title) \($0.tag)")
+                print("[DEBUG] postits: \((($0.postits?.allObjects) as! [Postit]).map { $0.text })")
+            }
+            
+            postit.block = bmcBlocks.filter { Int($0.tag) == tag }.first
             postit.text = cell.text
             postit.color = Int16(UIColor.PostitTheme.index(of: cell.selectedColor)!)
             
@@ -191,7 +204,8 @@ extension ViewController: PostitTypeDelegate {
             dao.insert(object: postit)
         }
         
-        
+        self.editedPostitPosition = nil
+        cell.reset()
         collectionView.reloadData()
     }
     

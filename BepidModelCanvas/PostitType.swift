@@ -27,10 +27,12 @@ class PostitType: UICollectionViewCell {
     private var isEditing = true
     
     var text: String {
+        print("[DEBUG] text from textView:  \(self.textViewPostit.text)")
         return self.textViewPostit.text
     }
     
     var selectedColor: UIColor {
+        print("[DEBUG] selectedColor: \(self.textViewPostit.backgroundColor)")
         return self.textViewPostit.backgroundColor!
     }
     
@@ -51,12 +53,13 @@ class PostitType: UICollectionViewCell {
         
         self.textViewPostit.text = sender.text
         sender.text = ""
+        print("[DEBUG] text from textView:  \(self.textViewPostit.text)")
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setColorViewsTapGestures()
-        
+        self.reset()
         // Gesture recognizers
         
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMenuTap(gestureRecognizer:)))
@@ -117,12 +120,12 @@ class PostitType: UICollectionViewCell {
     
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
         self.delegate?.didPressMenu()
-        print("Menu pressed")
+        print("[DEBUG] Menu pressed")
     }
     
     func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
         self.delegate?.didPressPlayPause(in: self)
-        print("Play/pause pressed")
+        print("[DEBUG] Play/pause pressed")
     }
     
     func switchColorOnTap(gestureRecognizer: UITapGestureRecognizer) {
