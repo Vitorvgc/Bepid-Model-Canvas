@@ -12,11 +12,24 @@ import CloudKit
 class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var BmcCollectionView: UICollectionView!
 
-    var bmcs = [CWBusinessModelCanvas]()
+    //var bmcs = [CWBusinessModelCanvas]()
+    var bmcs = [BusinessModelCanvas]()
+    
+    let dao = CoreDataDAO<BusinessModelCanvas>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.bmcs = dao.all()
+        
+//        self.bmcs.forEach { dao.delete(object: $0) }
+        
+        let newCanvas = dao.new()
+        newCanvas.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
+        newCanvas.title = "Add new canvas"
+        
+        self.bmcs.append(newCanvas)
+        /*
         CloukKitHelper.icloudStatus()
         let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
         bmcs.append(addNewCanvas)
@@ -37,6 +50,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                 print(" bmc doesnt exist!")
             }
         })
+        */
                
     }
     
@@ -56,8 +70,9 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
         let bmc = bmcs[indexPath.row]
-        cell.CanvaImage.image = bmc.image
-        cell.CanvaTitle.text! = bmc.title
+        
+        cell.CanvaImage.image = UIImage(data: bmc.image as! Data)
+        cell.CanvaTitle.text! = bmc.title!
         
         return cell
     }
@@ -79,7 +94,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if((context.nextFocusedIndexPath) != nil){
-            let cell = try! collectionView.cellForItem(at: context.nextFocusedIndexPath!) as! CanvasModelsCollectionViewCell
+            let cell = collectionView.cellForItem(at: context.nextFocusedIndexPath!) as! CanvasModelsCollectionViewCell
             self.CanvaImage.image = cell.CanvaImage.image
         }
         
@@ -90,7 +105,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! CanvasModelsCollectionViewCell
+        //let cell = collectionView.cellForItem(at: indexPath) as! CanvasModelsCollectionViewCell
         performSegue(withIdentifier: "OpenCanvas", sender: indexPath)
     }
     
@@ -98,8 +113,11 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //let viewController = segue.destination as! ViewController
-        //viewController.bmc = bmcs[(sender as! IndexPath).row]
+        let index = (sender as! IndexPath).row
+        
+        let viewController = segue.destination as! ViewController
+        viewController.bmc = bmcs[index]
+        viewController.isNewCanvas = (index == BmcCollectionView.numberOfItems(inSection: 0) - 1)
     }
 
 }

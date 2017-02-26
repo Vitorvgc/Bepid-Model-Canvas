@@ -12,8 +12,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
-    var bmc: CWBusinessModelCanvas!
-    var postits = [CWPostit]()
+    
+    var isNewCanvas: Bool!
+    var bmc: BusinessModelCanvas!
+    var bmcBlocks = [Block]()
+    var postits = [[Postit]]()
+    
+    var dao = CoreDataDAO<Postit>()
     
     var postitQuantity = [Int](repeating: 2, count: 9)
     
@@ -39,36 +44,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.views.forEach {
             $0.collectionView = $0.subviews.filter { $0 is UICollectionView }.first as! UICollectionView!
         }
-        /*
-        CloukKitHelper.getAllChildren(fromRecordID: bmc.recordId, childEntity: "block", competionHandler:
-            {
-                sucess, records in
-                if sucess{
-                    print("blocks count: \(records?.count)")
-                    for blockRec in records!{
-                        print("block title: \(blockRec["title"])")
-                        CloukKitHelper.getAllChildren(fromRecordID: blockRec.recordID, childEntity: "postit", competionHandler: {
-                                sucess, records in
-                                if sucess{
-                                    if let recordsFetched = records{
-                                        for record in recordsFetched{
-                                            let postit = CWPostit(withRecord: record)
-                                            self.postits.append(postit)
-                                        }
-                                    }
-                                }
-                        })
-                    }
-                    self.bmc.blocks.sort(by: { return $0.tag < $1.tag })
-                    for block in self.bmc.blocks{
-                        print(block.title)
-                    }
-                }
-                else{
-                    print(" bmc has no child!")
-                }
-        })
-         */
+        
+        if(isNewCanvas == true) {
+            bmc.initializeBlocks()
+        }
+        
+        self.bmcBlocks = bmc.blocks?.sorted(by: { (first, second) -> Bool in
+            (first as! Block).tag < (second as! Block).tag
+        }) as! [Block]
+        
+        self.postits = (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
+        
+        print("[DEBUG] blocks: \(self.bmcBlocks)")
+        print("[DEBUG] postits: \(self.postits)")
     }
 
     
@@ -80,7 +68,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postitQuantity[collectionView.tag]
+        return self.postits[collectionView.tag].count + 1//postitQuantity[collectionView.tag]
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -181,9 +169,10 @@ extension ViewController: PostitTypeDelegate {
         collectionView.reloadData()
     }
     
-    func didPressPlayPause() {
+    func didPressPlayPause(in cell: PostitType) {
         let tag = self.editedPostitPosition!.tag
         let index = self.editedPostitPosition!.position
+        let isNew = self.editedPostitPosition!.new
         let collectionView = self.blocks[tag]
         
         let cell = collectionView.cellForItem(at: index) as! PostitType
@@ -192,6 +181,17 @@ extension ViewController: PostitTypeDelegate {
         self.editedPostitPosition = nil
         // TODO: update postit if it is an existing one, or insert a new one otherwise
         // currently without CoreData, it justs inserts a default postit
+        if(isNew) {
+            let postit = dao.new()
+            postit.block = bmcBlocks.filter { Int($0.tag) == index.row }.first
+            postit.text = cell.text
+            postit.color = Int16(UIColor.PostitTheme.index(of: cell.selectedColor)!)
+            
+            print("[DEBUG] new postit: \(postit.text) \(postit.color) \(postit.block?.tag)")
+            dao.insert(object: postit)
+        }
+        
+        
         collectionView.reloadData()
     }
     
