@@ -54,11 +54,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             $0.collectionView = $0.subviews.filter { $0 is UICollectionView }.first as! UICollectionView!
         }
         
-        if(isNewCanvas == true) {
-            bmc.initializeBlocks()
-            CoreDataDAO<BusinessModelCanvas>().insert(object: bmc)
-        }
-        
         print("[DEBUG] blocks: \(self.bmcBlocks)")
         print("[DEBUG] postits: \(self.postits)")
     }
@@ -192,7 +187,7 @@ extension ViewController: PostitTypeDelegate {
             let blocks = bmcBlocks
             print("[DEBUG] BMC blocks: ")
             blocks.forEach {
-                print("[DEBUG] \($0.title) \($0.tag)")
+                print("[DEBUG] \($0.title) \($0.tag) \($0.businessModelCanvas === self.bmc)")
                 print("[DEBUG] postits: \((($0.postits?.allObjects) as! [Postit]).map { $0.text })")
             }
             
@@ -207,6 +202,11 @@ extension ViewController: PostitTypeDelegate {
         self.editedPostitPosition = nil
         cell.reset()
         collectionView.reloadData()
+        
+        print("[DEBUG] bmcs:")
+        CoreDataDAO<BusinessModelCanvas>().all().forEach {
+            print("[DEBUG]   \($0.title)")
+        }
     }
     
 }

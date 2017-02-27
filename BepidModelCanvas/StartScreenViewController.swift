@@ -10,25 +10,34 @@ import UIKit
 import CloudKit
 
 class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
+    
     @IBOutlet weak var BmcCollectionView: UICollectionView!
 
-    //var bmcs = [CWBusinessModelCanvas]()
-    var bmcs = [BusinessModelCanvas]()
-    
     let dao = CoreDataDAO<BusinessModelCanvas>()
+    
+//    var bmcs = [CWBusinessModelCanvas]()
+    
+    var bmcs: [BusinessModelCanvas] {
+        return dao.all()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.bmcs = dao.all()
-        
 //        self.bmcs.forEach { dao.delete(object: $0) }
         
-        let newCanvas = dao.new()
-        newCanvas.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
-        newCanvas.title = "Add new canvas"
+        if bmcs.isEmpty {
+            let newCanvas = dao.new()
+            newCanvas.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
+            newCanvas.title = "Add new canvas"
+            dao.insert(object: newCanvas)
+        }
         
-        self.bmcs.append(newCanvas)
+        print("[DEBUG] bmcs:")
+        self.bmcs.forEach {
+            print("[DEBUG]   \($0.title)")
+        }
+        
         /*
         CloukKitHelper.icloudStatus()
         let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
@@ -52,6 +61,11 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         })
         */
                
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.BmcCollectionView.reloadData()
     }
     
     @IBOutlet weak var CanvaImage: UIImageView!
@@ -114,10 +128,19 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let index = (sender as! IndexPath).row
+        let isNewCanvas = (index == 0)//BmcCollectionView.numberOfItems(inSection: 0) - 1)
+        let bmc = (isNewCanvas ? dao.new() : bmcs[index])
+        
+        if(isNewCanvas == true) {
+            bmc.initializeBlocks()
+            bmc.title = "BMC \(bmcs.count - 1)"
+            bmc.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
+            dao.insert(object: bmc)
+        }
         
         let viewController = segue.destination as! ViewController
-        viewController.bmc = bmcs[index]
-        viewController.isNewCanvas = (index == BmcCollectionView.numberOfItems(inSection: 0) - 1)
+        viewController.bmc = bmc
+        viewController.isNewCanvas = isNewCanvas
     }
 
 }
