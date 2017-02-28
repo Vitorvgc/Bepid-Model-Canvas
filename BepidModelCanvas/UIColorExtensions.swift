@@ -41,10 +41,11 @@ extension UIColor {
         static let yellow = UIColor(withHex: 0xFFEFB4, alpha: 0.73)
         static let green  = UIColor(withHex: 0x408710, alpha: 0.73)
         
-        static private let allColors: [UIColor] = [blue, pink, yellow, green]
+        static let allColors: [UIColor] = [blue, pink, yellow, green]
         
-        static func index(of color: UIColor) -> Int? {
-            return self.allColors.index(of: color)
+        static func index(of color: UIColor) -> Int16? {
+            guard let index = self.allColors.index(of: color) else { return nil }
+            return Int16(index)
         }
         
         static func color(for index: Int16) -> UIColor? {

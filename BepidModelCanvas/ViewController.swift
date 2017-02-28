@@ -159,13 +159,13 @@ extension ViewController: PostitTypeDelegate {
             let postit = dao.new()
             postit.block = bmcBlocks.filter { Int($0.tag) == tag }.first
             postit.text = cell.text
-            postit.color = Int16(UIColor.PostitTheme.index(of: cell.selectedColor)!)
+            postit.color = UIColor.PostitTheme.index(of: cell.selectedColor)!
             dao.insert(object: postit)
         }
         else {
             let postit = cell.postit!
             postit.text = cell.text
-            postit.color = Int16(UIColor.PostitTheme.index(of: cell.selectedColor)!)
+            postit.color = UIColor.PostitTheme.index(of: cell.selectedColor)!
             dao.save()
         }
         
