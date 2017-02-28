@@ -79,7 +79,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             editingPostitCell.resizeOutlets()
             editingPostitCell.delegate = self
-            
+            editingPostitCell.postit = (indexPath.row < postits[collectionView.tag].count ?
+                postits[collectionView.tag][indexPath.row] :
+                nil)
             return editingPostitCell
         }
     
@@ -99,8 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let postit = postits[collectionView.tag][indexPath.row]
         
         postitCell.resizeOutlets()
-        postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: 
-            false) }
+        postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
         postitCell.postit = postit
         
         return postitCell
@@ -197,6 +198,13 @@ extension ViewController: PostitTypeDelegate {
             
             print("[DEBUG] new postit: \(postit.text) \(postit.color) \(postit.block?.tag)")
             dao.insert(object: postit)
+        }
+        else {
+            let postit = cell.postit!
+            postit.text = cell.text
+            postit.color = Int16(UIColor.PostitTheme.index(of: cell.selectedColor)!)
+            dao.save()
+            print("[DEBUG] updated postit: \(postit.entity) \(postit.text) \(postit.color)")
         }
         
         self.editedPostitPosition = nil

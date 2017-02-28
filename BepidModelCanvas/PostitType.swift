@@ -22,6 +22,7 @@ class PostitType: UICollectionViewCell {
     @IBOutlet private var colorViews: [FocusableView]!
     @IBOutlet weak private var label: UILabel!
     
+    var postit: Postit?
     var delegate: PostitTypeDelegate?
     
     private var isEditing = true
