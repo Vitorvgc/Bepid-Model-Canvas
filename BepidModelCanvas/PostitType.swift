@@ -22,10 +22,20 @@ class PostitType: UICollectionViewCell {
     @IBOutlet private var colorViews: [FocusableView]!
     @IBOutlet weak private var label: UILabel!
     
-    var postit: Postit?
     var delegate: PostitTypeDelegate?
     
     private var isEditing = true
+    private var _postit: Postit?
+    
+    var postit: Postit? {
+        get {
+            return _postit
+        }
+        set {
+            _postit = newValue
+            self.reset()
+        }
+    }
     
     var text: String {
         return self.textViewPostit.text
@@ -86,19 +96,14 @@ class PostitType: UICollectionViewCell {
         self.label.frame = CGRect(x: xPosition, y: viewFrame.minY, width: width - xPosition, height: viewFrame.height)
     }
     
-    // Don't reset based on the actual postit information and color yet
     func reset() {
         
         self.textField.text = ""
-        self.textViewPostit.text = ""
+        self.textViewPostit.text = self.postit?.text ?? ""
+        self.textViewPostit.backgroundColor = (self.postit == nil ? UIColor.PostitTheme.blue : UIColor.PostitTheme.color(for: (self.postit?.color)!))
         
-        self.textViewPostit.backgroundColor = UIColor.PostitTheme.blue
+        let initialColors = UIColor.PostitTheme.allColors.filter { $0 != self.textViewPostit.backgroundColor }
         
-        let initialColors = [
-            UIColor.PostitTheme.pink,
-            UIColor.PostitTheme.yellow,
-            UIColor.PostitTheme.green
-        ]
         (0...2).forEach { self.colorViews[$0].backgroundColor = initialColors[$0] }
     }
     
