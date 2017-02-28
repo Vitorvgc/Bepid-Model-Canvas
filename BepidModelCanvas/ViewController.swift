@@ -99,9 +99,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let postit = postits[collectionView.tag][indexPath.row]
         
         postitCell.resizeOutlets()
-        postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
-        postitCell.titleTextField.text = postit.text
-        postitCell.backgroundColor = UIColor.PostitTheme.color(for: postit.color)
+        postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: 
+            false) }
+        postitCell.postit = postit
         
         return postitCell
     }
