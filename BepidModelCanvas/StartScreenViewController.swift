@@ -33,11 +33,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
             dao.insert(object: newCanvas)
         }
         
-        print("[DEBUG] bmcs:")
-        self.bmcs.forEach {
-            print("[DEBUG]   \($0.title)")
-        }
-        
         /*
         CloukKitHelper.icloudStatus()
         let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
@@ -71,13 +66,11 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     @IBOutlet weak var CanvaImage: UIImageView!
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return bmcs.count
     }
     
@@ -98,7 +91,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, 48, 0, 48)
-         //return UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -119,7 +111,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let cell = collectionView.cellForItem(at: indexPath) as! CanvasModelsCollectionViewCell
         performSegue(withIdentifier: "OpenCanvas", sender: indexPath)
     }
     
@@ -128,7 +119,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let index = (sender as! IndexPath).row
-        let isNewCanvas = (index == 0)//BmcCollectionView.numberOfItems(inSection: 0) - 1)
+        let isNewCanvas = (index == 0)
         let bmc = (isNewCanvas ? dao.new() : bmcs[index])
         
         if(isNewCanvas == true) {
@@ -140,7 +131,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         
         let viewController = segue.destination as! ViewController
         viewController.bmc = bmc
-        viewController.isNewCanvas = isNewCanvas
     }
 
 }

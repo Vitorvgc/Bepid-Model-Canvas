@@ -11,7 +11,7 @@ import UIKit
 
 protocol PostitTypeDelegate {
     
-    func didPressMenu()
+    func didPressMenu(in cell: PostitType)
     func didPressPlayPause(in cell: PostitType)
 }
 
@@ -28,12 +28,10 @@ class PostitType: UICollectionViewCell {
     private var isEditing = true
     
     var text: String {
-        print("[DEBUG] text from textView:  \(self.textViewPostit.text)")
         return self.textViewPostit.text
     }
     
     var selectedColor: UIColor {
-        print("[DEBUG] selectedColor: \(self.textViewPostit.backgroundColor)")
         return self.textViewPostit.backgroundColor!
     }
     
@@ -46,15 +44,12 @@ class PostitType: UICollectionViewCell {
     }
     
     @IBAction func edit(_ sender: UITextField) {
-        
         sender.text = self.textViewPostit.text
     }
     
     @IBAction func clear(_ sender: UITextField) {
-        
         self.textViewPostit.text = sender.text
         sender.text = ""
-        print("[DEBUG] text from textView:  \(self.textViewPostit.text)")
     }
     
     override func awakeFromNib() {
@@ -120,13 +115,11 @@ class PostitType: UICollectionViewCell {
     //MARK: Gesture recognizers
     
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.delegate?.didPressMenu()
-        print("[DEBUG] Menu pressed")
+        self.delegate?.didPressMenu(in: self)
     }
     
     func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
         self.delegate?.didPressPlayPause(in: self)
-        print("[DEBUG] Play/pause pressed")
     }
     
     func switchColorOnTap(gestureRecognizer: UITapGestureRecognizer) {
