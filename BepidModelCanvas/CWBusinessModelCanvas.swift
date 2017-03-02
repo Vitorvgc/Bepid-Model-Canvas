@@ -57,17 +57,6 @@ class CWBusinessModelCanvas{
     
     init (withRecord record: CKRecord ){
         self.record = record
-        CloukKitHelper.getAllChildren(fromRecordID: self.recordId, childEntity: "block", competionHandler: {
-            sucess, records in
-            if sucess{
-                if let recordsFetched = records{
-                    for record in recordsFetched{
-                        let block = CWBlock(withRecord: record, parent: self.record)
-                        self.blocks.append(block)
-                    }
-                }
-            }
-        })
     }
     
     func initBlocks(){
@@ -88,7 +77,7 @@ class CWBusinessModelCanvas{
         
         let newBmc = CWBusinessModelCanvas.init(title: title, image: image)
         
-        CloukKitHelper.privateDB.save( newBmc.record, completionHandler: { (record, error) in
+        CloudKitHelper.privateDB.save( newBmc.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newBmc)
             }
@@ -102,7 +91,7 @@ class CWBusinessModelCanvas{
     class func saveBlocks(blocks: [CWBlock], competionHandler: @escaping ((_ sucess: Bool, _ bmc: CKRecord?) -> ())){
         var sucess = true
         for block in blocks{
-            CloukKitHelper.privateDB.save(block.record, completionHandler: {
+            CloudKitHelper.privateDB.save(block.record, completionHandler: {
                 record, erro in
                 if erro != nil{
                     sucess = false
@@ -113,7 +102,7 @@ class CWBusinessModelCanvas{
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
-        CloukKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
+        CloudKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
                 competionHandler(true)
             }
@@ -135,7 +124,7 @@ class CWBusinessModelCanvas{
             modified = true
         }
         if modified{
-            CloukKitHelper.privateDB.save(self.record, completionHandler: {
+            CloudKitHelper.privateDB.save(self.record, completionHandler: {
                 record, error in
                 if error == nil{
                     competionHandler(true)

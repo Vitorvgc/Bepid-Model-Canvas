@@ -72,7 +72,7 @@ class CWPostit {
     class func createPostit(withTitle title: String, andText text: String, andColor color: UIColor?,parent: CKRecord, competionHandler: @escaping ((_ sucess: Bool, _ postit: CWPostit?) -> ())){
         
         let newPostit = CWPostit.init(title: title, text: text, color: color, parent: parent)
-        CloukKitHelper.privateDB.save( newPostit.record, completionHandler: { (record, error) in
+        CloudKitHelper.privateDB.save( newPostit.record, completionHandler: { (record, error) in
             if error == nil{
                 competionHandler(true, newPostit)
             }
@@ -100,7 +100,7 @@ class CWPostit {
     //    }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
-        CloukKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
+        CloudKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
                 competionHandler(true)
             }
@@ -126,7 +126,7 @@ class CWPostit {
             modified = true
         }
         if modified{
-            CloukKitHelper.privateDB.save(self.record, completionHandler: {
+            CloudKitHelper.privateDB.save(self.record, completionHandler: {
                 record, error in
                 if error == nil{
                     competionHandler(true)
@@ -162,20 +162,3 @@ class CWPostit {
     
     
 }
-
-//enum ColorsEnum: Int {
-//    case blue   = 0x0000FF
-//    case red    = 0xFF0000
-//    case green  = 0x00FF00
-//    case yellow = 0xFFFF00
-//}
-//
-//extension UIColor {
-//
-//    convenience init(withHex hex: Int) {
-//        self.init(red:   CGFloat(hex >> 16) / 255,
-//                  green: CGFloat((hex >> 8) & 0xFF) / 255,
-//                  blue:  CGFloat(hex & 0xFF) / 255,
-//                  alpha: 1)
-//    }
-//}

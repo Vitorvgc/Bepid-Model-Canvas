@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CloudKit
 
-class CloukKitHelper: NSObject {
+class CloudKitHelper: NSObject {
     
     //static let container = CKContainer(identifier: "iCloud.com.bepidcanvas.BepidModelCanvas")
     static let container = CKContainer.default()
@@ -56,14 +56,31 @@ class CloukKitHelper: NSObject {
         })
     }
     
-    static func isICloudContainerAvailable() -> Bool {
-        if FileManager.default.ubiquityIdentityToken != nil {
-            return true
-        }
-        else {
-            return false
+    static func isICloudContainerAvailable(competionHandler: @escaping (_ sucess: Bool) -> ()) {
+        CKContainer.default().accountStatus { (accountStatus, error) in
+            if error == nil && accountStatus == .available{
+                competionHandler(true)
+            }
+            else{
+                competionHandler(false)
+            }
         }
     }
+    
+//    static func icloudStatus(){
+//        CKContainer.default().accountStatus { (accountStatus, error) in
+//            switch accountStatus {
+//            case .available:
+//                print("iCloud Available")
+//            case .noAccount:
+//                print("No iCloud account")
+//            case .restricted:
+//                print("iCloud restricted")
+//            case .couldNotDetermine:
+//                print("Unable to determine iCloud status")
+//            }
+//        }
+//    }
     
     static func icloudStatus(){
         CKContainer.default().accountStatus { (accountStatus, error) in
