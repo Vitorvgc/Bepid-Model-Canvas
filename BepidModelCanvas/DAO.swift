@@ -6,7 +6,7 @@
 //  Copyright © 2017 BepidCanvas. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol DAO {
 

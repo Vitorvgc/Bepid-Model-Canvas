@@ -10,13 +10,30 @@ import UIKit
 import CloudKit
 
 class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
+    
     @IBOutlet weak var BmcCollectionView: UICollectionView!
 
-    var bmcs = [CWBusinessModelCanvas]()
+    let dao = CoreDataDAO<BusinessModelCanvas>()
+    
+//    var bmcs = [CWBusinessModelCanvas]()
+    
+    var bmcs: [BusinessModelCanvas] {
+        return dao.all()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.bmcs.forEach { dao.delete(object: $0) }
+        
+        if bmcs.isEmpty {
+            let newCanvas = dao.new()
+            newCanvas.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
+            newCanvas.title = "Add new canvas"
+            dao.insert(object: newCanvas)
+        }
+        
+        /*
         CloukKitHelper.icloudStatus()
         let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
         bmcs.append(addNewCanvas)
@@ -37,27 +54,32 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                 print(" bmc doesnt exist!")
             }
         })
+        */
                
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.BmcCollectionView.reloadData()
     }
     
     @IBOutlet weak var CanvaImage: UIImageView!
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return bmcs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
         let bmc = bmcs[indexPath.row]
-        cell.CanvaImage.image = bmc.image
-        cell.CanvaTitle.text! = bmc.title
+        
+        cell.CanvaImage.image = UIImage(data: bmc.image as! Data)
+        cell.CanvaTitle.text! = bmc.title!
         
         return cell
     }
@@ -69,7 +91,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsMake(0, 48, 0, 48)
-         //return UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -79,7 +100,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if((context.nextFocusedIndexPath) != nil){
-            let cell = try! collectionView.cellForItem(at: context.nextFocusedIndexPath!) as! CanvasModelsCollectionViewCell
+            let cell = collectionView.cellForItem(at: context.nextFocusedIndexPath!) as! CanvasModelsCollectionViewCell
             self.CanvaImage.image = cell.CanvaImage.image
         }
         
@@ -90,7 +111,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! CanvasModelsCollectionViewCell
         performSegue(withIdentifier: "OpenCanvas", sender: indexPath)
     }
     
@@ -98,8 +118,19 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //let viewController = segue.destination as! ViewController
-        //viewController.bmc = bmcs[(sender as! IndexPath).row]
+        let index = (sender as! IndexPath).row
+        let isNewCanvas = (index == 0)
+        let bmc = (isNewCanvas ? dao.new() : bmcs[index])
+        
+        if(isNewCanvas == true) {
+            bmc.initializeBlocks()
+            bmc.title = "BMC \(bmcs.count - 1)"
+            bmc.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
+            dao.insert(object: bmc)
+        }
+        
+        let viewController = segue.destination as! ViewController
+        viewController.bmc = bmc
     }
 
 }

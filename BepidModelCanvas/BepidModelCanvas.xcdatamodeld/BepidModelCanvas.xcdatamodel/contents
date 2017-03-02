@@ -3,6 +3,7 @@
     <entity name="Block" representedClassName="Block" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="businessModelCanvas" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusinessModelCanvas" inverseName="blocks" inverseEntity="BusinessModelCanvas" syncable="YES"/>
         <relationship name="postits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Postit" inverseName="block" inverseEntity="Postit" syncable="YES"/>
@@ -18,8 +19,8 @@
         <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="postits" inverseEntity="Block" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Postit" positionX="-99" positionY="20" width="128" height="88"/>
-        <element name="Block" positionX="88" positionY="-9" width="128" height="118"/>
+        <element name="Block" positionX="88" positionY="-9" width="128" height="135"/>
         <element name="BusinessModelCanvas" positionX="286" positionY="9" width="128" height="88"/>
+        <element name="Postit" positionX="-99" positionY="20" width="128" height="88"/>
     </elements>
 </model>

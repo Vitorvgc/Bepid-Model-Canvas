@@ -45,7 +45,7 @@ class CoreDataDAO<Element: NSManagedObject>: DAO {
         return NSEntityDescription.insertNewObject(forEntityName: Element.className, into: self.context) as! Element
     }
     
-    private func save() {
+    func save() {
         try! self.context.save()
     }
     

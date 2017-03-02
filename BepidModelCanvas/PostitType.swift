@@ -11,20 +11,39 @@ import UIKit
 
 protocol PostitTypeDelegate {
     
-    func didPressMenu()
-    func didPressPlayPause()
+    func didPressMenu(in cell: PostitType)
+    func didPressPlayPause(in cell: PostitType)
 }
 
 class PostitType: UICollectionViewCell {
     
-    @IBOutlet weak var textViewPostit: UITextView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet var colorViews: [FocusableView]!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak private var textViewPostit: UITextView!
+    @IBOutlet weak private var textField: UITextField!
+    @IBOutlet private var colorViews: [FocusableView]!
+    @IBOutlet weak private var label: UILabel!
     
     var delegate: PostitTypeDelegate?
     
-    var isEditing = true
+    private var isEditing = true
+    private var _postit: Postit?
+    
+    var postit: Postit? {
+        get {
+            return _postit
+        }
+        set {
+            _postit = newValue
+            self.reset()
+        }
+    }
+    
+    var text: String {
+        return self.textViewPostit.text
+    }
+    
+    var selectedColor: UIColor {
+        return self.textViewPostit.backgroundColor!
+    }
     
     override var canBecomeFocused: Bool {
         return !self.isEditing
@@ -35,12 +54,10 @@ class PostitType: UICollectionViewCell {
     }
     
     @IBAction func edit(_ sender: UITextField) {
-        
         sender.text = self.textViewPostit.text
     }
     
     @IBAction func clear(_ sender: UITextField) {
-        
         self.textViewPostit.text = sender.text
         sender.text = ""
     }
@@ -48,7 +65,7 @@ class PostitType: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setColorViewsTapGestures()
-        
+        self.reset()
         // Gesture recognizers
         
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMenuTap(gestureRecognizer:)))
@@ -79,19 +96,14 @@ class PostitType: UICollectionViewCell {
         self.label.frame = CGRect(x: xPosition, y: viewFrame.minY, width: width - xPosition, height: viewFrame.height)
     }
     
-    // Don't reset based on the actual postit information and color
     func reset() {
         
         self.textField.text = ""
-        self.textViewPostit.text = ""
+        self.textViewPostit.text = self.postit?.text ?? ""
+        self.textViewPostit.backgroundColor = (self.postit == nil ? UIColor.PostitTheme.blue : UIColor.PostitTheme.color(for: (self.postit?.color)!))
         
-        self.textViewPostit.backgroundColor = UIColor(withHex: 0xA7DEFF, alpha: 0.73)
+        let initialColors = UIColor.PostitTheme.allColors.filter { $0 != self.textViewPostit.backgroundColor }
         
-        let initialColors = [
-            UIColor(withHex: 0xFFC7E8, alpha: 0.73),
-            UIColor(withHex: 0xFFEFB4, alpha: 0.73),
-            UIColor(withHex: 0x408710, alpha: 0.73)
-        ]
         (0...2).forEach { self.colorViews[$0].backgroundColor = initialColors[$0] }
     }
     
@@ -108,13 +120,11 @@ class PostitType: UICollectionViewCell {
     //MARK: Gesture recognizers
     
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.delegate?.didPressMenu()
-        print("Menu pressed")
+        self.delegate?.didPressMenu(in: self)
     }
     
     func handlePlayPauseTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.delegate?.didPressPlayPause()
-        print("Play/pause pressed")
+        self.delegate?.didPressPlayPause(in: self)
     }
     
     func switchColorOnTap(gestureRecognizer: UITapGestureRecognizer) {

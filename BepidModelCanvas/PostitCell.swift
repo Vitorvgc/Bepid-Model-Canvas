@@ -14,6 +14,19 @@ class PostitCell: UICollectionViewCell {
     
     var onSelection: () -> Void = {}
     
+    private var _postit = Postit()
+    
+    var postit: Postit {
+        get {
+            return _postit
+        }
+        set {
+            _postit = newValue
+            self.titleTextField.text = newValue.text
+            self.backgroundColor = UIColor.PostitTheme.color(for: newValue.color)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 4

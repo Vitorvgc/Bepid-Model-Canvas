@@ -12,12 +12,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
-    var bmc: CWBusinessModelCanvas!
-    var postits = [CWPostit]()
     
-    var postitQuantity = [Int](repeating: 2, count: 9)
+    var bmc: BusinessModelCanvas!
+    var dao = CoreDataDAO<Postit>()
     
-    var editedPostitPosition: (tag: Int, position: IndexPath, new: Bool)?
+    var editedPostitPosition: (tag: Int, position: IndexPath)?
+    
+    var bmcBlocks: [Block] {
+        return bmc.blocks?.sorted { ($0 as! Block).tag < ($1 as! Block).tag } as! [Block]
+    }
+    
+    var postits: [[Postit]] {
+        return (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
+    }
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
@@ -39,36 +46,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.views.forEach {
             $0.collectionView = $0.subviews.filter { $0 is UICollectionView }.first as! UICollectionView!
         }
-        /*
-        CloukKitHelper.getAllChildren(fromRecordID: bmc.recordId, childEntity: "block", competionHandler:
-            {
-                sucess, records in
-                if sucess{
-                    print("blocks count: \(records?.count)")
-                    for blockRec in records!{
-                        print("block title: \(blockRec["title"])")
-                        CloukKitHelper.getAllChildren(fromRecordID: blockRec.recordID, childEntity: "postit", competionHandler: {
-                                sucess, records in
-                                if sucess{
-                                    if let recordsFetched = records{
-                                        for record in recordsFetched{
-                                            let postit = CWPostit(withRecord: record)
-                                            self.postits.append(postit)
-                                        }
-                                    }
-                                }
-                        })
-                    }
-                    self.bmc.blocks.sort(by: { return $0.tag < $1.tag })
-                    for block in self.bmc.blocks{
-                        print(block.title)
-                    }
-                }
-                else{
-                    print(" bmc has no child!")
-                }
-        })
-         */
     }
 
     
@@ -80,7 +57,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return postitQuantity[collectionView.tag]
+        return self.postits[collectionView.tag].count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,7 +69,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             editingPostitCell.resizeOutlets()
             editingPostitCell.delegate = self
-            
+            editingPostitCell.postit = (indexPath.row < postits[collectionView.tag].count ?
+                postits[collectionView.tag][indexPath.row] :
+                nil)
             return editingPostitCell
         }
     
@@ -109,10 +88,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Otherwise create a normal postit cell
         let postitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitCell", for: indexPath) as! PostitCell
         
+        let postit = postits[collectionView.tag][indexPath.row]
+        
         postitCell.resizeOutlets()
         postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
-        postitCell.titleTextField.text = "title \(indexPath.row)"
-        postitCell.backgroundColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.73)
+        postitCell.postit = postit
         
         return postitCell
     }
@@ -144,10 +124,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     private func updatePostit(at collectionView: UICollectionView, in indexPath: IndexPath, isNew: Bool) {
-        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath, new: isNew)
-        if(isNew) {
-            postitQuantity[collectionView.tag] += 1
-        }
+        self.editedPostitPosition = (tag: collectionView.tag, position: indexPath)
         collectionView.reloadData()
     }
     
@@ -163,35 +140,37 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 extension ViewController: PostitTypeDelegate {
     
-    func didPressMenu() {
+    func didPressMenu(in cell: PostitType) {
+        
         let tag = self.editedPostitPosition!.tag
-        let index = self.editedPostitPosition!.position
-        let isNew = self.editedPostitPosition!.new
         let collectionView = self.blocks[tag]
         
-        let cell = collectionView.cellForItem(at: index) as! PostitType
         cell.reset()
-        
-        if(isNew) {
-            // if it would be a new postit, remove it
-            self.postitQuantity[tag] -= 1
-        }
         self.editedPostitPosition = nil
- 
         collectionView.reloadData()
     }
     
-    func didPressPlayPause() {
+    func didPressPlayPause(in cell: PostitType) {
+        
         let tag = self.editedPostitPosition!.tag
-        let index = self.editedPostitPosition!.position
         let collectionView = self.blocks[tag]
         
-        let cell = collectionView.cellForItem(at: index) as! PostitType
-        cell.reset()
+        if(cell.postit == nil) {
+            let postit = dao.new()
+            postit.block = bmcBlocks.filter { Int($0.tag) == tag }.first
+            postit.text = cell.text
+            postit.color = UIColor.PostitTheme.index(of: cell.selectedColor)!
+            dao.insert(object: postit)
+        }
+        else {
+            let postit = cell.postit!
+            postit.text = cell.text
+            postit.color = UIColor.PostitTheme.index(of: cell.selectedColor)!
+            dao.save()
+        }
         
         self.editedPostitPosition = nil
-        // TODO: update postit if it is an existing one, or insert a new one otherwise
-        // currently without CoreData, it justs inserts a default postit
+        cell.reset()
         collectionView.reloadData()
     }
     
