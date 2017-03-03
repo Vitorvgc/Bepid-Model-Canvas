@@ -20,28 +20,33 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*
-        CloukKitHelper.icloudStatus()
-        let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
-        bmcs.append(addNewCanvas)
+        let newBmc = CWBusinessModelCanvas(title: "Add New Canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
+        bmcs.append(newBmc)
         
-        CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
-            sucess, records in
+        CloudKitHelper.isICloudContainerAvailable(competionHandler: {
+            sucess in
             if sucess{
-                if let recs = records{
-                    for rec in recs{
-                        let bmc = CWBusinessModelCanvas.init(withRecord: rec)
-                        self.bmcs.append(bmc)
+                CloudKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
+                    sucess, records in
+                    if sucess{
+                        if let recs = records{
+                            for rec in recs{
+                                let bmc = CWBusinessModelCanvas.init(withRecord: rec)
+                                self.bmcs.append(bmc)
+                            }
+                            self.BmcCollectionView.reloadData()
+                        }
                     }
-                    self.BmcCollectionView.reloadData()
-                }
+                    else{
+                        
+                        print(" bmc doesnt exist!")
+                    }
+                })
             }
             else{
-                
-                print(" bmc doesnt exist!")
+                print("icloud is not avalaible")
             }
         })
-        */
                
     }
     
