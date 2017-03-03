@@ -57,7 +57,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.postits[collectionView.tag].count + 1
+        let quantity = self.postits[collectionView.tag].count
+        if let focusedBlockView = self.blockWith(collectionView: collectionView), focusedBlockView.isEditing {
+            return quantity + 1
+        }
+        return quantity
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,7 +80,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     
         // Add a plus button if this is the last cell
-        if indexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
+        if blockWith(collectionView: collectionView)!.isEditing && indexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
 
             let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
 
@@ -122,6 +126,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //MARK: View methods
     
+    private func blockWith(collectionView: UICollectionView) -> BlockView? {
+        return self.views.filter { $0.collectionView == collectionView }.first
+    }
     
     private func updatePostit(at collectionView: UICollectionView, in indexPath: IndexPath, isNew: Bool) {
         self.editedPostitPosition = (tag: collectionView.tag, position: indexPath)

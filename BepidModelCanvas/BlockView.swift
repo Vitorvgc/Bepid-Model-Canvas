@@ -14,8 +14,7 @@ class BlockView: UIView {
     var isEditing = false
     
     override var canBecomeFocused: Bool {
-        if isEditing { return false }
-        return true
+        return !isEditing
     }
     
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
@@ -32,6 +31,7 @@ class BlockView: UIView {
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
         self.isEditing = true
+        self.collectionView.reloadData()
         self.setNeedsFocusUpdate()
     }
     
@@ -61,6 +61,7 @@ class BlockView: UIView {
         }
         else if (context.nextFocusedItem?.isKind(of: BlockView.self))! {
             self.isEditing = false
+            self.collectionView.reloadData()
         }
         
     }
