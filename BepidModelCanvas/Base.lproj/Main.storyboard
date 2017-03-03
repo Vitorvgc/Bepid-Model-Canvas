@@ -432,6 +432,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="titleTextField" destination="F9p-WD-jFJ" id="RUJ-Cx-rUQ"/>
                         <outletCollection property="views" destination="o3T-fO-nqw" collectionClass="NSMutableArray" id="bYl-ho-eSq"/>
                         <outletCollection property="views" destination="W7c-BK-0nr" collectionClass="NSMutableArray" id="xHe-Hf-cuw"/>
                         <outletCollection property="views" destination="grd-jm-wWw" collectionClass="NSMutableArray" id="gDA-xn-Zf3"/>

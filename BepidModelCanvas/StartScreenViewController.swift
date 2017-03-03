@@ -24,6 +24,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        to remove all the local data:
 //        self.bmcs.forEach { dao.delete(object: $0) }
         
         if bmcs.isEmpty {
@@ -124,7 +125,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         
         if(isNewCanvas == true) {
             bmc.initializeBlocks()
-            bmc.title = "BMC \(bmcs.count - 1)"
+            bmc.title = "Untitled BMC"
             bmc.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
             dao.insert(object: bmc)
         }

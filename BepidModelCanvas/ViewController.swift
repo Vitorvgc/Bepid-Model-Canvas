@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     
@@ -35,6 +36,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.titleTextField.text = bmc.title
+        
         self.blocks.forEach {
             $0.delegate = self
             $0.dataSource = self
@@ -46,8 +49,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.views.forEach {
             $0.collectionView = $0.subviews.filter { $0 is UICollectionView }.first as! UICollectionView!
         }
+        
+        let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMenuTap(gestureRecognizer:)))
+        menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuTapGestureRecognizer)
     }
 
+    func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
+        
+        self.bmc.title = self.titleTextField.text!
+        self.bmc.image = UIImagePNGRepresentation(CloudKitHelper.screenShotMethod()!) as NSData?
+        CoreDataDAO<BusinessModelCanvas>().save()
+        
+        self.dismiss(animated: true, completion: {
+
+//            self.bmc.title = self.titleTextField.text!
+//            self.bmc.image = UIImagePNGRepresentation(CloudKitHelper.screenShotMethod()!) as NSData?
+//            CoreDataDAO<BusinessModelCanvas>().save()
+        })
+    }
+    
     
     //MARK: CollectionView Data Source
     
