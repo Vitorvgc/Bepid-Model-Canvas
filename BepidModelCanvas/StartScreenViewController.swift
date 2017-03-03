@@ -12,27 +12,13 @@ import CloudKit
 class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var BmcCollectionView: UICollectionView!
+    @IBOutlet weak var CanvaImage: UIImageView!
 
-    let dao = CoreDataDAO<BusinessModelCanvas>()
     
-//    var bmcs = [CWBusinessModelCanvas]()
-    
-    var bmcs: [BusinessModelCanvas] {
-        return dao.all()
-    }
+    var bmcs = [CWBusinessModelCanvas]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        to remove all the local data:
-//        self.bmcs.forEach { dao.delete(object: $0) }
-        
-        if bmcs.isEmpty {
-            let newCanvas = dao.new()
-            newCanvas.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
-            newCanvas.title = "Add new canvas"
-            dao.insert(object: newCanvas)
-        }
         
         /*
         CloukKitHelper.icloudStatus()
@@ -64,8 +50,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         self.BmcCollectionView.reloadData()
     }
     
-    @IBOutlet weak var CanvaImage: UIImageView!
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -77,10 +61,10 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
-        let bmc = bmcs[indexPath.row]
         
-        cell.CanvaImage.image = UIImage(data: bmc.image as! Data)
-        cell.CanvaTitle.text! = bmc.title!
+        let bmc = bmcs[indexPath.row]
+        cell.CanvaImage.image =  bmc.image
+        cell.CanvaTitle.text! = bmc.title
         
         return cell
     }
@@ -119,19 +103,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let index = (sender as! IndexPath).row
-        let isNewCanvas = (index == 0)
-        let bmc = (isNewCanvas ? dao.new() : bmcs[index])
         
-        if(isNewCanvas == true) {
-            bmc.initializeBlocks()
-            bmc.title = "Untitled BMC"
-            bmc.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
-            dao.insert(object: bmc)
-        }
-        
-        let viewController = segue.destination as! ViewController
-        viewController.bmc = bmc
     }
 
 }
