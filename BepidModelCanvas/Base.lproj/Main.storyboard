@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BepidModelCanvas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tvBMC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,7 +36,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-bf-PHw">
                                         <rect key="frame" x="0.0" y="0.0" width="1801" height="630"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-BK-0nr" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7c-BK-0nr" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="630"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-TZ-GdF" userLabel="KeyPartners">
@@ -85,7 +85,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="WLa-cN-aw0">
                                                 <rect key="frame" x="365" y="0.0" width="341" height="630"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grd-jm-wWw" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grd-jm-wWw" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="341" height="302"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Key Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35Q-zQ-hkP">
@@ -126,7 +126,7 @@
                                                             <constraint firstAttribute="width" constant="340" id="uFT-Yu-t9x"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-tK-1bu" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-tK-1bu" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="327" width="341" height="303"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Key Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1M-Po-Z7e">
@@ -169,7 +169,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-fO-nqw" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-fO-nqw" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="731" y="0.0" width="340" height="630"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Customer Segments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-Zw-NiA">
@@ -213,7 +213,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QPO-aX-82A">
                                                 <rect key="frame" x="1096" y="0.0" width="340" height="630"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-do-21v" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-do-21v" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="302"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Channels" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGg-xw-mva">
@@ -254,7 +254,7 @@
                                                             <constraint firstItem="S6J-Vw-NPr" firstAttribute="leading" secondItem="Wvj-do-21v" secondAttribute="leading" id="onM-67-eps"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-YX-Qer" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-YX-Qer" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="327" width="340" height="303"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Customer Relantionships" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd3-xa-Opp">
@@ -297,7 +297,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Tw-9pb" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Tw-9pb" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="1461" y="0.0" width="340" height="630"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Value Propositions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-03-nMb">
@@ -342,7 +342,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="5ti-5V-nZm">
                                         <rect key="frame" x="0.0" y="655" width="1801" height="224"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJg-mK-y81" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJg-mK-y81" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="888" height="224"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cost Sctructure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3l-WE-6Ng">
@@ -383,7 +383,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="WFA-Yp-0RD" secondAttribute="trailing" id="xhi-oM-qP9"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EY7-kt-DUT" customClass="BlockView" customModule="BepidModelCanvas" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EY7-kt-DUT" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="913" y="0.0" width="888" height="224"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Revenue Streams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOy-Vi-Nhw">
@@ -459,7 +459,7 @@
         <!--Start Screen View Controller-->
         <scene sceneID="Ofz-SD-RkC">
             <objects>
-                <viewController id="zCV-nv-vlf" customClass="StartScreenViewController" customModule="BepidModelCanvas" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zCV-nv-vlf" customClass="StartScreenViewController" customModule="tvBMC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lxx-ae-WQo"/>
                         <viewControllerLayoutGuide type="bottom" id="TqG-HI-WYg"/>
@@ -488,11 +488,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="1920" height="371"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </view>
-                                    <color key="backgroundColor" red="0.121119149" green="0.13739755749999999" blue="0.1333277524" alpha="0.54730308220000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.121119149" green="0.13739755749999999" blue="0.1333277524" alpha="0.25334439212328769" colorSpace="custom" customColorSpace="sRGB"/>
                                     <blurEffect style="regular"/>
                                 </visualEffectView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teste" id="GUs-He-ew3" customClass="CanvasModelsCollectionViewCell" customModule="BepidModelCanvas" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teste" id="GUs-He-ew3" customClass="CanvasModelsCollectionViewCell" customModule="tvBMC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="435" height="315"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -546,6 +546,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="newCanvasDemo" width="960" height="540"/>
+        <image name="newCanvasDemo" width="1920" height="1080"/>
     </resources>
 </document>
