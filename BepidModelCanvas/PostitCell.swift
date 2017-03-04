@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol PostitCellDelegate{
+    func didLongPress(in cell: PostitCell);
+}
+
 class PostitCell: UICollectionViewCell {
+    
+    var delegate : PostitCellDelegate?
     
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -56,8 +62,11 @@ class PostitCell: UICollectionViewCell {
         self.onSelection()
     }
     
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.titleTextField.text = "Long pressed"
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        // go only when long press end, because if pick just the longpress will open two screens or more
+        if gestureRecognizer.state == .ended {
+            self.delegate?.didLongPress(in: self)
+        }
     }
     
     //MARK: Focus engine

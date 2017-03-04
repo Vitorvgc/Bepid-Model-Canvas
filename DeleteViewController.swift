@@ -9,11 +9,45 @@
 import UIKit
 
 class DeleteViewController: UIViewController {
+    
+    private var postitFocused : PostitCell?
 
+    @IBOutlet weak var lblTitle: UILabel! //bmc or postit
+    
+    @IBOutlet weak var lblDescription: UITextView!
+    
+    @IBAction func btnConfirmDelete(_ sender: UIButton) {
+        //if delete button was clicked
+        
+    }
+    
+    @IBAction func btnCancelDelete(_ sender: UIButton) {
+        //just dismiss the screen if cancel was clicked
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    override func unwind(for unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+         print("dismiss")
+    }
+    
+    func getSelected(postitFocused : PostitCell){
+        self.postitFocused = postitFocused
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("postit selected: \(postitFocused)")
+        //compare if is postit or bmc and change title and description (TODO)
+        self.lblTitle.text = "Delete post-it"
+        self.lblDescription.text = "If you delete it, all data will be deleted too. Are you sure you want to delete this Post-it?"
+        
+    }
+
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +55,5 @@ class DeleteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

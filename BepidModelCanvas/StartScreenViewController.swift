@@ -25,7 +25,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         super.viewDidLoad()
         
 //        to remove all the local data:
-//        self.bmcs.forEach { dao.delete(object: $0) }
+        self.bmcs.forEach { dao.delete(object: $0) }
         
         if bmcs.isEmpty {
             let newCanvas = dao.new()
