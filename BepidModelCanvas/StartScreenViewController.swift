@@ -12,50 +12,46 @@ import CloudKit
 class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowLayout,UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var BmcCollectionView: UICollectionView!
+    @IBOutlet weak var CanvaImage: UIImageView!
 
-    let dao = CoreDataDAO<BusinessModelCanvas>()
     
-//    var bmcs = [CWBusinessModelCanvas]()
-    
-    var bmcs: [BusinessModelCanvas] {
-        return dao.all()
-    }
+    var bmcs = [CWBusinessModelCanvas]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
 //        to remove all the local data:
         self.bmcs.forEach { dao.delete(object: $0) }
+=======
+        let newBmc = CWBusinessModelCanvas(title: "Add New Canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
+        bmcs.append(newBmc)
+>>>>>>> 2d05cc506e669768665208650182b692c198b846
         
-        if bmcs.isEmpty {
-            let newCanvas = dao.new()
-            newCanvas.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
-            newCanvas.title = "Add new canvas"
-            dao.insert(object: newCanvas)
-        }
-        
-        /*
-        CloukKitHelper.icloudStatus()
-        let addNewCanvas = CWBusinessModelCanvas(title: "Add new canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
-        bmcs.append(addNewCanvas)
-        
-        CloukKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
-            sucess, records in
+        CloudKitHelper.isICloudContainerAvailable(competionHandler: {
+            sucess in
             if sucess{
-                if let recs = records{
-                    for rec in recs{
-                        let bmc = CWBusinessModelCanvas.init(withRecord: rec)
-                        self.bmcs.append(bmc)
+                CloudKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
+                    sucess, records in
+                    if sucess{
+                        if let recs = records{
+                            for rec in recs{
+                                let bmc = CWBusinessModelCanvas.init(withRecord: rec)
+                                self.bmcs.append(bmc)
+                            }
+                            self.BmcCollectionView.reloadData()
+                        }
                     }
-                    self.BmcCollectionView.reloadData()
-                }
+                    else{
+                        
+                        print(" bmc doesnt exist!")
+                    }
+                })
             }
             else{
-                
-                print(" bmc doesnt exist!")
+                print("icloud is not avalaible")
             }
         })
-        */
                
     }
     
@@ -63,8 +59,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         super.viewWillAppear(animated)
         self.BmcCollectionView.reloadData()
     }
-    
-    @IBOutlet weak var CanvaImage: UIImageView!
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -77,10 +71,10 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
-        let bmc = bmcs[indexPath.row]
         
-        cell.CanvaImage.image = UIImage(data: bmc.image as! Data)
-        cell.CanvaTitle.text! = bmc.title!
+        let bmc = bmcs[indexPath.row]
+        cell.CanvaImage.image =  bmc.image
+        cell.CanvaTitle.text! = bmc.title
         
         return cell
     }
@@ -119,19 +113,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let index = (sender as! IndexPath).row
-        let isNewCanvas = (index == 0)
-        let bmc = (isNewCanvas ? dao.new() : bmcs[index])
         
-        if(isNewCanvas == true) {
-            bmc.initializeBlocks()
-            bmc.title = "Untitled BMC"
-            bmc.image = UIImagePNGRepresentation(#imageLiteral(resourceName: "newCanvasDemo")) as NSData?
-            dao.insert(object: bmc)
-        }
-        
-        let viewController = segue.destination as! ViewController
-        viewController.bmc = bmc
     }
 
 }
