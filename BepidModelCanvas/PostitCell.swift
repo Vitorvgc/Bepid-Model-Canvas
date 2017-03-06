@@ -33,7 +33,7 @@ class PostitCell: UICollectionViewCell {
         self.layer.cornerRadius = 4
         self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
         
-        
+        self.titleTextView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
         
         // Gesture recognizers
         
@@ -47,7 +47,9 @@ class PostitCell: UICollectionViewCell {
         
     }
     
-    
+    deinit {
+        self.titleTextView.removeObserver(self, forKeyPath: "contentSize")
+    }
     
     func resizeOutlets() {
         let width = self.frame.size.width
@@ -85,6 +87,15 @@ class PostitCell: UICollectionViewCell {
     }
     
     
+    //MARK: TextView content size update
+    
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        let textView = object as! UITextView
+        var topCorrect = (textView.bounds.size.height - textView.contentSize.height * textView.zoomScale) / 2
+        topCorrect = topCorrect > 0.0 ? 0.0 : topCorrect;
+        textView.contentInset.top = topCorrect
+    }
     
     
     //MARK: Focus engine
