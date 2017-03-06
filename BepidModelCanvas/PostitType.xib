@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" tag="-3" contentMode="center" reuseIdentifier="PostitType" id="RIK-h9-YjH" customClass="PostitType" customModule="BepidModelCanvas" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" tag="-3" contentMode="center" reuseIdentifier="PostitType" id="RIK-h9-YjH" customClass="PostitType" customModule="tvBMC" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" tag="-3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-sR-gZI">
+                    <textField opaque="NO" tag="-3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-sR-gZI">
                         <rect key="frame" x="7" y="16" width="387" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <nil key="textColor"/>
@@ -36,17 +36,17 @@
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <view tag="-3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foJ-6A-Qgj" customClass="FocusableView" customModule="BepidModelCanvas" customModuleProvider="target">
+                    <view tag="-3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foJ-6A-Qgj" customClass="FocusableView" customModule="tvBMC" customModuleProvider="target">
                         <rect key="frame" x="8" y="152" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.7803921568627451" blue="0.90980392156862744" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <view tag="-3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcs-As-nKh" customClass="FocusableView" customModule="BepidModelCanvas" customModuleProvider="target">
+                    <view tag="-3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lcs-As-nKh" customClass="FocusableView" customModule="tvBMC" customModuleProvider="target">
                         <rect key="frame" x="58" y="152" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.93725490196078431" blue="0.70588235294117641" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <view tag="-3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1X-FF-Egi" customClass="FocusableView" customModule="BepidModelCanvas" customModuleProvider="target">
+                    <view tag="-3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1X-FF-Egi" customClass="FocusableView" customModule="tvBMC" customModuleProvider="target">
                         <rect key="frame" x="107" y="152" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.25098039215686274" green="0.52941176470588236" blue="0.062745098039215685" alpha="0.72999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
