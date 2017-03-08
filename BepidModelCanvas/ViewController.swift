@@ -14,18 +14,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
     
-    var bmc: BusinessModelCanvas!
-    var dao = CoreDataDAO<Postit>()
-    
+//    var bmc: BusinessModelCanvas!
+//    var dao = CoreDataDAO<Postit>()
     var editedPostitPosition: (tag: Int, position: IndexPath)?
+//    var bmcBlocks: [Block] {
+//        return bmc.blocks?.sorted { ($0 as! Block).tag < ($1 as! Block).tag } as! [Block]
+//    }
+//    var postits: [[Postit]] {
+//        return (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
+//    }
     
-    var bmcBlocks: [Block] {
-        return bmc.blocks?.sorted { ($0 as! Block).tag < ($1 as! Block).tag } as! [Block]
-    }
-    
-    var postits: [[Postit]] {
-        return (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
-    }
+    var bmc: CWBusinessModelCanvas!
+    var bmcBlocks: [CWBlock]!
+    var bmcPostits: [ [CWPostit] ]!
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
@@ -54,13 +55,48 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
         self.view.addGestureRecognizer(menuTapGestureRecognizer)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viw start")
+        bmcBlocks.sort(by: { $0.tag < $1.tag })//sort the block by tag.
+        bmcBlocks.forEach{
+            block in
+            CloudKitHelper.getAllChildren(fromRecordID: block.recordId, childEntity: "postit", competionHandler: {
+                sucess, records in
+                if sucess{
+                    var postits = [CWPostit]()
+                    records?.forEach{
+                        let postit = CWPostit(withRecord: $0)
+                        postits.append(postit)
+                    }
+                    self.bmcPostits.insert(postits, at: block.tag)
+                }
+            })
+        }
+        print("view finish")
+    }
 
+    //When the user press on menu button. Update/Save bmc and postits. OBS: blocks are not modified so we dont care about it.
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
         
         self.bmc.title = self.titleTextField.text!
-        self.bmc.image = UIImagePNGRepresentation(CloudKitHelper.screenShotMethod()!) as NSData?
-        CoreDataDAO<BusinessModelCanvas>().save()
-        
+        self.bmc.image = CloudKitHelper.screenShotMethod()!
+        self.bmc.upadate(title: self.bmc.title, image: self.bmc.image, competionHandler: {
+            sucess in
+            if sucess{
+                print("update bmc")
+            }
+        })
+        self.bmcPostits.forEach{ postits in
+            postits.forEach{
+                $0.upadate(title: $0.title, text: $0.text, color: $0.color, competionHandler: {
+                    sucess in
+                    if sucess{
+                        print("update postit")
+                    }
+                })
+        }
         self.dismiss(animated: true, completion: {
 
 //            self.bmc.title = self.titleTextField.text!
@@ -68,7 +104,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 //            CoreDataDAO<BusinessModelCanvas>().save()
         })
     }
-    
+    }
     
     //MARK: CollectionView Data Source
     
@@ -78,7 +114,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let quantity = self.postits[collectionView.tag].count
+//        
+        let quantity = self.bmcPostits[collectionView.tag].count
         if let focusedBlockView = self.blockWith(collectionView: collectionView), focusedBlockView.isEditing {
             return quantity + 1
         }
@@ -94,8 +131,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             editingPostitCell.resizeOutlets()
             editingPostitCell.delegate = self
-            editingPostitCell.postit = (indexPath.row < postits[collectionView.tag].count ?
-                postits[collectionView.tag][indexPath.row] :
+            editingPostitCell.postit = (indexPath.row < bmcPostits[collectionView.tag].count ?
+                bmcPostits[collectionView.tag][indexPath.row] :
                 nil)
             return editingPostitCell
         }
@@ -113,7 +150,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Otherwise create a normal postit cell
         let postitCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostitCell", for: indexPath) as! PostitCell
         
-        let postit = postits[collectionView.tag][indexPath.row]
+        let postit = bmcPostits[collectionView.tag][indexPath.row]
         
         postitCell.resizeOutlets()
         postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
@@ -124,8 +161,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     //MARK: CollectionView Delegate Flow Layout
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if !self.isEditingCell(at: collectionView, in: indexPath) {
@@ -200,22 +235,37 @@ extension ViewController: PostitTypeDelegate {
         let collectionView = self.blocks[tag]
         
         if(cell.postit == nil) {
-            let postit = dao.new()
-            postit.block = bmcBlocks.filter { Int($0.tag) == tag }.first
-            postit.text = cell.text
-            postit.color = UIColor.PostitTheme.index(of: cell.selectedColor)!
-            dao.insert(object: postit)
+            
+            let postit = CWPostit(title: "", text: cell.text, color: cell.selectedColor, parent: (bmcBlocks.filter { Int($0.tag) == tag }.first?.record)!)
+            cell.postit = postit
+            self.bmcPostits[tag].append(postit)
+            CWPostit.createPostit(withTitle: "", andText: cell.text, andColor: cell.selectedColor, parent: (bmcBlocks.filter { Int($0.tag) == tag }.first?.record)!, competionHandler: {
+                sucess, postit in
+                if sucess{
+                    print("postit saved with sucess")
+                }
+                else{
+                    print("postit not saved.")
+                }
+            })
         }
         else {
             let postit = cell.postit!
-            postit.text = cell.text
-            postit.color = UIColor.PostitTheme.index(of: cell.selectedColor)!
-            dao.save()
+                postit.upadate(title: nil, text: cell.text, color: cell.selectedColor, competionHandler:
+                    { sucess in
+                        if sucess{
+                            print("postit updated with sucess")
+                        }
+                        else{
+                            print("postit not updated.")
+                        }
+                })
         }
         
         self.editedPostitPosition = nil
         cell.reset()
         collectionView.reloadData()
+
     }
     
 }
