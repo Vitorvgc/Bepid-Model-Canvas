@@ -54,12 +54,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMenuTap(gestureRecognizer:)))
         menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
         self.view.addGestureRecognizer(menuTapGestureRecognizer)
+        bmcBlocks.sort(by: { $0.tag < $1.tag })//sort the block by tag.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("viw start")
-        bmcBlocks.sort(by: { $0.tag < $1.tag })//sort the block by tag.
         bmcBlocks.forEach{
             block in
             CloudKitHelper.getAllChildren(fromRecordID: block.recordId, childEntity: "postit", competionHandler: {
@@ -71,6 +71,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         postits.append(postit)
                     }
                     self.bmcPostits.insert(postits, at: block.tag)
+                    self.blocks[block.tag].reloadData()
                 }
             })
         }

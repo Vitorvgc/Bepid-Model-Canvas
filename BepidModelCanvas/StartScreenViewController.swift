@@ -22,13 +22,8 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
-//        to remove all the local data:
-        self.bmcs.forEach { dao.delete(object: $0) }
-=======
         let newBmc = CWBusinessModelCanvas(title: "Add New Canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
         bmcs.append(newBmc)
->>>>>>> 2d05cc506e669768665208650182b692c198b846
         
         CloudKitHelper.isICloudContainerAvailable(competionHandler: {
             sucess in
