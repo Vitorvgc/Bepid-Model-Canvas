@@ -29,8 +29,8 @@ class PostitCell: UICollectionViewCell {
         }
         set {
             _postit = newValue
-            self.titleTextField.text = newValue.text
-            self.backgroundColor =  newValue.color
+            self.titleTextView.text = newValue.text
+            self.titleTextView.backgroundColor =  newValue.color
         }
     }
     
