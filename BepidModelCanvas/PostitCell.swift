@@ -8,23 +8,29 @@
 
 import UIKit
 
+protocol PostitCellDelegate{
+    func didLongPress(in cell: PostitCell);
+}
+
 class PostitCell: UICollectionViewCell {
+    
+    var delegate : PostitCellDelegate?
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var titleTextView: UITextView!
     
     var onSelection: () -> Void = {}
     
-    private var _postit = Postit()
+    private var _postit : CWPostit?
     
-    var postit: Postit {
+    var postit: CWPostit {
         get {
-            return _postit
+            return _postit!
         }
         set {
             _postit = newValue
-            self.titleTextView.text = newValue.text
-            self.titleTextView.backgroundColor = UIColor.PostitTheme.color(for: newValue.color)
+            self.titleTextField.text = newValue.text
+            self.backgroundColor =  newValue.color
         }
     }
     
@@ -68,8 +74,11 @@ class PostitCell: UICollectionViewCell {
         self.onSelection()
     }
     
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.titleTextField.text = "Long pressed"
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        // go only when long press end, because if pick just the longpress will open two screens or more
+        if gestureRecognizer.state == .ended {
+            self.delegate?.didLongPress(in: self)
+        }
     }
     
     
