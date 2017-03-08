@@ -18,7 +18,15 @@ class DeleteViewController: UIViewController {
     
     @IBAction func btnConfirmDelete(_ sender: UIButton) {
         //if delete button was clicked
-        
+        postitFocused?.postit.destroy({
+            sucess in
+            if sucess{
+                print("postit deleted")
+            }
+            else{
+                print("postit not deleted")
+            }
+        })
     }
     
     @IBAction func btnCancelDelete(_ sender: UIButton) {
