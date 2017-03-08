@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -534,11 +534,16 @@
                                     <outlet property="prefetchDataSource" destination="zCV-nv-vlf" id="UBz-95-2Jy"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oax-BF-EZZ">
+                                <rect key="frame" x="907" y="490" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="BmcCollectionView" destination="918-gG-FeT" id="j7i-AW-Bjn"/>
                         <outlet property="CanvaImage" destination="s3g-TN-J6X" id="pNI-cg-bxe"/>
+                        <outlet property="actvityIndicator" destination="oax-BF-EZZ" id="CKp-Vh-Tkd"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="OpenCanvas" id="WmE-SR-fl6"/>
                     </connections>
                 </viewController>

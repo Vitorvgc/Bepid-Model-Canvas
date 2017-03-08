@@ -13,6 +13,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     
     @IBOutlet weak var BmcCollectionView: UICollectionView!
     @IBOutlet weak var CanvaImage: UIImageView!
+    @IBOutlet weak var actvityIndicator: UIActivityIndicatorView!
 
     
     var bmcs = [CWBusinessModelCanvas]()
@@ -26,6 +27,8 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         let newBmc = CWBusinessModelCanvas(title: "Add New Canvas", image: #imageLiteral(resourceName: "newCanvasDemo"))
         bmcs.append(newBmc)
         
+        actvityIndicator.activityIndicatorViewStyle = .whiteLarge
+        actvityIndicator.startAnimating()
         CloudKitHelper.isICloudContainerAvailable(competionHandler: {
             sucess in
             if sucess{
@@ -44,6 +47,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                         
                         print(" bmc doesnt exist!")
                     }
+                    self.actvityIndicator.stopAnimating()
                 })
             }
             else{
