@@ -26,6 +26,7 @@ class DeleteViewController: UIViewController {
             else{
                 print("postit not deleted")
             }
+            self.dismiss(animated: true, completion: nil)
         })
     }
     

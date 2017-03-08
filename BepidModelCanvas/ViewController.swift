@@ -54,11 +54,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let menuTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleMenuTap(gestureRecognizer:)))
         menuTapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
         self.view.addGestureRecognizer(menuTapGestureRecognizer)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viw start")
         bmcBlocks.sort(by: { $0.tag < $1.tag })//sort the block by tag.
         bmcBlocks.forEach{
             block in
@@ -75,8 +70,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
             })
         }
-        print("view finish")
     }
+    
 
     //When the user press on menu button. Update/Save bmc and postits. OBS: blocks are not modified so we dont care about it.
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
