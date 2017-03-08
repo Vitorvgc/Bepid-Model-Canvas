@@ -16,6 +16,8 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
 
     
     var bmcs = [CWBusinessModelCanvas]()
+    var blocks = [CWBlock]()
+    var postits = [ [CWPostit] ]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +32,11 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                     sucess, records in
                     if sucess{
                         if let recs = records{
-                            for rec in recs{
-                                let bmc = CWBusinessModelCanvas.init(withRecord: rec)
+                            recs.forEach{
+                                let bmc = CWBusinessModelCanvas.init(withRecord: $0)
                                 self.bmcs.append(bmc)
+                                self.BmcCollectionView.reloadData()
                             }
-                            self.BmcCollectionView.reloadData()
                         }
                     }
                     else{
@@ -68,7 +70,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teste", for: indexPath) as! CanvasModelsCollectionViewCell
         
         let bmc = bmcs[indexPath.row]
-        cell.CanvaImage.image =  bmc.image
+        cell.CanvaImage.image = bmc.image
         cell.CanvaTitle.text! = bmc.title
         
         return cell
@@ -101,14 +103,51 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "OpenCanvas", sender: indexPath)
+        let bmcSelected = bmcs[indexPath.row]
+        
+        if bmcSelected === bmcs.first{
+            
+            let newBmc = CWBusinessModelCanvas(title: "title", image: #imageLiteral(resourceName: "newCanvasDemo"))
+            newBmc.save(competionHandler: {
+                sucess, _ in
+                if sucess{
+                    CWBusinessModelCanvas.saveBlocks(blocks: newBmc.blocks, competionHandler: {
+                        sucess, _ in
+                        if sucess{
+                            print("save blocks sucessul")
+                            self.performSegue(withIdentifier: "OpenCanvas", sender: newBmc)
+                        }
+                    })
+                }
+            })
+            self.blocks = newBmc.blocks
+            self.blocks.forEach{ _ in self.postits.append([CWPostit]())}
+        }
+        else{
+            CloudKitHelper.getAllChildren(fromRecordID: (bmcSelected.recordId), childEntity: "block",     competionHandler: {
+                sucess, recordBlocks in
+                if sucess{
+                    for recBlock in recordBlocks!{
+                        let block = CWBlock(withRecord: recBlock, parent: bmcSelected.record)
+                        self.blocks.append(block)
+                    }
+                    self.blocks.forEach{ _ in self.postits.append([CWPostit]())}
+                    self.performSegue(withIdentifier: "OpenCanvas", sender: bmcSelected)
+                }
+                else{
+                    print("cant get blocks..")
+                }
+            })
+        }
     }
     
     
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
+        let viewController = segue.destination as! ViewController
+        viewController.bmc = sender as! CWBusinessModelCanvas
+        viewController.bmcBlocks = blocks
+        viewController.bmcPostits = postits
     }
 
 }

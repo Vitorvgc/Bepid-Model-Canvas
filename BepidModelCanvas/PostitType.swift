@@ -25,9 +25,9 @@ class PostitType: UICollectionViewCell {
     var delegate: PostitTypeDelegate?
     
     private var isEditing = true
-    private var _postit: Postit?
+    private var _postit: CWPostit?
     
-    var postit: Postit? {
+    var postit: CWPostit? {
         get {
             return _postit
         }
@@ -100,7 +100,7 @@ class PostitType: UICollectionViewCell {
         
         self.textField.text = ""
         self.textViewPostit.text = self.postit?.text ?? ""
-        self.textViewPostit.backgroundColor = (self.postit == nil ? UIColor.PostitTheme.blue : UIColor.PostitTheme.color(for: (self.postit?.color)!))
+        self.textViewPostit.backgroundColor = (self.postit == nil ? UIColor.PostitTheme.blue : self.postit?.color)
         
         let initialColors = UIColor.PostitTheme.allColors.filter { $0 != self.textViewPostit.backgroundColor }
         

@@ -61,16 +61,34 @@ class CWBusinessModelCanvas{
     
     func initBlocks(){
         keyPaternersBlock = CWBlock.init(title: "Key Paterners", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 0, parent: self.record)
+        
         keyActivitiesBlock = CWBlock.init(title: "Key Activities", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 1, parent: self.record)
+        
         keyResourcesBlock = CWBlock.init(title: "Key Resources", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 2, parent: self.record)
+        
         valuePropositionsBlock = CWBlock.init(title: "Value Propositions", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 3, parent: self.record)
+        
         custumerRelationshipsBlock = CWBlock.init(title: "Custumer Relationships", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 4, parent: self.record)
+        
         channelsBlock = CWBlock.init(title: "Channels", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 5, parent: self.record)
+        
         custumerSegmentsBlock = CWBlock.init(title: "Custumer Segments", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 6, parent: self.record)
         costStructureBlock = CWBlock.init(title: "Cost Structure", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 7, parent: self.record)
         revenueStreamsBlock = CWBlock.init(title: "Revenue Streams", color: UIColor.white , icon: #imageLiteral(resourceName: "heart"), tag: 8, parent: self.record)
         
         blocks = [keyPaternersBlock, keyActivitiesBlock, keyResourcesBlock, valuePropositionsBlock, custumerRelationshipsBlock, channelsBlock, custumerSegmentsBlock, costStructureBlock, revenueStreamsBlock]
+    }
+    
+    //save bmc on icloud.
+    func save(competionHandler: @escaping ((_ sucess: Bool, _ bmc: CKRecord?) -> ())){
+        CloudKitHelper.privateDB.save(self.record, completionHandler: { newBmc, error in
+            if error == nil{
+                competionHandler(true, newBmc)
+            }
+            else{
+                competionHandler(false, newBmc)
+            }
+        })
     }
     
     class func createBmc(withTitle title: String, withImage image:UIImage,competionHandler: @escaping ((_ sucess: Bool, _ bmc: CWBusinessModelCanvas?) -> ())){
@@ -85,7 +103,6 @@ class CWBusinessModelCanvas{
                 competionHandler(false, newBmc)
             }
         } )
-        
     }
     
     class func saveBlocks(blocks: [CWBlock], competionHandler: @escaping ((_ sucess: Bool, _ bmc: CKRecord?) -> ())){
@@ -96,9 +113,9 @@ class CWBusinessModelCanvas{
                 if erro != nil{
                     sucess = false
                 }
+                competionHandler(sucess, nil)
             })
         }
-        competionHandler(sucess, nil)
     }
     
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){

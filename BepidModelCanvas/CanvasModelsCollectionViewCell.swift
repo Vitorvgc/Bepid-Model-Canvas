@@ -12,8 +12,8 @@ class CanvasModelsCollectionViewCell: UICollectionViewCell {
     var onSelection: () -> Void = {}
     
     @IBOutlet weak var CanvaImage: UIImageView!
-    
     @IBOutlet weak var CanvaTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -41,10 +41,10 @@ class CWPostit {
     }
     var color: UIColor{
         get{
-            return CWPostit.intToColor(num: record[colorKey] as! Int16)
+            return UIColor.PostitTheme.color(for: record[colorKey] as! Int16)!
         }
         set{
-            record[colorKey] = CWPostit.colorToInt(color: newValue) as CKRecordValue?
+            record[colorKey] = UIColor.PostitTheme.index(of: newValue) as CKRecordValue?
         }
     }
     
@@ -53,10 +53,10 @@ class CWPostit {
         record[titleKey]  = title as CKRecordValue?
         record[textKey] = text as CKRecordValue?
         if let positColor = color{
-            record[colorKey] = CWPostit.colorToInt(color: positColor) as CKRecordValue?
+            record[colorKey] = UIColor.PostitTheme.index(of: positColor) as CKRecordValue?
         }
         else{
-            record[colorKey] = CWPostit.colorToInt(color: UIColor.white) as CKRecordValue?
+            record[colorKey] = UIColor.PostitTheme.index(of: UIColor.PostitTheme.blue) as CKRecordValue?
         }
         blockRef = CKReference.init(record: parent, action: .deleteSelf)
         record[parentKey] = blockRef
@@ -122,7 +122,7 @@ class CWPostit {
             modified = true
         }
         if let newColor = color{
-            self.record[colorKey] = CWPostit.colorToInt(color: newColor) as CKRecordValue?
+            self.record[colorKey] = UIColor.PostitTheme.index(of: newColor) as CKRecordValue?
             modified = true
         }
         if modified{
