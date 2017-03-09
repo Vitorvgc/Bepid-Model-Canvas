@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,PostitCellDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet var views: [BlockView]!
@@ -126,7 +126,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         postitCell.resizeOutlets()
         postitCell.onSelection = { self.updatePostit(at: collectionView, in: indexPath, isNew: false) }
         postitCell.postit = postit
-        
+        postitCell.delegate = self
         return postitCell
     }
     
@@ -165,6 +165,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     fileprivate func isEditingCell(at collectionView: UICollectionView, in indexPath: IndexPath) -> Bool {
         return (editedPostitPosition != nil && editedPostitPosition!.tag == collectionView.tag && editedPostitPosition!.position == indexPath)
     }
+    
+    func didLongPress(in cell: PostitCell) {
+              performSegue(withIdentifier: "GoToDeleteScreen", sender: cell)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToDeleteScreen" {
+        if let deleteScreen = segue.destination as? DeleteViewController {
+            let cell = sender as! PostitCell
+            deleteScreen.getSelected(postitFocused: cell )
+            }
+        }
+    }
+    
     
 }
 

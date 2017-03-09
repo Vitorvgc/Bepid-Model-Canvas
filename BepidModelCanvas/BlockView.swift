@@ -36,7 +36,7 @@ class BlockView: UIView {
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
+      
         if context.nextFocusedItem === self {
             
             coordinator.addCoordinatedAnimations({
@@ -59,11 +59,10 @@ class BlockView: UIView {
                 
             }, completion: nil)
         }
-        else if (context.nextFocusedItem?.isKind(of: BlockView.self))! {
+        else if (context.nextFocusedItem != nil && context.nextFocusedItem!.isKind(of: BlockView.self)) {
             self.isEditing = false
             self.collectionView.reloadData()
         }
-        
     }
     
     lazy private var motionEffectGroup: UIMotionEffectGroup = {

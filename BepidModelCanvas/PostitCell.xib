@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -9,27 +9,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostitCell" customModule="tvBMC" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="VbI-oj-grP" customClass="PostitCell" customModule="BepidModelCanvas" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostitCell" id="VbI-oj-grP" customClass="PostitCell" customModule="tvBMC" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-jb-dRt">
-                        <rect key="frame" x="8" y="27" width="384" height="46"/>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-jb-dRt">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="didBeginEditing:" destination="VbI-oj-grP" eventType="editingDidEnd" id="nt3-l3-PX7"/>
+                            <action selector="didEndEditing:" destination="VbI-oj-grP" eventType="editingDidEnd" id="YyC-BW-2rC"/>
+                        </connections>
                     </textField>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="text" translatesAutoresizingMaskIntoConstraints="NO" id="a3f-Wu-GnM">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.65490196079999996" green="0.87058823529999996" blue="1" alpha="0.72999999999999998" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
             </view>
             <size key="customSize" width="149" height="-3"/>
             <connections>
-                <outlet property="titleTextField" destination="gBe-jb-dRt" id="k4i-hs-kQJ"/>
+                <outlet property="titleTextField" destination="gBe-jb-dRt" id="OvH-tf-fyL"/>
+                <outlet property="titleTextView" destination="a3f-Wu-GnM" id="uGc-mB-3Jm"/>
             </connections>
             <point key="canvasLocation" x="-117" y="175"/>
         </collectionViewCell>

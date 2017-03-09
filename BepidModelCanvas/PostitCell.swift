@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol PostitCellDelegate{
+    func didLongPress(in cell: PostitCell);
+}
+
 class PostitCell: UICollectionViewCell {
     
+    var delegate : PostitCellDelegate?
+    
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleTextView: UITextView!
     
     var onSelection: () -> Void = {}
     
@@ -22,8 +29,8 @@ class PostitCell: UICollectionViewCell {
         }
         set {
             _postit = newValue
-            self.titleTextField.text = newValue.text
-            self.backgroundColor =  newValue.color
+            self.titleTextView.text = newValue.text
+            self.titleTextView.backgroundColor =  newValue.color
         }
     }
     
@@ -31,6 +38,8 @@ class PostitCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 4
         self.titleTextField.backgroundColor = UIColor(white: 1, alpha: 0)
+        
+        self.titleTextView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
         
         // Gesture recognizers
         
@@ -44,24 +53,63 @@ class PostitCell: UICollectionViewCell {
         
     }
     
+    deinit {
+        self.titleTextView.removeObserver(self, forKeyPath: "contentSize")
+    }
+    
     func resizeOutlets() {
-        
         let width = self.frame.size.width
         let height = self.frame.size.height
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
         
-        self.titleTextField.frame = CGRect(x: width * 0.1, y: height * 0.1, width: width * 0.8, height: height * 0.8)
+        self.titleTextField.frame = frame
+        self.titleTextView.frame = frame
     }
+    
+    
+    //MARK: Gesture recognizers
+    
     
     func handleTap(gestureRecognizer: UITapGestureRecognizer) {
         self.onSelection()
     }
     
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        self.titleTextField.text = "Long pressed"
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        // go only when long press end, because if pick just the longpress will open two screens or more
+        if gestureRecognizer.state == .ended {
+            self.delegate?.didLongPress(in: self)
+        }
     }
+    
+    
+    //MARK: TextField Actions
+    
+    
+    @IBAction func didBeginEditing(_ sender: UITextField) {
+        sender.text = self.titleTextView.text
+        self.titleTextView.text = ""
+    }
+    
+    @IBAction func didEndEditing(_ sender: UITextField) {
+        self.titleTextView.text = sender.text
+        sender.text = ""
+    }
+    
+    
+    //MARK: TextView content size update
+    
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        let textView = object as! UITextView
+        var topCorrect = (textView.bounds.size.height - textView.contentSize.height * textView.zoomScale) / 2
+        topCorrect = topCorrect > 0.0 ? 0.0 : topCorrect;
+        textView.contentInset.top = topCorrect
+    }
+    
     
     //MARK: Focus engine
  
+    
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         if context.nextFocusedItem === self {

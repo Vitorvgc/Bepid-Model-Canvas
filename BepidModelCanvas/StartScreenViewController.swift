@@ -46,6 +46,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                     else{
                         print(" bmc doesnt exist!")
                     }
+                    self.actvityIndicator.stopAnimating()
                 })
             }
             else{
@@ -82,6 +83,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.BmcCollectionView.reloadData()
+        self.pressCell = false
     }
     
     func showLoadingIndicator(){
@@ -204,6 +206,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                 }
             })
         }
+        self.pressCell = true
     }
     
     

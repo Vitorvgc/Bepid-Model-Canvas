@@ -514,6 +514,7 @@
                         <outletCollection property="blocks" destination="vhs-WE-c7g" collectionClass="NSMutableArray" id="vIM-Gi-p4r"/>
                         <outletCollection property="blocks" destination="WFA-Yp-0RD" collectionClass="NSMutableArray" id="rcf-Gg-KgD"/>
                         <outletCollection property="blocks" destination="FFN-qh-5EF" collectionClass="NSMutableArray" id="uXR-t3-8LC"/>
+                        <segue destination="1Hu-TR-3c1" kind="show" identifier="GoToDeleteScreen" id="0KH-H4-dfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -625,6 +626,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNv-ML-6cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-337" y="474"/>
+        </scene>
+        <!--Delete View Controller-->
+        <scene sceneID="H0Q-Mc-kRR">
+            <objects>
+                <viewController modalPresentationStyle="currentContext" id="1Hu-TR-3c1" customClass="DeleteViewController" customModule="tvBMC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u3e-je-hRF"/>
+                        <viewControllerLayoutGuide type="bottom" id="haQ-GT-HTn"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="I4B-4i-2rt">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="If you delete it, all data will be deleted too. Are you sure you want to delete this [name]?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twX-ot-SWh">
+                                <rect key="frame" x="308" y="404" width="1304" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Delete [name]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oq-PK-rgN">
+                                <rect key="frame" x="651" y="307" width="620" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="55"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2l-Fp-X0D">
+                                <rect key="frame" x="689" y="688" width="544" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="btnCancelDelete:" destination="1Hu-TR-3c1" eventType="primaryActionTriggered" id="n9c-o0-BKj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su9-kM-P3G">
+                                <rect key="frame" x="689" y="578" width="544" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64656788109999996" green="0.097093768420000004" blue="0.053736716509999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.92495459319999995" green="0.94122463460000005" blue="0.94532805679999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="btnConfirmDelete:" destination="1Hu-TR-3c1" eventType="primaryActionTriggered" id="F6U-Ic-WcS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.53582512839999996" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="lblDescription" destination="twX-ot-SWh" id="OF0-qC-6j8"/>
+                        <outlet property="lblTitle" destination="4oq-PK-rgN" id="rsq-EK-hpB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJB-vA-ApI" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2100" y="2144"/>
         </scene>
     </scenes>
     <resources>

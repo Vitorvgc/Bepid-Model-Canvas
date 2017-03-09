@@ -14,6 +14,7 @@
 		97E4C5431E5322A400AE4D8B /* CWBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C53F1E5322A400AE4D8B /* CWBlock.swift */; };
 		97E4C5441E5322A400AE4D8B /* CWBusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */; };
 		97E4C5451E5322A400AE4D8B /* CloudkitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */; };
+		C50237221E69B26F00656C64 /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50237211E69B26F00656C64 /* DeleteViewController.swift */; };
 		C514120D1E620760007D7E3F /* BusinessModelCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = C514120C1E620760007D7E3F /* BusinessModelCanvas.swift */; };
 		C51412151E6244FA007D7E3F /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51412141E6244FA007D7E3F /* Block.swift */; };
 		C52601451E612B3400388A05 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52601441E612B3400388A05 /* UIColorExtensions.swift */; };
@@ -62,6 +63,7 @@
 		97E4C53F1E5322A400AE4D8B /* CWBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBlock.swift; sourceTree = "<group>"; };
 		97E4C5401E5322A400AE4D8B /* CWBusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWBusinessModelCanvas.swift; sourceTree = "<group>"; };
 		97E4C5411E5322A400AE4D8B /* CloudkitHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudkitHelper.swift; sourceTree = "<group>"; };
+		C50237211E69B26F00656C64 /* DeleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteViewController.swift; path = ../DeleteViewController.swift; sourceTree = "<group>"; };
 		C514120C1E620760007D7E3F /* BusinessModelCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessModelCanvas.swift; sourceTree = "<group>"; };
 		C51412141E6244FA007D7E3F /* Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		C52601441E612B3400388A05 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				C5D80C941E5490EF008FFE23 /* ButtonCell.xib */,
 				C5AA3A161E55E60A00DBF653 /* BlockView.swift */,
 				C5E379F81E5DD50900D34799 /* FocusableView.swift */,
+				C50237211E69B26F00656C64 /* DeleteViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				C51412151E6244FA007D7E3F /* Block.swift in Sources */,
 				C5C5968B1E5C6485008301BC /* DAO.swift in Sources */,
 				C5ED5EB51E44AE4200577F08 /* AppDelegate.swift in Sources */,
+				C50237221E69B26F00656C64 /* DeleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
