@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zCV-nv-vlf">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -56,12 +56,13 @@
                                                     </collectionView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Key Partners" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9G-jV-UUu">
                                                         <rect key="frame" x="8" y="8" width="205" height="40"/>
+                                                        <color key="backgroundColor" red="0.99537259619999996" green="0.99537259619999996" blue="0.99537259619999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="205" id="JYU-rj-C6o"/>
                                                             <constraint firstAttribute="height" constant="40" id="gRf-1v-MhA"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -95,7 +96,6 @@
                                                                     <constraint firstAttribute="height" constant="40" id="rDP-jX-7S2"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sa7-fJ-foY" userLabel="KeyActivities">
@@ -125,6 +125,12 @@
                                                             <constraint firstAttribute="bottom" secondItem="sa7-fJ-foY" secondAttribute="bottom" id="h22-tn-320"/>
                                                             <constraint firstAttribute="width" constant="340" id="uFT-Yu-t9x"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfh-tK-1bu" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="327" width="341" height="303"/>
@@ -136,7 +142,7 @@
                                                                     <constraint firstAttribute="width" constant="325" id="8kO-Ha-fJ2"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-IX-HeB" userLabel="KeyResources">
@@ -166,20 +172,26 @@
                                                             <constraint firstItem="t1M-Po-Z7e" firstAttribute="top" secondItem="sfh-tK-1bu" secondAttribute="topMargin" id="cQ3-Jd-G0e"/>
                                                             <constraint firstItem="eiK-IX-HeB" firstAttribute="leading" secondItem="sfh-tK-1bu" secondAttribute="leading" id="ddc-Ip-hQa"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3T-fO-nqw" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="731" y="0.0" width="340" height="630"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Customer Segments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-Zw-NiA">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Value Propositions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXS-Zw-NiA">
                                                         <rect key="frame" x="8" y="8" width="324" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="RdI-GX-oaN"/>
                                                             <constraint firstAttribute="width" constant="324" id="pgJ-4L-feZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6Oo-FC-6iI" userLabel="CustomerSegments">
@@ -209,6 +221,12 @@
                                                     <constraint firstAttribute="trailing" secondItem="6Oo-FC-6iI" secondAttribute="trailing" id="nrv-7K-weU"/>
                                                     <constraint firstAttribute="height" constant="630" id="qtx-Si-JA3"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QPO-aX-82A">
                                                 <rect key="frame" x="1096" y="0.0" width="340" height="630"/>
@@ -223,7 +241,6 @@
                                                                     <constraint firstAttribute="height" constant="40" id="dSy-D1-y2B"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S6J-Vw-NPr" userLabel="Channels">
@@ -253,6 +270,12 @@
                                                             <constraint firstAttribute="bottom" secondItem="S6J-Vw-NPr" secondAttribute="bottom" id="lXm-4O-ULg"/>
                                                             <constraint firstItem="S6J-Vw-NPr" firstAttribute="leading" secondItem="Wvj-do-21v" secondAttribute="leading" id="onM-67-eps"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-YX-Qer" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="327" width="340" height="303"/>
@@ -264,7 +287,7 @@
                                                                     <constraint firstAttribute="height" constant="40" id="7mg-Pk-L5f"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-iQ-IfM" userLabel="CustomerRelantionship">
@@ -294,20 +317,25 @@
                                                             <constraint firstItem="gd3-xa-Opp" firstAttribute="top" secondItem="IZC-YX-Qer" secondAttribute="topMargin" id="Wl6-Sy-hr4"/>
                                                             <constraint firstItem="CNe-iQ-IfM" firstAttribute="top" secondItem="IZC-YX-Qer" secondAttribute="top" constant="46" id="bAV-dP-EmH"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Tw-9pb" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="1461" y="0.0" width="340" height="630"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Value Propositions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-03-nMb">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Customer Segments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-03-nMb">
                                                         <rect key="frame" x="8" y="8" width="324" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="324" id="7eS-PM-kJk"/>
                                                             <constraint firstAttribute="height" constant="40" id="KBD-GE-g03"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="6" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhs-WE-c7g" userLabel="ValuePropositions">
@@ -336,6 +364,12 @@
                                                     <constraint firstItem="DFm-03-nMb" firstAttribute="leading" secondItem="YcE-Tw-9pb" secondAttribute="leadingMargin" id="Syh-K6-bWI"/>
                                                     <constraint firstAttribute="width" constant="340" id="YAg-hE-7kF"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
@@ -352,7 +386,6 @@
                                                             <constraint firstAttribute="width" constant="872" id="N3N-Vz-AEk"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="7" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WFA-Yp-0RD" userLabel="CostStructure">
@@ -382,6 +415,12 @@
                                                     <constraint firstAttribute="bottom" secondItem="WFA-Yp-0RD" secondAttribute="bottom" id="seF-cq-bui"/>
                                                     <constraint firstAttribute="trailing" secondItem="WFA-Yp-0RD" secondAttribute="trailing" id="xhi-oM-qP9"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EY7-kt-DUT" customClass="BlockView" customModule="tvBMC" customModuleProvider="target">
                                                 <rect key="frame" x="913" y="0.0" width="888" height="224"/>
@@ -393,7 +432,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="fWA-4u-r0V"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="8" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFN-qh-5EF" userLabel="RevenueStreams">
@@ -423,15 +462,39 @@
                                                     <constraint firstAttribute="trailing" secondItem="FFN-qh-5EF" secondAttribute="trailing" id="eVr-0s-s26"/>
                                                     <constraint firstAttribute="height" constant="224" id="m8j-Ms-567"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMZ-bt-b66">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PKu-VB-Kf2">
+                                        <rect key="frame" x="950" y="530" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SMZ-bt-b66" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="G73-oS-Yaq"/>
+                            <constraint firstItem="SMZ-bt-b66" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="X9y-nc-jRr"/>
+                            <constraint firstItem="SMZ-bt-b66" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gyF-xf-ZPM"/>
+                            <constraint firstItem="SMZ-bt-b66" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lll-9y-4Lf"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="PKu-VB-Kf2" id="5cG-1s-zJQ"/>
+                        <outlet property="activityIndicatorView" destination="SMZ-bt-b66" id="xdr-L0-NfP"/>
                         <outlet property="titleTextField" destination="F9p-WD-jFJ" id="RUJ-Cx-rUQ"/>
                         <outletCollection property="views" destination="o3T-fO-nqw" collectionClass="NSMutableArray" id="bYl-ho-eSq"/>
                         <outletCollection property="views" destination="W7c-BK-0nr" collectionClass="NSMutableArray" id="xHe-Hf-cuw"/>
@@ -533,11 +596,29 @@
                                     <outlet property="prefetchDataSource" destination="zCV-nv-vlf" id="UBz-95-2Jy"/>
                                 </connections>
                             </collectionView>
+                            <view userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGn-Rk-Sef">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="M2s-OC-ZLe">
+                                        <rect key="frame" x="0.0" y="530" width="1920" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="HGn-Rk-Sef" firstAttribute="height" secondItem="upm-1A-PnL" secondAttribute="height" id="7jW-Nk-CV5"/>
+                            <constraint firstItem="HGn-Rk-Sef" firstAttribute="width" secondItem="upm-1A-PnL" secondAttribute="width" id="V8w-wq-KBW"/>
+                            <constraint firstItem="HGn-Rk-Sef" firstAttribute="centerX" secondItem="upm-1A-PnL" secondAttribute="centerX" id="gRA-H5-rhZ"/>
+                            <constraint firstItem="HGn-Rk-Sef" firstAttribute="centerY" secondItem="upm-1A-PnL" secondAttribute="centerY" id="nC6-eT-lSg"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="BmcCollectionView" destination="918-gG-FeT" id="j7i-AW-Bjn"/>
                         <outlet property="CanvaImage" destination="s3g-TN-J6X" id="pNI-cg-bxe"/>
+                        <outlet property="activityIndicator" destination="M2s-OC-ZLe" id="TcJ-bM-1F4"/>
+                        <outlet property="activityIndicatorView" destination="HGn-Rk-Sef" id="x2Q-CS-PZ7"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="OpenCanvas" id="WmE-SR-fl6"/>
                     </connections>
                 </viewController>

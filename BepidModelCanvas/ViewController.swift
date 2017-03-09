@@ -13,20 +13,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet var views: [BlockView]!
     @IBOutlet var blocks: [UICollectionView]!
+    @IBOutlet weak var activityIndicatorView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-//    var bmc: BusinessModelCanvas!
-//    var dao = CoreDataDAO<Postit>()
     var editedPostitPosition: (tag: Int, position: IndexPath)?
-//    var bmcBlocks: [Block] {
-//        return bmc.blocks?.sorted { ($0 as! Block).tag < ($1 as! Block).tag } as! [Block]
-//    }
-//    var postits: [[Postit]] {
-//        return (0...8).map { bmcBlocks[$0].postits?.allObjects as! [Postit] }
-//    }
-    
+
     var bmc: CWBusinessModelCanvas!
     var bmcBlocks: [CWBlock]!
-    var bmcPostits: [ [CWPostit] ]!
+    var bmcPostits : [[CWPostit]]!
     
     var cellSize: CGSize {
         let width = self.blocks[0].frame.size.width * 0.8
@@ -37,6 +31,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideLoadingIndicator()
         self.titleTextField.text = bmc.title
         
         self.blocks.forEach {
@@ -56,54 +51,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.view.addGestureRecognizer(menuTapGestureRecognizer)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("viw start")
-        bmcBlocks.sort(by: { $0.tag < $1.tag })//sort the block by tag.
-        bmcBlocks.forEach{
-            block in
-            CloudKitHelper.getAllChildren(fromRecordID: block.recordId, childEntity: "postit", competionHandler: {
-                sucess, records in
-                if sucess{
-                    var postits = [CWPostit]()
-                    records?.forEach{
-                        let postit = CWPostit(withRecord: $0)
-                        postits.append(postit)
-                    }
-                    self.bmcPostits.insert(postits, at: block.tag)
-                }
-            })
-        }
-        print("view finish")
+    func showLoadingIndicator(){
+        activityIndicatorView.isHidden = false
+        activityIndicator.startAnimating()
     }
-
+    
+    func hideLoadingIndicator(){
+        activityIndicatorView.isHidden = true
+        activityIndicator.stopAnimating()
+    }
+    
     //When the user press on menu button. Update/Save bmc and postits. OBS: blocks are not modified so we dont care about it.
     func handleMenuTap(gestureRecognizer: UITapGestureRecognizer) {
         
         self.bmc.title = self.titleTextField.text!
         self.bmc.image = CloudKitHelper.screenShotMethod()!
+        showLoadingIndicator()
         self.bmc.upadate(title: self.bmc.title, image: self.bmc.image, competionHandler: {
             sucess in
             if sucess{
                 print("update bmc")
             }
+            self.hideLoadingIndicator()
+            self.dismiss(animated: true, completion: {})
         })
-        self.bmcPostits.forEach{ postits in
-            postits.forEach{
-                $0.upadate(title: $0.title, text: $0.text, color: $0.color, competionHandler: {
-                    sucess in
-                    if sucess{
-                        print("update postit")
-                    }
-                })
-        }
-        self.dismiss(animated: true, completion: {
-
-//            self.bmc.title = self.titleTextField.text!
-//            self.bmc.image = UIImagePNGRepresentation(CloudKitHelper.screenShotMethod()!) as NSData?
-//            CoreDataDAO<BusinessModelCanvas>().save()
-        })
-    }
     }
     
     //MARK: CollectionView Data Source
@@ -221,8 +192,10 @@ extension ViewController: PostitTypeDelegate {
         if(cell.postit == nil) {
             
             let postit = CWPostit(title: "", text: cell.text, color: cell.selectedColor, parent: (bmcBlocks.filter { Int($0.tag) == tag }.first?.record)!)
+            
             cell.postit = postit
             self.bmcPostits[tag].append(postit)
+            showLoadingIndicator()
             CWPostit.createPostit(withTitle: "", andText: cell.text, andColor: cell.selectedColor, parent: (bmcBlocks.filter { Int($0.tag) == tag }.first?.record)!, competionHandler: {
                 sucess, postit in
                 if sucess{
@@ -231,10 +204,12 @@ extension ViewController: PostitTypeDelegate {
                 else{
                     print("postit not saved.")
                 }
+                self.hideLoadingIndicator()
             })
         }
         else {
             let postit = cell.postit!
+            self.showLoadingIndicator()
                 postit.upadate(title: nil, text: cell.text, color: cell.selectedColor, competionHandler:
                     { sucess in
                         if sucess{
@@ -243,6 +218,7 @@ extension ViewController: PostitTypeDelegate {
                         else{
                             print("postit not updated.")
                         }
+                        self.hideLoadingIndicator()
                 })
         }
         

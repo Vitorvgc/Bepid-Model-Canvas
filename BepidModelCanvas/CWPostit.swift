@@ -113,22 +113,23 @@ class CWPostit {
     func upadate(title: String?, text: String?, color: UIColor?,competionHandler: @escaping ((_ sucess: Bool) -> ())){
         var modified = false
         
-        if let newTitle = title{
-            self.record[titleKey] = newTitle as CKRecordValue?
+        if let title = title, title != self.title {
+            self.record[titleKey] = title as CKRecordValue?
             modified = true
         }
-        if let newText = text{
-            self.record[textKey] = newText as CKRecordValue?
+        if let text = text, text != self.text {
+            self.record[textKey] = text as CKRecordValue?
             modified = true
         }
-        if let newColor = color{
-            self.record[colorKey] = UIColor.PostitTheme.index(of: newColor) as CKRecordValue?
+        if let color = color, color != self.color {
+            self.record[colorKey] = UIColor.PostitTheme.index(of: color) as CKRecordValue?
             modified = true
         }
-        if modified{
+        if modified {
+            
             CloudKitHelper.privateDB.save(self.record, completionHandler: {
                 record, error in
-                if error == nil{
+                if error == nil {
                     competionHandler(true)
                 }
             })
