@@ -167,7 +167,42 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func didLongPress(in cell: PostitCell) {
-              performSegue(withIdentifier: "GoToDeleteScreen", sender: cell)
+        let alertController = UIAlertController(title: "Delete post-it", message: "If you delete it, all data will be deleted too. Are you sure you want to delete this Post-it?", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+        
+        let DestructiveAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive) {
+            (result : UIAlertAction) -> Void in
+            cell.postit.destroy({
+                sucess in
+                if sucess{
+                    print("postit deleted")
+                }
+                else{
+                    print("postit not deleted")
+                }
+            })
+            var index = (0, 0)
+            for i in (0..<self.bmcPostits.count) {
+                for j in (0..<self.bmcPostits[i].count) {
+                    if(cell.postit.record == self.bmcPostits[i][j].record) {
+                        index = (i,j)
+                        break
+                    }
+                }
+            }
+            self.bmcPostits[index.0].remove(at: index.1)
+            self.blocks[index.0].reloadData()
+        }
+        
+        // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+        let okAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            
+        }
+        
+        alertController.addAction(DestructiveAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+              //performSegue(withIdentifier: "GoToDeleteScreen", sender: cell)
         
     }
     
