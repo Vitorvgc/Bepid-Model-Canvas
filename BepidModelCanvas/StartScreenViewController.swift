@@ -54,27 +54,27 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
             }
         })
         
-        //                let query = CKQuery(recordType: "block", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-        //                        CloudKitHelper.privateDB.perform(query, inZoneWith: nil) { (records, error) in
-        //
-        //                            if error == nil {
-        //
-        //                                for record in records! {
-        //                                    CloudKitHelper.privateDB.delete(withRecordID: record.recordID, completionHandler: { (recordId, error) in
-        //
-        //                                        if error == nil {
-        //
-        //                                            print("Record deleted")
-        //
-        //                                        }
-        //
-        //                                    })
-        //
-        //                                }
-        //        
-        //                            }
-        //                            
-        //                        }
+//                        let query = CKQuery(recordType: "bmc", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+//                                CloudKitHelper.privateDB.perform(query, inZoneWith: nil) { (records, error) in
+//        
+//                                    if error == nil {
+//        
+//                                        for record in records! {
+//                                            CloudKitHelper.privateDB.delete(withRecordID: record.recordID, completionHandler: { (recordId, error) in
+//        
+//                                                if error == nil {
+//        
+//                                                    print("Record deleted")
+//        
+//                                                }
+//        
+//                                            })
+//        
+//                                        }
+//                
+//                                    }
+//                                    
+//                                }
         
         
         
@@ -110,6 +110,8 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         let bmc = bmcs[indexPath.row]
         cell.CanvaImage.image = bmc.image
         cell.CanvaTitle.text! = bmc.title
+        cell.delegate = (indexPath.row == 0 ? nil : self)
+        cell.bmc = bmc
         
         return cell
     }
@@ -147,6 +149,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         if bmcSelected === bmcs.first{
             
             let newBmc = CWBusinessModelCanvas(title: "title", image: #imageLiteral(resourceName: "newCanvasDemo"))
+            self.bmcs.append(newBmc)
             newBmc.save(competionHandler: {
                 sucess, _ in
                 if sucess{
@@ -217,4 +220,47 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         viewController.bmcPostits = self.postits
     }
 
+}
+
+extension StartScreenViewController: CanvasModelDelegate {
+    
+    func didLongPress(cell: CanvasModelsCollectionViewCell) {
+        let alertController = UIAlertController(title: "Delete BMC", message: "If you delete it, all data will be deleted too. Are you sure you want to delete this BMC?", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+        
+        let DestructiveAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive) {
+            (result : UIAlertAction) -> Void in
+            cell.bmc.destroy({
+                sucess in
+                if sucess{
+                    print("bmc deleted")
+                }
+                else{
+                    print("bmc not deleted")
+                }
+            })
+            var index = 0
+            for i in (0..<self.bmcs.count) {
+                if(cell.bmc.record == self.bmcs[i].record) {
+                    index = i
+                    break
+                }
+            }
+
+            self.bmcs.remove(at: index)
+            self.BmcCollectionView.reloadData()
+        }
+        
+        // Replace UIAlertActionStyle.Default by UIAlertActionStyle.default
+        let okAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            
+        }
+        
+        alertController.addAction(DestructiveAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        //performSegue(withIdentifier: "GoToDeleteScreen", sender: cell)
+    }
+    
+    
 }

@@ -8,11 +8,21 @@
 
 import UIKit
 
+protocol CanvasModelDelegate {
+    
+    func didLongPress(cell: CanvasModelsCollectionViewCell)
+    
+}
+
 class CanvasModelsCollectionViewCell: UICollectionViewCell {
     var onSelection: () -> Void = {}
     
     @IBOutlet weak var CanvaImage: UIImageView!
     @IBOutlet weak var CanvaTitle: UILabel!
+    
+    var bmc: CWBusinessModelCanvas!
+    
+    var delegate: CanvasModelDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,9 +33,8 @@ class CanvasModelsCollectionViewCell: UICollectionViewCell {
        // self.backgroundColor =  UIColor(patternImage: #imageLiteral(resourceName: "pikachu"))
 
         
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognizer:)))
-//        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.select.rawValue)]
-//        self.addGestureRecognizer(tapGestureRecognizer)
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress(gestureRecognizer:)))
+        self.addGestureRecognizer(longPressGestureRecognizer)
     }
     
     
@@ -36,9 +45,10 @@ class CanvasModelsCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func handleTap(gestureRecognizer: UITapGestureRecognizer) {
-        self.onSelection()
+    func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        self.delegate?.didLongPress(cell: self)
     }
+    
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         

@@ -73,7 +73,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print("update bmc")
             }
             self.hideLoadingIndicator()
-            self.dismiss(animated: true, completion: {})
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: {})
+            }
         })
     }
     
