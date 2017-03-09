@@ -78,6 +78,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
 //                        }
 
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -161,11 +162,12 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                                 self.hideLoadingIndicator()
                                 self.performSegue(withIdentifier: "OpenCanvas", sender: newBmc)
                             }
-                        }
-                    })
-                }
+                    }
+                })
+                self.blocks = newBmc.blocks
+                self.blocks.forEach{ _ in self.postits.append([CWPostit]())}
+            }
             })
-        }
         else{
             CloudKitHelper.getAllChildren(fromRecordID: (bmcSelected.recordId), childEntity: "block",     competionHandler: {
                 sucess, recordBlocks in
@@ -206,7 +208,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                 }
             })
         }
-        self.pressCell = true
     }
     
     
