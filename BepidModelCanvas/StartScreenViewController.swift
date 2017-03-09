@@ -46,7 +46,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                     else{
                         print(" bmc doesnt exist!")
                     }
-                    self.actvityIndicator.stopAnimating()
                 })
             }
             else{
@@ -54,29 +53,30 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                 print("icloud is not avalaible")
             }
         })
-
-//                let query = CKQuery(recordType: "block", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-//                        CloudKitHelper.privateDB.perform(query, inZoneWith: nil) { (records, error) in
-//        
-//                            if error == nil {
-//        
-//                                for record in records! {
-//                                    CloudKitHelper.privateDB.delete(withRecordID: record.recordID, completionHandler: { (recordId, error) in
-//        
-//                                        if error == nil {
-//        
-//                                            print("Record deleted")
-//        
-//                                        }
-//        
-//                                    })
-//        
-//                                }
-//        
-//                            }
-//                            
-//                        }
-
+        
+        //                let query = CKQuery(recordType: "block", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+        //                        CloudKitHelper.privateDB.perform(query, inZoneWith: nil) { (records, error) in
+        //
+        //                            if error == nil {
+        //
+        //                                for record in records! {
+        //                                    CloudKitHelper.privateDB.delete(withRecordID: record.recordID, completionHandler: { (recordId, error) in
+        //
+        //                                        if error == nil {
+        //
+        //                                            print("Record deleted")
+        //
+        //                                        }
+        //
+        //                                    })
+        //
+        //                                }
+        //        
+        //                            }
+        //                            
+        //                        }
+        
+        
         
         
     }
@@ -84,7 +84,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.BmcCollectionView.reloadData()
-        self.pressCell = false
     }
     
     func showLoadingIndicator(){
