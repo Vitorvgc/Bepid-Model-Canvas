@@ -82,23 +82,6 @@ class CWPostit {
         } )
     }
     
-    //get all exercice from the user from cloudkit
-    //    class func list( _ completionHandeler:@escaping ((_ sucess: Bool, _ exercicios:[String])->()) ){
-    //
-    //        let query = CKQuery(recordType: "usuario", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-    //        CloukKitHelper.publicDB.perform(query, inZoneWith: nil){ (results, error) in
-    //
-    //            let exercicios = [String]()
-    //            if error == nil{
-    //                let user = Usuario(withRecord: results![0])
-    //                completionHandeler(true, user.exercicios)
-    //            }
-    //            else{
-    //                completionHandeler(false, exercicios)
-    //            }
-    //        }
-    //    }
-    
     func destroy( _ competionHandler: @escaping ((_ sucess: Bool) -> ()) ){
         CloudKitHelper.privateDB.delete(withRecordID: self.recordId){ (recordId, error) in
             if error == nil{
@@ -136,30 +119,5 @@ class CWPostit {
         }
         competionHandler(false)
     }
-    
-    
-    static func colorToInt(color: UIColor) -> Int{
-        switch color {
-        case UIColor.green :
-            return 0
-        case UIColor.yellow:
-            return 1
-        default:
-            return -1
-        }
-    }
-    
-    static func intToColor(num: Int16) -> UIColor{
-        switch num {
-        case 0:
-            return .green
-        case 1:
-            return .yellow
-            
-        default:
-            return .white
-        }
-    }
-    
     
 }

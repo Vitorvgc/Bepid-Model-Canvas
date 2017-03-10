@@ -33,10 +33,10 @@ class CWBlock{
     }
     var color: UIColor{
         get{
-            return CWBlock.intToColor(num:  record[colorKey] as! Int16)
+            return UIColor.PostitTheme.color(for: record[colorKey] as! Int16)!
         }
         set{
-            record[colorKey] = CWBlock.colorToInt(color: newValue ) as CKRecordValue?
+            record[colorKey] = UIColor.PostitTheme.index(of: newValue) as CKRecordValue?
         }
     }
     var icon : UIImage{
@@ -59,11 +59,11 @@ class CWBlock{
     init(title: String, color: UIColor?, icon:UIImage, tag: Int, parent: CKRecord) {
         let record = CKRecord(recordType: "block")
         record[titleKey]  = title as CKRecordValue?
-        if let positColor = color{
-            record[colorKey] = CWBlock.colorToInt(color: positColor) as CKRecordValue?
+        if let blockColor = color{
+            record[colorKey] = UIColor.PostitTheme.index(of: blockColor) as CKRecordValue?
         }
         else{
-            record[colorKey] = CWBlock.colorToInt(color: UIColor.white) as CKRecordValue?
+            record[colorKey] = UIColor.PostitTheme.index(of: UIColor.PostitTheme.blue) as CKRecordValue?
         }
         record[iconKey] = UIImagePNGRepresentation(icon) as CKRecordValue?
         record[tagKey] = tag as CKRecordValue?
@@ -98,45 +98,6 @@ class CWBlock{
             else{
                 competionHandler(false)
             }
-        }
-    }
-    
-    //returns all postit from icloud related with this block, if none exists return nil
-    //    static func getAllPostit(competionHandler: @escaping ((_ sucess: Bool, _ records: [CKRecord]?) -> ())){
-    //        let predicate = NSPredicate.init(format: "", <#T##args: CVarArg...##CVarArg#>)
-    //        let query     = CKQuery.init(recordType: "bmc", predicate: predicate)
-    //        publicDB.perform(query, inZoneWith: nil, completionHandler: {
-    //            records, error in
-    //            if error == nil{
-    //                competionHandler(true, records)
-    //            }
-    //            else{
-    //                competionHandler(false, records)
-    //            }
-    //
-    //        })
-    //    }
-    
-    static func colorToInt(color: UIColor) -> Int{
-        switch color {
-        case UIColor.green :
-            return 0
-        case UIColor.yellow:
-            return 1
-        default:
-            return -1
-        }
-    }
-    
-    static func intToColor(num: Int16) -> UIColor{
-        switch num {
-        case 0:
-            return .green
-        case 1:
-            return .yellow
-            
-        default:
-            return .white
         }
     }
 }

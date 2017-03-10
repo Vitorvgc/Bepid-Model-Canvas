@@ -248,7 +248,6 @@ extension ViewController: PostitTypeDelegate {
             
             cell.postit = postit
             self.bmcPostits[tag].append(postit)
-            showLoadingIndicator()
             CWPostit.createPostit(withTitle: "", andText: cell.text, andColor: cell.selectedColor, parent: (bmcBlocks.filter { Int($0.tag) == tag }.first?.record)!, competionHandler: {
                 sucess, postit in
                 if sucess{
@@ -257,12 +256,10 @@ extension ViewController: PostitTypeDelegate {
                 else{
                     print("postit not saved.")
                 }
-                self.hideLoadingIndicator()
             })
         }
         else {
             let postit = cell.postit!
-            self.showLoadingIndicator()
                 postit.upadate(title: nil, text: cell.text, color: cell.selectedColor, competionHandler:
                     { sucess in
                         if sucess{
@@ -271,7 +268,6 @@ extension ViewController: PostitTypeDelegate {
                         else{
                             print("postit not updated.")
                         }
-                        self.hideLoadingIndicator()
                 })
         }
         

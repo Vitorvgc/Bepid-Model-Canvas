@@ -28,57 +28,28 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
         bmcs.append(newBmc)
         
         showLoadingIndicator()
-        CloudKitHelper.isICloudContainerAvailable(competionHandler: {
-            sucess in
+        CloudKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
+            sucess, records in
             if sucess{
-                CloudKitHelper.getAllRecords(fromEntity: "bmc", competionHandler: {
-                    sucess, records in
-                    if sucess{
-                        if let recs = records{
-                            recs.forEach{
-                                let bmc = CWBusinessModelCanvas.init(withRecord: $0)
-                                self.bmcs.append(bmc)
-                                self.BmcCollectionView.reloadData()
-                            }
-                        }
-                        self.hideLoadingIndicator()
+                if let recs = records{
+                    recs.forEach{
+                    let bmc = CWBusinessModelCanvas.init(withRecord: $0)
+                    self.bmcs.append(bmc)
+                    self.BmcCollectionView.reloadData()
                     }
-                    else{
-                        print(" bmc doesnt exist!")
-                    }
-                })
-            }
-            else{
+                }
                 self.hideLoadingIndicator()
-                print("icloud is not avalaible")
+            }
+            else{//cant get bmc from icloud
+                self.hideLoadingIndicator()
+                let alertController = UIAlertController(title: "Tv BMC", message: "You must be logged in on icloud to save your bmc.\nVerify your wifi connection and your icloud account status.", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                    (result : UIAlertAction) -> Void in}
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         })
-        
-//                        let query = CKQuery(recordType: "bmc", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
-//                                CloudKitHelper.privateDB.perform(query, inZoneWith: nil) { (records, error) in
-//        
-//                                    if error == nil {
-//        
-//                                        for record in records! {
-//                                            CloudKitHelper.privateDB.delete(withRecordID: record.recordID, completionHandler: { (recordId, error) in
-//        
-//                                                if error == nil {
-//        
-//                                                    print("Record deleted")
-//        
-//                                                }
-//        
-//                                            })
-//        
-//                                        }
-//                
-//                                    }
-//                                    
-//                                }
-        
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,13 +130,34 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                             print("save blocks sucessul")
                             self.blocks = newBmc.blocks
                             self.blocks.sort{ $0.tag < $1.tag }
-                            //self.blocks.forEach{ _ in self.postits.append([CWPostit]())}
                             DispatchQueue.main.async {
                                 self.hideLoadingIndicator()
                                 self.performSegue(withIdentifier: "OpenCanvas", sender: newBmc)
                             }
                         }
+                        else{
+                            let alertController = UIAlertController(title: "Unable to save bmc", message: "You must be logged in on icloud to save your bmc.\nVerify your wifi connection.", preferredStyle: UIAlertControllerStyle.alert)
+                            
+                            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                                (result : UIAlertAction) -> Void in}
+                            alertController.addAction(okAction)
+                            DispatchQueue.main.async {
+                                self.hideLoadingIndicator()
+                                self.present(alertController, animated: true, completion: nil)
+                            }
+                        }
                     })
+                }
+                else{
+                    let alertController = UIAlertController(title: "Unable to save bmc", message: "You must be logged in on icloud to save your bmc. \nVerify your wifi connection.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                        (result : UIAlertAction) -> Void in}
+                    alertController.addAction(okAction)
+                    DispatchQueue.main.async {
+                        self.hideLoadingIndicator()
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 }
             })
         }
@@ -173,7 +165,6 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
             CloudKitHelper.getAllChildren(fromRecordID: (bmcSelected.recordId), childEntity: "block",     competionHandler: {
                 sucess, recordBlocks in
                 if sucess{
-                    
                     for recBlock in recordBlocks!{
                         let block = CWBlock(withRecord: recBlock, parent: bmcSelected.record)
                         self.blocks.append(block)
@@ -199,18 +190,33 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
                                     
                                 }
                             }
-                            
+                            else{
+                                let alertController = UIAlertController(title: "Unable to get bmc from icloud.", message: "You must be logged in on icloud to get your bmc.\nVerify your wifi connection.", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                                    (result : UIAlertAction) -> Void in}
+                                alertController.addAction(okAction)
+                                DispatchQueue.main.async {
+                                    self.hideLoadingIndicator()
+                                    self.present(alertController, animated: true, completion: nil)
+                                }
+                            }
                         })
                     }
                     
                 }
                 else{
-                    print("cant get blocks..")
-                }
+                    let alertController = UIAlertController(title: "Unable to get bmc from icloud.", message: "You must be logged in on icloud to get your bmc.\nVerify your wifi connection.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                        (result : UIAlertAction) -> Void in}
+                    alertController.addAction(okAction)
+                    DispatchQueue.main.async {
+                        self.present(alertController, animated: true, completion: nil)
+                    }                }
             })
         }
     }
-    
     
     ///ADICIONAR DADOS IMPORTANTES PARA A NAVEGAÇÃO
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -225,7 +231,7 @@ class StartScreenViewController: UIViewController, UICollectionViewDelegateFlowL
 extension StartScreenViewController: CanvasModelDelegate {
     
     func didLongPress(cell: CanvasModelsCollectionViewCell) {
-        let alertController = UIAlertController(title: "Delete BMC", message: "If you delete it, all data will be deleted too. Are you sure you want to delete this BMC?", preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+        let alertController = UIAlertController(title: "Delete BMC", message: "If you delete it, all data will be deleted too. Are you sure you want to delete this BMC?", preferredStyle: UIAlertControllerStyle.alert)
         
         let DestructiveAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive) {
             (result : UIAlertAction) -> Void in
@@ -259,7 +265,6 @@ extension StartScreenViewController: CanvasModelDelegate {
         alertController.addAction(DestructiveAction)
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
-        //performSegue(withIdentifier: "GoToDeleteScreen", sender: cell)
     }
     
     
